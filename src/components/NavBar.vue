@@ -1,45 +1,54 @@
-//
 <template>
     <div class="relative">
         <div class="fixed w-full top-0 z-50  bg-white dark:bg-gray-900 dark:text-gray-100 select-none">
-            <div class="flex items-center mx-auto md:container px-2 h-12 md:h-16 lg:h-20 sm:px-0 justify-between md:justify-around">
-                <div class="hidden sm:inline-flex">
-                    <router-link to="/" class="flex items-center cursor-pointer transform duration-200 ">
-                        <img src="../assets/orange.svg" alt="orange_icon" class="max-h-14" />
+            <div class="flex items-center mx-auto lg:container px-2 h-12 sm:h-20 md:h-20 lg:h-24 sm:px-0">
+                <div class="hidden sm:inline-flex m-2">
+                    <router-link to="/" class="flex items-center cursor-pointer transform duration-200">
+                        <img src="../assets/orange.svg" alt="orange_icon" class="h-12 md:h-14" />
                         <span class="p-2 font-bold lg:text-2xl tracking-tighter animate-pulse hidden md:inline-flex w-44">range IT</span>
                     </router-link>
                 </div>
-                <Search class="w-full sm:w-7/12 mr-5 sm:mx-2"></Search>
-                <div class="flex items-center font-bold">
-                    <button class="rounded-full p-1 hover:opacity-80 flex items-center mx-2">
-                        <div class="relative">
-                            <span class="material-icons pt-1 px-1"> compare_arrows </span>
-                            <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">VS</div>
+                <div class="flex flex-col w-full">
+                    <div class="flex items-center mx-auto w-full justify-between md:justify-around">
+                        <Search class="w-full sm:w-7/12 mr-5 sm:mx-2"></Search>
+                        <div class="flex">
+                            <button class="rounded-full p-1 hover:opacity-80 flex items-center mx-2">
+                                <div class="relative">
+                                    <span class="material-icons pt-1 px-1"> compare_arrows </span>
+                                    <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">VS</div>
+                                </div>
+                                <span class="">compare</span>
+                            </button>
+                            <div class="hidden sm:inline-flex">
+                                <button class="rounded-full p-1 hover:opacity-80 flex items-center mx-2">
+                                    <div class="relative">
+                                        <span class="material-icons pt-1 px-1"> shopping_cart </span>
+                                        <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">2</div>
+                                    </div>
+                                    <span class="">cart</span>
+                                </button>
+                                <div class="border-r-2 dark:border-gray-500 border-gray-600 h-5 w-1 my-auto mx-1 sm:mx-3 lg:mx-5" />
+                                <div class="w-10 h-10 lg:w-12 lg:h-12 mx-2 bg-primary rounded-full p-0.5 cursor-pointer flex items-center">
+                                    <img :src="profile" class="rounded-full hover:opacity-80 mr-3" />
+                                    <span>Login</span>
+                                </div>
+                                <!-- <div class="cursor-pointer p-2">
+                                    <div :class="{ hidden: !change }" @click="switchMode" class="">
+                                        <i class="material-icons mt-1">light_mode</i>
+                                    </div>
+                                    <div :class="{ hidden: change }" @click="switchMode" class="">
+                                        <i class="material-icons mt-1">dark_mode</i>
+                                    </div>
+                                </div> -->
+                            </div>
                         </div>
-                        <span class="">compare</span>
-                    </button>
-                    <!-- <div class="cursor-pointer mt-1">
-                        <div :class="{ hidden: !change }" @click="switchMode" class="px-4 py-5">
-                            <i class="material-icons">light_mode</i>
-                        </div>
-                        <div :class="{ hidden: change }" @click="switchMode" class="px-4 py-5">
-                            <i class="material-icons">dark_mode</i>
-                        </div>
-                    </div> -->
-                    <button class="rounded-full p-1 hover:opacity-80 flex items-center mx-2">
-                        <div class="relative">
-                            <span class="material-icons pt-1 px-1"> shopping_cart </span>
-                            <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">2</div>
-                        </div>
-                        <span class="">cart</span>
-                    </button>
-                    <div class="hidden sm:inline-flex">
-                        <div class="border-r-2 dark:border-gray-500 border-gray-600 h-5 w-1 my-auto mx-1 sm:mx-3 lg:mx-5" />
-                        <!-- <Menu @switch-mode="switchMode" class=""> -->
-                        <div tabindex="0" class="w-10 h-10 lg:w-12 lg:h-12 ">
-                            <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png" class="rounded-full hover:opacity-80" />
-                        </div>
-                        <!-- </Menu> -->
+                    </div>
+                    <div class="flex justify-around hidden sm:inline-flex text">
+                        <p>text</p>
+                        <p>text</p>
+                        <p>text</p>
+                        <p>text</p>
+                        <p>text</p>
                     </div>
                 </div>
             </div>
@@ -97,10 +106,8 @@ export default {
     },
     data() {
         return {
-            open: false,
-            menulist: false,
-            active: false,
             showAdd: false,
+            profile:"http://daisyui.com/tailwind-css-component-profile-1@94w.png"
         };
     },
     methods: {
