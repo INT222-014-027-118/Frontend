@@ -1,30 +1,53 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+    <div class="">
+        <nav-bar :change="changeMode" @switch-mode="switchMode"></nav-bar>
+        <router-view class="mt-20"/>
+    </div>
 </template>
 
+<script>
+import NavBar from "./components/NavBar.vue";
+export default {
+    components: {
+        NavBar,
+    },
+    data() {
+        return {
+            changeMode: Boolean,
+        };
+    },
+    methods: {
+        switchMode() {
+            this.changeMode = !this.changeMode;
+            if (this.changeMode == false) {
+                localStorage.theme = "light";
+                document.getElementById("light");
+            } else {
+                localStorage.theme = "dark";
+                document.getElementById("dark");
+            }
+            this.mode();
+        },
+        mode() {
+            if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                this.changeMode = true;
+                document.documentElement.classList.add("dark");
+            } else {
+                this.changeMode = false;
+                document.documentElement.classList.remove("dark");
+            }
+        },
+    },
+    created() {
+        this.mode();
+    },
+};
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.dark:root {
+    color-scheme: dark;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.light:root {
+    color-scheme: light;
 }
 </style>

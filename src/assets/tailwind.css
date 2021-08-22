@@ -1,0 +1,9 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.darkteme {
+    @apply bg-neutral dark:bg-gray-800 text-black dark:text-gray-100 transition-colors duration-300 ease-out
+}
