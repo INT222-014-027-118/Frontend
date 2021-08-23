@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <nav-bar :change="changeMode" @switch-mode="switchMode"></nav-bar>
-        <router-view class="mt-20"/>
+        <router-view class="mt-12 sm:mt-20 md:mt-20 lg:mt-24"/>
     </div>
 </template>
 

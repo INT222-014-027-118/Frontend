@@ -3,5 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/tailwind.css'
+import VueAgile from 'vue-agile'
 
-createApp(App).use(store).use(router).mount('#app')
+const vue = createApp(App)
+vue.use(store)
+vue.use(router)
+vue.use(VueAgile)
+vue.mount('#app')
