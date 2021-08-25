@@ -1,5 +1,5 @@
 <template>
-    <div class="select-none cursor-pointer">
+    <div class="select-none cursor-pointer lg:container mx-auto">
         <agile :options="myOptions" class="bg-gray-500">
             <div class="slide bg-red-200 ">
                 <img src="https://chininter.co.th/wp-content/uploads/2020/10/G-703_A-600x600.jpg" class="h-full w-full object-contain" alt="" />
@@ -101,10 +101,12 @@ export default {
     padding: 0;
     transition-duration: 0.3s;
     width: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .agile__dot--current button,
 .agile__dot:hover button {
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .slide {

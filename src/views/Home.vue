@@ -1,10 +1,10 @@
 <template>
-    <div class="h-full">
+    <div class="h-full mx-auto">
         <Carousel />
         <!-- <div class="" v-if="brandsObjs.length > 0"> -->
             <!-- <div class="h-full items-center mx-auto max-w-6xl bg-blue-100 dark:bg-gray-700 rounded-md mb-8 relative" v-for="brand in brandsObjs" :key="brand.brand"> -->
 
-            <div class="container p-2 mx-auto grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div class="container p-5 mx-auto grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <BaseItem :product="item" v-for="item in $store.getters.itemTest" :key="item.productId" />
                 <BaseItem :product="item" v-for="item in $store.getters.itemTest" :key="item.productId" />
                 <BaseItem :product="item" v-for="item in $store.getters.itemTest" :key="item.productId" />

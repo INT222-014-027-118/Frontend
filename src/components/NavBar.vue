@@ -5,14 +5,14 @@
                 <div class="hidden sm:inline-flex m-2">
                     <router-link to="/" class="flex items-center cursor-pointer transform duration-200">
                         <img src="../assets/orange.svg" alt="orange_icon" class="h-12 md:h-14" />
-                        <span class="p-2 font-bold lg:text-2xl tracking-tighter animate-pulse hidden md:inline-flex w-44">range IT</span>
+                        <span class="p-2 font-bold lg:text-2xl tracking-tighter animate-pulse hidden md:inline-flex w-full">range IT</span>
                     </router-link>
                 </div>
                 <div class="flex flex-col w-full">
                     <div class="flex items-center mx-auto w-full justify-between md:justify-around">
                         <Search class="w-full sm:w-7/12 mr-5 sm:mx-2"></Search>
-                        <div class="flex">
-                            <button class="rounded-full p-1 hover:opacity-80 flex items-center mx-2">
+                        <div class="flex text-xs md:text-sm lg:text-base">
+                            <button class="rounded-full p-1 hover:opacity-80 flex items-center">
                                 <div class="relative">
                                     <span class="material-icons pt-1 px-1"> compare_arrows </span>
                                     <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">VS</div>
@@ -20,18 +20,18 @@
                                 <span class="">compare</span>
                             </button>
                             <div class="hidden sm:inline-flex">
-                                <button class="rounded-full p-1 hover:opacity-80 flex items-center mx-2">
+                                <button class="rounded-full p-1 hover:opacity-80 flex items-center">
                                     <div class="relative">
                                         <span class="material-icons pt-1 px-1"> shopping_cart </span>
                                         <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">2</div>
                                     </div>
                                     <span class="">cart</span>
                                 </button>
-                                <div class="border-r-2 dark:border-gray-500 border-gray-600 h-5 w-1 my-auto mx-1 sm:mx-3 lg:mx-5" />
-                                <div class="w-10 h-10 lg:w-12 lg:h-12 mx-2 bg-primary rounded-full p-0.5 cursor-pointer flex items-center">
-                                    <img :src="profile" class="rounded-full hover:opacity-80 mr-3" />
-                                    <span>Login</span>
-                                </div>
+                                <div class="border-r-2 dark:border-gray-500 border-gray-600 h-5 w-1 my-auto mx-1 lg:mx-5" />
+                                <button class="cursor-pointer flex items-center mx-2">
+                                    <img :src="profile" class="w-10 h-10 lg:w-12 lg:h-12 hover:opacity-80 bg-primary rounded-full p-0.5" />
+                                    <span class="px-1">Login</span>
+                                </button>
                                 <!-- <div class="cursor-pointer p-2">
                                     <div :class="{ hidden: !change }" @click="switchMode" class="">
                                         <i class="material-icons mt-1">light_mode</i>
