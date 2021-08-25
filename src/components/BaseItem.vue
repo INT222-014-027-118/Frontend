@@ -26,7 +26,7 @@
                 </div>
             </div>
             <img
-                :src="image"
+                src="https://chininter.co.th/wp-content/uploads/2020/10/G-703_A-600x600.jpg"
                 class="absolute h-full w-full object-cover object-center px-1 pt-1 select-none rounded-t-md dark:bg-gray-400 "
                 alt="Product image"
                 :class="[btnEditer ? ' opacity-50' : 'bg-white']"
