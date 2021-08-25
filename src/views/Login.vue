@@ -35,7 +35,7 @@
                             <button type="button" class="w-full px-3 py-4 text-white bg-primary rounded-md focus:bg-secondary focus:outline-none">Sign in</button>
                         </div>
                         <p class="text-sm text-center text-gray-400 " >
-                            Don&#x27;t have an account yet? <a @click="$router.push('/register')" class="text-indigo-400 focus:outline-none focus:underline focus:text-indigo-500 dark:focus:border-indigo-800">Sign up</a>.
+                            Don&#x27;t have an account yet? <a @click="$router.push('/register')" class="cursor-pointer text-indigo-400 focus:outline-none focus:underline focus:text-indigo-500 dark:focus:border-indigo-800">Sign up</a>.
                         </p>
                     </form>
                 </div>
