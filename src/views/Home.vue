@@ -2,14 +2,31 @@
     <div class="h-full mx-auto">
         <Carousel />
         <!-- <div class="" v-if="brandsObjs.length > 0"> -->
-            <!-- <div class="h-full items-center mx-auto max-w-6xl bg-blue-100 dark:bg-gray-700 rounded-md mb-8 relative" v-for="brand in brandsObjs" :key="brand.brand"> -->
+        <!-- <div class="h-full items-center mx-auto max-w-6xl bg-blue-100 dark:bg-gray-700 rounded-md mb-8 relative" v-for="brand in brandsObjs" :key="brand.brand"> -->
 
-            <div class="container lg:max-w-6xl p-5 mx-auto grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                <BaseItem :product="item" v-for="item in $store.getters.itemTest" :key="item.productId" />
-                <BaseItem :product="item" v-for="item in $store.getters.itemTest" :key="item.productId" />
-                <BaseItem :product="item" v-for="item in $store.getters.itemTest" :key="item.productId" />
-            </div>
-            <!-- </div> -->
+        <div class="container lg:max-w-6xl p-5 mx-auto grid gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <router-link
+                :to="{
+                    name: 'Product',
+                    params: { product_name: item.name, type: item.type, productId: item.productId },
+                }"
+                v-for="item in $store.getters.itemTest"
+                :key="item.productId"
+            >
+                <BaseItem :product="item"
+            /></router-link>
+            <router-link
+                :to="{
+                    name: 'Product',
+                    params: { product_name: item.name, type: item.type, productId: item.productId },
+                }"
+                v-for="item in $store.getters.itemTest"
+                :key="item.productId"
+            >
+                <BaseItem :product="item"
+            /></router-link>
+        </div>
+        <!-- </div> -->
         <!-- </div> -->
 
         <!-- <div v-else class="h-screen w-full flex items-center justify-center select-none">

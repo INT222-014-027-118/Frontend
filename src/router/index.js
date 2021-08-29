@@ -24,6 +24,12 @@ const routes = [{
     name: 'Register',
     component: () => import( /* webpackChunkName: "about" */ '../views/Register.vue')
   },
+  {
+    path: '/:product_name',
+    name: 'Product',
+    props: true,
+    component: () => import( /* webpackChunkName: "product" */ '../views/Product.vue')
+  }
 ]
 
 const router = createRouter({
