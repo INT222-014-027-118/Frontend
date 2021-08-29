@@ -1,6 +1,6 @@
 <template>
     <div class="bg-gray-100">
-        <div class="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-center">
+        <div class="max-w-6xl mx-auto text-gray-800 flex flex-wrap justify-center">
             <div class="p-5 w-48 ">
                 <div class="text-xs uppercase text-gray-500 font-medium">Home</div>
                 <a class="my-3 block" href="/#">Services <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">Products <span class="text-teal-600 text-xs p-1"></span></a

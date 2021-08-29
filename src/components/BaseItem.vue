@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col rounded-lg shadow-xl">
-        <div class="overflow-hidden w-full relative pb-72 select-none">
-            <div v-show="btnEditer" class="flex space-x-2 sm:space-x-8 absolute z-10 top-1/4 right-1/2 transform translate-x-2/4 translate-y-1/2 font-mono">
+    <div class="flex flex-col rounded-lg shadow-xl border-2 hover:border-gray-400 cursor-pointer transition">
+        <div class="overflow-hidden w-full relative pb-44 sm:pb-60 select-none">
+            <div v-show="btnEditer" class="flex absolute z-10 top-1/4 right-1/2 transform translate-x-2/4 translate-y-1/2">
                 <div class="bg-green-500 hover:bg-green-700  py-2 px-4 md:py-4 md:px-5 cursor-pointer rounded-full text-white shadow-2xl flex items-center" @click="editItem">
                     <span class="material-icons text-4xl">edit</span>Edit
                 </div>
@@ -26,8 +26,8 @@
                 </div>
             </div>
             <img
-                src="https://chininter.co.th/wp-content/uploads/2020/10/G-703_A-600x600.jpg"
-                class="absolute h-full w-full object-cover object-center px-1 pt-1 select-none rounded-t-md dark:bg-gray-400 "
+                src="https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg"
+                class="absolute h-full w-full object-cover object-center px-1 pt-1 select-none rounded-t-lg dark:bg-gray-400 "
                 alt="Product image"
                 :class="[btnEditer ? ' opacity-50' : 'bg-white']"
             />
@@ -45,24 +45,13 @@
                 </div>
             </div>
         </div>
-        <div class="z-10 w-full relative">
-            <div class="pt-4 pb-8 px-5 bg-blue-200 dark:bg-gray-600 rounded-b-md">
-                <h1 class="font-bold text-lg underline sm:no-underline h-14 overflow-hidden">
-                    product.productName 
-                </h1>
-                <div class="flex items-center justify-between">
-                    <!-- <div class="text-sm font-light text-black dark:text-white">
-                        <p>Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</p>
-                    </div> -->
-                    <div class="text-2xl text-red-500 font-bold">฿ {{ product.price }}</div>
-                </div>
-                <!-- <div class="h-20 p-2 overflow-hidden text-black dark:text-white relative leading-relaxed">
-                    {{ product.description }}
-                    <div class="absolute z-10 bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-blue-200 dark:from-gray-600 pointer-events-none"></div>
-                </div> -->
-            </div>
-            <div class="absolute right-1/2 transform underline translate-x-1/2 bottom-1 z-10">
-                Show More
+        <div class="z-10 relative">
+            <div class="p-3 dark:bg-gray-600 rounded-b-md ">
+                <p class="h-16 overflow-hidden font-normal text-sm sm:text-base mb-2">
+                    product productName Name Name productName
+                </p>
+                <div class="bg-primary text-white px-3 inline-block font-light text-xs rounded-sm absolute bottom-11">Discount 99%</div>
+                <div class="text-2xl text-red-500 font-bold">฿ {{ product.price }}</div>
             </div>
         </div>
     </div>

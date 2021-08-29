@@ -1,11 +1,11 @@
 <template>
     <div class="relative">
-        <div class="fixed w-full top-0 z-50  bg-white dark:bg-gray-900 dark:text-gray-100 select-none">
-            <div class="flex flex-col mx-auto md:container px-2 h-12 sm:h-20 md:h-20 lg:h-28 sm:px-0 justify-between md:justify-around">
-                <div class="flex items-center mx-auto mt-2 w-full md:container justify-between md:justify-around">
+        <div class="fixed w-full top-0 z-50  bg-white dark:bg-gray-900 dark:text-gray-100 select-none shadow-md">
+            <div class="flex flex-col mx-auto md:container px-2 h-12 sm:h-20 md:h-20 lg:h-28 sm:px-0 justify-around">
+                <div class="flex items-center mx-auto my-auto w-full md:container justify-between md:justify-around px-2 ">
                     <div class="hidden sm:inline-flex">
-                        <router-link to="/" class="flex items-center cursor-pointer hover:bg-primary hover:text-gray-100 rounded-full delay-200 transition">
-                            <img src="../assets/orange.svg" alt="orange_icon" class="h-12 md:h-14" />
+                        <router-link to="/" class="flex items-center cursor-pointer hover:bg-primary hover:text-gray-100 rounded-full transition">
+                            <img src="../assets/orange.svg" alt="orange_icon" class="h-11 md:h-14" />
                             <span class="p-2 font-bold md:text-lg lg:text-3xl tracking-tighter hidden md:inline-flex md:w-24 lg:w-32">range IT</span>
                         </router-link>
                     </div>
@@ -44,7 +44,7 @@
                         <!-- </div> -->
                     </div>
                 </div>
-                <div class="items-start mb-2 hidden sm:inline-flex text-sm px-3">
+                <div class="mb-2 hidden sm:inline-flex text-sm justify-center">
                     <p class="bg-secondary px-4 rounded-3xl mx-5">heatset</p>
                     <p class="bg-secondary px-4 rounded-3xl mx-5">keyboard</p>
                     <p class="bg-secondary px-4 rounded-3xl mx-5">mouse</p>
@@ -65,7 +65,7 @@
             <span class="material-icons px-2 py-1 md:px-3 md:py-2 ring shadow-md ring-green-400 bg-green-200 dark:bg-green-700 rounded-full text-4xl z-30"> add </span>
             <span class="-ml-10 pl-12 pr-4 py-4 rounded-full shadow-md bg-green-300 dark:bg-green-700  hidden md:inline-flex" v-show="showAdd">Add Product</span>
         </router-link> -->
-        <div class="fixed bottom-0 bg-red-300 w-full sm:hidden text-xs capitalize tracking-tighter px-4">
+        <div class="fixed bottom-0 bg-red-300 w-full sm:hidden text-xs capitalize tracking-tighter px-4 z-50 ">
             <div class="flex flex-row justify-around">
                 <div class="w-16 p-1 flex flex-col items-center">
                     <!-- <div class="material-icons">local_mall</div> -->
