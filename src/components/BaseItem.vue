@@ -47,11 +47,11 @@
         </div>
         <div class="z-10 relative">
             <div class="p-3 dark:bg-gray-600 rounded-b-md ">
-                <p class="h-16 overflow-hidden font-normal text-sm sm:text-base mb-2">
+                <p class="h-16 overflow-hidden font-normal text-sm sm:text-base mb-3 sm:mb-2">
                     product productName Name Name productName
                 </p>
-                <div class="bg-primary text-white px-3 inline-block font-light text-xs rounded-sm absolute bottom-11">Discount 99%</div>
-                <div class="text-2xl text-red-500 font-bold">฿ {{ product.price }}</div>
+                <div class="bg-primary text-white px-3 inline-block font-light text-xs rounded-sm absolute bottom-14">Discount 99%</div>
+                <div class="text-2xl text-red-500 font-bold py-2">฿ {{ product.price }}</div>
             </div>
         </div>
     </div>

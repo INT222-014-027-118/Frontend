@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-100">
+    <div class="bg-gray-100 overflow-hidden">
         <div class="max-w-6xl mx-auto text-gray-800 flex flex-wrap justify-center">
             <div class="p-5 w-48 ">
                 <div class="text-xs uppercase text-gray-500 font-medium">Home</div>

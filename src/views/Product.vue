@@ -1,39 +1,16 @@
 <template>
     <div class="overflow-auto" v-show="showItem">
-        <div class="mx-auto w-full h-full md:h-auto mt-0 md:mt-20 lg:mt-10 md:w-full lg:w-5/6 rounded-md bg-blue-100 dark:bg-gray-700 shadow-lg overflow-scroll md:overflow-hidden">
-            <!-- <div
-                class="fixed md:relative text-center md:text-left w-full mt-16 md:mt-0 bg-blue-300 dark:bg-blue-800 px-10 md:px-10 py-3 text-xl font-mono tracking-wider rounded-md flex flex-col md:flex-row justify-between items-center"
-            >
-                <div>
-                    <span class="text-2xl font-bold text-center ">{{ type }} </span>
-                    <span class="hidden md:inline-flex tracking-wider">: </span>
-                    <p class="text-base md:text-xl line ">{{ product_name }}</p>
-                </div>
-                <div class="flex mt-4 md: md:m-0 text-lg">
-                    <div class="flex items-center bg-green-600 md:px-5 md:py-3 mx-1 sm:mx-4 md:mx-3 px-4 py-2 hover:bg-green-700 cursor-pointer rounded-full text-white select-none" @click="editItem">
-                        <span class="material-icons">edit</span>Edit
+        <div class="mx-auto max-w-7xl md:h-auto sm:mt-5 lg:w-5/6 rounded-md bg-white dark:bg-gray-700 shadow-lg overflow-hidden">
+            <div class="md:mt-0 md:px-10 lg:mx-auto grid gap-3 grid-cols-1 md:grid-cols-2 md:w-full h-full lg:h-5/6">
+                <div class="md:my-5 ">
+                    <div class="bg-white">
+                        <!-- <img src="https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg" alt="" class="object-cover object-center md:max-h-96" /> -->
+                        <Carousel/>
                     </div>
-                    <div
-                        class="flex items-center bg-red-600 md:px-5 md:py-3 mx-1 sm:mx-4 md:mx-3 px-4 py-2 hover:bg-red-700 md:mr-16 cursor-pointer rounded-full text-white select-none"
-                        @click="deleteItem"
-                    >
-                        <span class="material-icons">delete</span>Delete
-                    </div>
-                    <span class="material-icons p-2 bg-white hover:bg-gray-300 text-black rounded-full cursor-pointer absolute top-3 md:top-1/4 right-5 -translate-y-1/2 select-none" @click="close"
-                        >close</span
-                    >
-                </div>
-            </div> -->
-
-            <div class="md:mt-0 p-2 md:px-10 lg:mx-auto grid gap-3 grid-cols-1 md:grid-cols-2 md:w-full h-full lg:h-5/6">
-                <div class="flex justify-center md:justify-start md:flex-col m-2 md:my-5 ">
-                    <div class="flex justify-center items-center bg-white">
-                        <img src="https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg" alt="" class="object-cover object-center md:max-h-96" />
-                    </div>
-                    <div class="flex flex-col md:flex-row items-center justify-center bg-gray-500 relative">
+                    <div class="flex flex-row items-center justify-center bg-gray-500 relative">
                         <div
                             class="w-7 h-7 m-2 text-center md:text-left rounded-md cursor-pointer flex items-center justify-center "
-                            v-for="color in product.colors"
+                            v-for="color in $store.getters.itemTest[2].colors"
                             :key="color.colorId"
                             :style="{ backgroundColor: color.hexColor }"
                             @mouseover="showTextColor(`${color.colorName}  ${color.hexColor}`)"
@@ -50,11 +27,11 @@
                     <div class="px-0 sm:px-3">
                         <div class="flex md:justify-between flex-col md:flex-row md:items-center py-2 text-left">
                             <span class="text-sm font-light px-2">type : {{ type }}</span>
-                            <span class="text-sm font-light px-2">Launch Date : {{ product.launchDate }}</span>
+                            <span class="text-sm font-light px-2">Launch Date : {{ price }}</span>
                         </div>
                         <div class="flex justify-between items-center mb-5">
                             <span class="text-md font-light px-2">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</span>
-                            <span class="text-2xl text-red-500 font-bold px-2">฿ {{ product.price }}</span>
+                            <span class="text-2xl text-red-500 font-bold px-2">฿ {{ price }}</span>
                         </div>
                         <p class="font-light tracking-wide px-3">{{ product.description }}</p>
                     </div>
@@ -65,13 +42,17 @@
 </template>
 
 <script>
+import Carousel from "../components/Carousel.vue";
+
 export default {
     name: "Item",
-    components: {},
+    components: {
+        Carousel
+    },
     props: {
         type: String,
-        productId: String,
         product_name: String,
+        price: String,
     },
     data() {
         return {
@@ -129,7 +110,7 @@ export default {
         // } else {
         //     this.product = this.productPassing;
         //     this.brandName = this.product.brand.brandName;
-        //     this.typeName = this.product.type.typeName;
+        // this.typeName = this.type
         //     this.image = `${this.url}/image/get/${this.productPassing.imageUrl}`;
         // }
     },

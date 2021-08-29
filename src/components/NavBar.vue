@@ -67,7 +67,7 @@
         </router-link> -->
         <div class="fixed bottom-0 bg-red-300 w-full sm:hidden text-xs capitalize tracking-tighter px-4 z-50 ">
             <div class="flex flex-row justify-around">
-                <div class="w-16 p-1 flex flex-col items-center">
+                <div class="w-16 p-1 flex flex-col items-center" @click="$router.push('/')">
                     <!-- <div class="material-icons">local_mall</div> -->
                     <img src="../assets/orange.svg" alt="orange_icon" class="max-h-6" />
                     <span class="">home</span>

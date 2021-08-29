@@ -8,23 +8,14 @@
             <router-link
                 :to="{
                     name: 'Product',
-                    params: { product_name: item.name, type: item.type, productId: item.productId },
+                    params: { product_name: item.name, type: item.type, productId: item.productId, price: item.price }
                 }"
-                v-for="item in $store.getters.itemTest"
+                v-for="(item) in $store.getters.itemTest"
                 :key="item.productId"
+                :product="item"
             >
-                <BaseItem :product="item"
-            /></router-link>
-            <router-link
-                :to="{
-                    name: 'Product',
-                    params: { product_name: item.name, type: item.type, productId: item.productId },
-                }"
-                v-for="item in $store.getters.itemTest"
-                :key="item.productId"
-            >
-                <BaseItem :product="item"
-            /></router-link>
+                <BaseItem :product="item" />
+            </router-link>
         </div>
         <!-- </div> -->
         <!-- </div> -->
@@ -45,9 +36,7 @@ export default {
         BaseItem,
     },
     data() {
-        return {
-            brandsObjs: [1, 2, 3, 4],
-        };
+        return {};
     },
     methods: {},
 };
