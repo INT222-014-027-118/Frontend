@@ -33,23 +33,23 @@
                             </div>
                             <span class="px-1 block">Login</span>
                         </button>
-                        <!-- <div class="cursor-pointer p-2">
-                                    <div :class="{ hidden: !change }" @click="switchMode" class="">
-                                        <i class="material-icons mt-1">light_mode</i>
-                                    </div>
-                                    <div :class="{ hidden: change }" @click="switchMode" class="">
-                                        <i class="material-icons mt-1">dark_mode</i>
-                                    </div>
-                                </div> -->
-                        <!-- </div> -->
+                    <!-- </div> -->
                     </div>
                 </div>
-                <div class="mb-2 hidden sm:inline-flex text-sm justify-center">
+                <div class="mb-2 hidden sm:inline-flex text-sm justify-center ">
                     <p class="bg-secondary px-4 rounded-3xl mx-5">heatset</p>
                     <p class="bg-secondary px-4 rounded-3xl mx-5">keyboard</p>
                     <p class="bg-secondary px-4 rounded-3xl mx-5">mouse</p>
                     <!-- <p class="bg-secondary px-4 rounded-3xl ">text</p>
                     <p class="bg-secondary px-4 rounded-3xl ">text</p> -->
+                    <div class="cursor-pointer p-2 absolute right-5 top-4">
+                        <div :class="{ hidden: !change }" @click="switchMode" class="">
+                            <i class="material-icons mt-1">light_mode</i>
+                        </div>
+                        <div :class="{ hidden: change }" @click="switchMode" class="">
+                            <i class="material-icons mt-1">dark_mode</i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
