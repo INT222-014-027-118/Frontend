@@ -5,7 +5,7 @@
                 <div class="md:my-5 ">
                     <div class="bg-white">
                         <!-- <img src="https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg" alt="" class="object-cover object-center md:max-h-96" /> -->
-                        <Carousel/>
+                        <Carousel2/>
                     </div>
                     <div class="flex flex-row items-center justify-center bg-gray-500 relative">
                         <div
@@ -42,12 +42,12 @@
 </template>
 
 <script>
-import Carousel from "../components/Carousel.vue";
+// import Carousel from "../components/Carousel.vue";
 
 export default {
     name: "Item",
     components: {
-        Carousel
+        // Carousel
     },
     props: {
         type: String,

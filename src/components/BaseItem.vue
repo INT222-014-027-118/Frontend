@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col rounded-lg shadow-xl border-2 hover:border-gray-400 cursor-pointer transition">
         <div class="overflow-hidden w-full relative pb-44 sm:pb-60 select-none">
-            <div v-show="btnEditer" class="flex absolute z-10 top-1/4 right-1/2 transform translate-x-2/4 translate-y-1/2">
+            <!-- <div v-show="btnEditer" class="flex absolute z-10 top-1/4 right-1/2 transform translate-x-2/4 translate-y-1/2">
                 <div class="bg-green-500 hover:bg-green-700  py-2 px-4 md:py-4 md:px-5 cursor-pointer rounded-full text-white shadow-2xl flex items-center" @click="editItem">
                     <span class="material-icons text-4xl">edit</span>Edit
                 </div>
@@ -24,7 +24,7 @@
                 >
                     close
                 </div>
-            </div>
+            </div> -->
             <img
                 src="https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg"
                 class="absolute h-full w-full object-cover object-center px-1 pt-1 select-none rounded-t-lg dark:bg-gray-400 "
