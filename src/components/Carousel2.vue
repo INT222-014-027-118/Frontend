@@ -1,13 +1,15 @@
 <template>
     <div class="mx-auto container bg-gray-200">
-        <splide :options="options" @splide:moved="moved" :class="[this.$route.name == 'Home' ? 'sm:px-20' : '']">
-            <splide-slide class="flex justify-center " v-for="slide in slides" :key="slide">
+        <splide :options="primaryOptions" ref="primary" @splide:moved="moved" :class="[this.$route.name == 'Home' ? 'sm:px-14 md:px-16 lg:px-20 ' : '']">
+            <splide-slide class="flex justify-center " v-for="slide in slides" :key="slide" @click="gogo">
                 <div class="">
-                    <!-- <img src="https://chininter.co.th/wp-content/uploads/2020/10/G-703_A-600x600.jpg" class="h-full w-full object-contain" alt="slide.alt" /> -->
+                    <img :src="slide.src" class="h-full w-full object-contain" alt="slide.alt" />
                 </div>
-                <div class="">
-                    <img src="https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg" class="h-full w-full object-contain" alt="slide.alt" />
-                </div>
+            </splide-slide>
+        </splide>
+        <splide :options="secondaryOptions" ref="secondary" v-show="this.$route.name != 'Home'">
+            <splide-slide v-for="slide in slides" :key="slide.src">
+                <img :src="slide.src" alt="slide.alt" />
             </splide-slide>
         </splide>
     </div>
@@ -25,46 +27,68 @@ export default {
     },
     data() {
         return {
-            options: {
+            primaryOptions: {
                 rewind: true,
                 start: 0,
                 perPage: 1,
                 autoplay: true,
                 pauseOnHover: false,
-                gap: "5rem",
-                arrows: "slider",
+                arrows: this.$route.name === "Home" ? "slider" : "",
                 focus: "center",
                 type: "loop",
                 weight: "500px",
                 height: "500px",
-                padding: {
-                    right: "5rem",
-                    left: "5rem",
-                },
+                pagination: true,
                 breakpoints: {
                     640: {
                         height: "50%",
-                        padding: {
-                            right: "0rem",
-                            left: "0rem",
-                        },
-                        gap: "0rem",
                     },
                     768: {
-                        height: "65%",
-                        padding: {
-                            right: "0rem",
-                            left: "0rem",
-                        },
-                        gap: "0rem",
+                        height: "300px",
                     },
                     1024: {
-                        height: "0",
+                        height: "400px",
                     },
                 },
             },
-            slides: [1, 2, 3, 4, 5],
+            secondaryOptions: {
+                type: "slide",
+                rewind: true,
+                gap: "1rem",
+                pagination: false,
+                fixedWidth: 90,
+                fixedHeight: 60,
+                cover: true,
+                focus: "center",
+                isNavigation: true,
+                updateOnMove: true,
+                768: {
+                    height: "50%",
+                    padding: {
+                        right: "0rem",
+                        left: "0rem",
+                    },
+                    gap: "0rem",
+                },
+            },
+            slides: [
+                { src: "https://image.bestreview.asia/wp-content/uploads/2020/03/best-gaming-chair.jpg" },
+                { src: "https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg" },
+                { src: "https://instore.bnn.in.th/wp-content/uploads/2019/01/FTIM-10GamingGear.jpg" },
+                { src: "https://image.bestreview.asia/wp-content/uploads/2021/06/best-gaming-mouse.jpg" },
+                { src: "https://instore.bnn.in.th/wp-content/uploads/2020/05/gaming-gear-Cover-FB.jpg" },
+                { src: "https://mercular.s3.ap-southeast-1.amazonaws.com/images/articles/2020/10/Gaming-1000-bth-885x400.jpg" },
+            ],
         };
+    },
+    methods: {
+        gogo() {
+            console.log("gogo");
+        },
+    },
+    mounted() {
+        // Set the sync target.
+        this.$refs.primary.sync(this.$refs.secondary.splide);
     },
 };
 </script>
@@ -73,13 +97,14 @@ export default {
     height: 100%;
     width: 80px;
     padding: 0 20px 0 20px;
+    background-color: rgb(229, 231, 235);
 }
 .splide__arrow:hover {
     transition-duration: 0.2s;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgb(168, 168, 168);
 }
 .splide__arrow svg {
-    fill: #000000;
+    fill: #ec6907;
     transition-duration: 0.2s;
     font-size: 15px;
 }
@@ -113,9 +138,9 @@ export default {
 }
 
 @media only screen and (max-width: 640px) {
-    .splide__pagination {
-        /* bottom: -1em; */
-    }
+    /* .splide__pagination {
+        bottom: -1em;
+    } */
     .splide__arrow {
         display: none;
     }
