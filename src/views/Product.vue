@@ -7,7 +7,7 @@
                         <!-- <img src="https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg" alt="" class="object-cover object-center md:max-h-96" /> -->
                         <Carousel2/>
                     </div>
-                    <div class="flex flex-row items-center justify-center bg-gray-500 relative">
+                    <!-- <div class="flex flex-row items-center justify-center bg-gray-500 relative">
                         <div
                             class="w-7 h-7 m-2 text-center md:text-left rounded-md cursor-pointer flex items-center justify-center "
                             v-for="color in $store.getters.itemTest[2].colors"
@@ -19,7 +19,8 @@
                         <div v-show="showText" class="absolute bottom-3 right-12 md:-top-11 md:right-auto md:bottom-auto text-black">
                             <div class="bg-gray-500 text-white rounded-md px-3 py-2 opacity-80">{{ showText }}</div>
                         </div>
-                    </div>
+                    </div> -->
+                    
                 </div>
 
                 <div class="pb-8 sm:py-5 sm:px-5 ">

@@ -7,7 +7,7 @@
                 </div>
             </splide-slide>
         </splide>
-        <splide :options="secondaryOptions" ref="secondary" v-show="this.$route.name != 'Home'">
+        <splide :options="secondaryOptions" ref="secondary" v-show="this.$route.name != 'Home'" class="px-20">
             <splide-slide v-for="slide in slides" :key="slide.src">
                 <img :src="slide.src" alt="slide.alt" />
             </splide-slide>
@@ -38,6 +38,7 @@ export default {
                 type: "loop",
                 weight: "500px",
                 height: "500px",
+                gap: "1rem",
                 pagination: true,
                 breakpoints: {
                     640: {
@@ -54,7 +55,6 @@ export default {
             secondaryOptions: {
                 type: "slide",
                 rewind: true,
-                gap: "1rem",
                 pagination: false,
                 fixedWidth: 90,
                 fixedHeight: 60,
@@ -62,14 +62,11 @@ export default {
                 focus: "center",
                 isNavigation: true,
                 updateOnMove: true,
-                768: {
-                    height: "50%",
-                    padding: {
-                        right: "0rem",
-                        left: "0rem",
-                    },
-                    gap: "0rem",
-                },
+                gap: "1rem",
+                // padding: {
+                //     right: "6rem",
+                //     left: "6rem",
+                // },
             },
             slides: [
                 { src: "https://image.bestreview.asia/wp-content/uploads/2020/03/best-gaming-chair.jpg" },
@@ -97,11 +94,11 @@ export default {
     height: 100%;
     width: 80px;
     padding: 0 20px 0 20px;
-    background-color: rgb(229, 231, 235);
+    /* background-color: rgb(229, 231, 235); */
 }
 .splide__arrow:hover {
     transition-duration: 0.2s;
-    background-color: rgb(168, 168, 168);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 .splide__arrow svg {
     fill: #ec6907;
@@ -112,11 +109,11 @@ export default {
     fill: #ec6907;
 }
 .splide__pagination__page:hover {
-    background: #ec6907;
+    background: #f6ae2d;
     cursor: pointer;
 }
 .splide__pagination__page.is-active {
-    background: #f6ae2d;
+    background: #ec6907;
     transform: scale(1);
 }
 .splide__pagination__page {
