@@ -24,7 +24,7 @@
                 <div class="p-1 sm:py-5 sm:px-5 ">
                     <p class="px-2 text-primary">Brand</p>
                     <p class="px-2 py-3 text-2xl border-b border-black dark:border-gray-100 mb-3">{{ product_name }}</p>
-                    <div class="px-0 sm:px-3 flex flex-col sm:space-y-3">
+                    <div class="px-2 sm:px-3  space-y-3">
                         <p class="">Reviews</p>
                         <div class="flex items-center">
                             <div class="flex items-center">
@@ -42,14 +42,15 @@
                             <a href="reviews.href" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">{{ reviews.totalCount }} reviews</a>
                         </div>
 
-                        <p class="text-sm font-light px-2">รหัสสินค้า: 1740013000002 (91400)</p>
-                        <p class="text-sm font-light px-2">type : {{ type }}</p>
+                        <p class="text-sm font-light">Product ID: 1740013000002 (91400)</p>
+                        <p class="text-sm font-light">type : {{ type }}</p>
                         <!-- </div> -->
                         <!-- <div class="flex md:justify-between md:items-center flex-col md:flex-row text-left"> -->
-                        <p class="text-md font-light px-2">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</p>
-                        <p class="text-2xl text-red-500 font-bold px-2">฿ {{ price }}</p>
-                        <p class="text-2xl text-green-600 font-bold px-2">✔ In stork</p>
-                        <button class="bg-primary py-2 px-4 rounded-md m-2 flex-grow">Add to Cart</button>
+                        <p class="text-md font-light">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</p>
+                        <p class="text-2xl text-red-500 font-bold">฿ {{ price }}</p>
+                        <div class="bg-secondary text-white px-4 py-1 inline-block text-xs rounded-sm">Discount 99%</div>
+                        <p class="text-2xl text-green-600 font-bold">✔ In stork</p>
+                        <div class="bg-primary text-white block py-2 px-4 text-center rounded-md focus:outline-black">Add to Cart</div>
                     </div>
                 </div>
             </div>

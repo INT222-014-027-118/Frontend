@@ -45,12 +45,13 @@
                 </div>
             </div>
         </div>
-        <div class="z-10 relative">
+        <div class="z-10">
             <div class="p-3 dark:bg-gray-600 rounded-b-md ">
-                <p class="h-16 overflow-hidden font-normal text-sm sm:text-base mb-3 sm:mb-2">
-                    product productName Name Name productName
+                <p class="h-12 font-normal text-sm sm:text-base mb-3 sm:mb-2 overflow-hidden overflow-ellipsis ">
+                    <span class="uppercase"> {{ product.brand }} {{ product.type }}:</span>
+                    {{ product.name }}
                 </p>
-                <div class="bg-primary text-white px-3 inline-block font-light text-xs rounded-sm absolute bottom-14">Discount 99%</div>
+                <div class="bg-secondary text-white px-3 inline-block font-light text-xs rounded-sm">Discount 99%</div>
                 <div class="text-2xl text-red-500 font-bold py-2">฿ {{ product.price }}</div>
             </div>
         </div>
@@ -78,4 +79,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.text-overflow-handle {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+</style>
