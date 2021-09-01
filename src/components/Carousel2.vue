@@ -1,13 +1,13 @@
 <template>
     <div class="mx-auto container bg-gray-200">
-        <splide :options="primaryOptions" ref="primary" @splide:moved="moved" :class="[this.$route.name == 'Home' ? 'sm:px-14 md:px-16 lg:px-20 ' : '']">
+        <splide :options="primaryOptions" ref="primary" @splide:moved="moved" :class="[this.$route.name == 'Home' ? 'sm:px-14 md:px-16 lg:px-20' : '']">
             <splide-slide class="flex justify-center " v-for="slide in slides" :key="slide" @click="gogo">
                 <div class="">
                     <img :src="slide.src" class="h-full w-full object-contain" alt="slide.alt" />
                 </div>
             </splide-slide>
         </splide>
-        <splide :options="secondaryOptions" ref="secondary" v-show="this.$route.name != 'Home'" class="px-20">
+        <splide :options="secondaryOptions" ref="secondary" v-show="this.$route.name != 'Home'" class="sm:px-14 md:px-16 lg:px-20">
             <splide-slide v-for="slide in slides" :key="slide.src">
                 <img :src="slide.src" alt="slide.alt" />
             </splide-slide>
@@ -63,10 +63,16 @@ export default {
                 isNavigation: true,
                 updateOnMove: true,
                 gap: "1rem",
-                // padding: {
-                //     right: "6rem",
-                //     left: "6rem",
-                // },
+                padding: {
+                    left: "2rem",
+                    right: "2rem",
+                },
+                breakpoints: {
+                    640: {
+                        fixedWidth: 60,
+                        fixedHeight: 40,
+                    },
+                },
             },
             slides: [
                 { src: "https://image.bestreview.asia/wp-content/uploads/2020/03/best-gaming-chair.jpg" },

@@ -4,8 +4,7 @@
             <div class="md:mt-0 md:px-10 lg:mx-auto grid gap-3 grid-cols-1 md:grid-cols-2 md:w-full h-full lg:h-5/6">
                 <div class="md:my-5 ">
                     <div class="bg-white">
-                        <!-- <img src="https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg" alt="" class="object-cover object-center md:max-h-96" /> -->
-                        <Carousel2/>
+                        <Carousel2 />
                     </div>
                     <!-- <div class="flex flex-row items-center justify-center bg-gray-500 relative">
                         <div
@@ -20,21 +19,37 @@
                             <div class="bg-gray-500 text-white rounded-md px-3 py-2 opacity-80">{{ showText }}</div>
                         </div>
                     </div> -->
-                    
                 </div>
 
-                <div class="pb-8 sm:py-5 sm:px-5 ">
+                <div class="p-1 sm:py-5 sm:px-5 ">
+                    <p class="px-2 text-primary">Brand</p>
                     <p class="px-2 py-3 text-2xl border-b border-black dark:border-gray-100 mb-3">{{ product_name }}</p>
-                    <div class="px-0 sm:px-3">
-                        <div class="flex md:justify-between flex-col md:flex-row md:items-center py-2 text-left">
-                            <span class="text-sm font-light px-2">type : {{ type }}</span>
-                            <span class="text-sm font-light px-2">Launch Date : {{ price }}</span>
+                    <div class="px-0 sm:px-3 flex flex-col sm:space-y-3">
+                        <p class="">Reviews</p>
+                        <div class="flex items-center">
+                            <div class="flex items-center">
+                                <span
+                                    class="material-icons mb-1"
+                                    v-for="rating in [0, 1, 2, 3, 4]"
+                                    :key="rating"
+                                    :class="[reviews.average > rating ? 'text-gray-900' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']"
+                                    aria-hidden="true"
+                                >
+                                    star
+                                </span>
+                            </div>
+                            <p class="sr-only">{{ reviews.average }} out of 5 stars</p>
+                            <a href="reviews.href" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">{{ reviews.totalCount }} reviews</a>
                         </div>
-                        <div class="flex justify-between items-center mb-5">
-                            <span class="text-md font-light px-2">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</span>
-                            <span class="text-2xl text-red-500 font-bold px-2">฿ {{ price }}</span>
-                        </div>
-                        <p class="font-light tracking-wide px-3">{{ product.description }}</p>
+
+                        <p class="text-sm font-light px-2">รหัสสินค้า: 1740013000002 (91400)</p>
+                        <p class="text-sm font-light px-2">type : {{ type }}</p>
+                        <!-- </div> -->
+                        <!-- <div class="flex md:justify-between md:items-center flex-col md:flex-row text-left"> -->
+                        <p class="text-md font-light px-2">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</p>
+                        <p class="text-2xl text-red-500 font-bold px-2">฿ {{ price }}</p>
+                        <p class="text-2xl text-green-600 font-bold px-2">✔ In stork</p>
+                        <button class="bg-primary py-2 px-4 rounded-md m-2 flex-grow">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -65,6 +80,10 @@ export default {
             brandName: "",
             image: "",
             typeName: "",
+            reviews: {
+                totalCount: 123,
+                average: 4,
+            },
         };
     },
     methods: {
