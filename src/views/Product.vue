@@ -50,7 +50,20 @@
                         <p class="text-2xl text-red-500 font-bold">฿ {{ price }}</p>
                         <div class="bg-secondary text-white px-4 py-1 inline-block text-xs rounded-sm">Discount 99%</div>
                         <p class="text-2xl text-green-600 font-bold">✔ In stork</p>
-                        <div class="bg-primary text-white block py-2 px-4 text-center rounded-md focus:outline-black">Add to Cart</div>
+                        <button class="bg-primary text-white block py-3 px-4 text-center rounded-md hover:shadow-inner focus:bg-secondary cursor-pointer">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="md:px-32 py-5 w-full sm:col-span-2">
+                    <p class="text-2xl py-1">Properties: {{ product_name }}</p>
+                    <div class="shadow overflow-hidden rounded border-b border-gray-200">
+                        <table class="min-w-full bg-white">
+                            <tbody class="text-gray-700">
+                                <tr :class="prop % 2 == 0 ? 'bg-gray-100' : 'bg-white'" v-for="prop in [0, 1, 2, 3, 4]" :key="prop">
+                                    <td class="w-1/3 text-left py-3 px-4">title</td>
+                                    <td class="w-1/3 text-left py-3 px-4">Smith</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
