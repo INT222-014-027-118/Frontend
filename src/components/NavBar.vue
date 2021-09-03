@@ -36,7 +36,7 @@
                     <!-- </div> -->
                     </div>
                 </div>
-                <div class="mb-2 hidden sm:inline-flex text-sm justify-center ">
+                <div class="mb-2 lg:mb-4 hidden sm:inline-flex text-sm justify-center ">
                     <p class="bg-secondary px-4 rounded-3xl mx-5">heatset</p>
                     <p class="bg-secondary px-4 rounded-3xl mx-5">keyboard</p>
                     <p class="bg-secondary px-4 rounded-3xl mx-5">mouse</p>

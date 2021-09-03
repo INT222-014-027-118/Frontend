@@ -2,8 +2,8 @@
     <div class="overflow-auto" v-show="showItem">
         <div class="mx-auto max-w-7xl md:h-auto sm:mt-5 lg:w-5/6 rounded-md bg-white dark:bg-gray-700 shadow-lg overflow-hidden">
             <div class="md:mt-0 md:px-10 lg:mx-auto grid gap-3 grid-cols-1 md:grid-cols-2 md:w-full h-full lg:h-5/6">
-                <div class="md:my-5 ">
-                    <div class="bg-white">
+                <div class="py-0 sm:py-5">
+                    <div class="my-auto ">
                         <Carousel2 />
                     </div>
                     <!-- <div class="flex flex-row items-center justify-center bg-gray-500 relative">
@@ -21,10 +21,10 @@
                     </div> -->
                 </div>
 
-                <div class="p-1 sm:py-5 sm:px-5 ">
+                <div class="p-1 md:p-3 lg:p-5 ">
                     <p class="px-2 text-primary">Brand</p>
-                    <p class="px-2 py-3 text-2xl border-b border-black dark:border-gray-100 mb-3">{{ product_name }}</p>
-                    <div class="px-2 sm:px-3  space-y-3">
+                    <p class="px-2 py- text-2xl border-b border-black dark:border-gray-100 mb-2">{{ product_name }}</p>
+                    <div class="px-2 sm:px-3 sm:space-y-1 lg:space-y-3">
                         <p class="">Reviews</p>
                         <div class="flex items-center">
                             <div class="flex items-center">
@@ -43,18 +43,33 @@
                         </div>
 
                         <p class="text-sm font-light">Product ID: 1740013000002 (91400)</p>
-                        <p class="text-sm font-light">type : {{ type }}</p>
+                        <p class="text-sm font-light">type : {{  $store.getters.itemTest[3].type }}</p>
                         <!-- </div> -->
                         <!-- <div class="flex md:justify-between md:items-center flex-col md:flex-row text-left"> -->
                         <p class="text-md font-light">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</p>
                         <p class="text-2xl text-red-500 font-bold">฿ {{ price }}</p>
                         <div class="bg-secondary text-white px-4 py-1 inline-block text-xs rounded-sm">Discount 99%</div>
+                        <div class="w-full">
+                            <p class="text-sm font-light">color {{ type }}</p>
+                            <div class="w-full">
+                                <div class="flex">
+                                    <div
+                                        class="w-7 h-7 m-1 rounded-full"
+                                        v-for="color in $store.getters.itemTest[3].colors"
+                                        :key="color.colorId"
+                                        :style="{
+                                            backgroundColor: color.hexColor,
+                                        }"
+                                    ></div>
+                                </div>
+                            </div>
+                        </div>
                         <p class="text-2xl text-green-600 font-bold">✔ In stork</p>
-                        <button class="bg-primary text-white block py-3 px-4 text-center rounded-md hover:shadow-inner focus:bg-secondary cursor-pointer">Add to Cart</button>
+                        <button class="bg-primary text-white block py-3 px-4 text-center w-full rounded-md hover:shadow-lg focus:bg-secondary cursor-pointer">Add to Cart</button>
                     </div>
                 </div>
                 <div class="md:px-32 py-5 w-full sm:col-span-2">
-                    <p class="text-2xl py-1">Properties: {{ product_name }}</p>
+                    <p class="text-2xl py-1 px-2">Properties: {{ product_name }}</p>
                     <div class="shadow overflow-hidden rounded border-b border-gray-200">
                         <table class="min-w-full bg-white">
                             <tbody class="text-gray-700">
