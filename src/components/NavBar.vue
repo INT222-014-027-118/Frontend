@@ -1,12 +1,12 @@
 <template>
     <div class="relative">
         <div class="fixed w-full top-0 z-50  bg-white dark:bg-gray-900 dark:text-gray-100 select-none shadow-md">
-            <div class="flex flex-col mx-auto md:container px-2 h-12 sm:h-20 md:h-20 lg:h-28 sm:px-0 justify-around">
+            <div class="flex flex-col mx-auto md:container px-2 h-12 sm:h-20 md:h-20 lg:h-24 sm:px-0 justify-around">
                 <div class="flex items-center mx-auto my-auto w-full md:container justify-between md:justify-around px-2 ">
                     <div class="hidden sm:inline-flex">
                         <router-link to="/" class="flex items-center cursor-pointer hover:bg-primary hover:text-gray-100 rounded-full transition">
-                            <img src="../assets/orange.svg" alt="orange_icon" class="h-11 md:h-14" />
-                            <span class="p-2 font-bold md:text-lg lg:text-3xl tracking-tighter hidden md:inline-flex md:w-24 lg:w-32">range IT</span>
+                            <img src="../assets/orange.svg" alt="orange_icon" class="h-11 md:h-12" />
+                            <span class="py-2 font-bold md:text-lg lg:text-3xl tracking-tighter hidden md:inline-flex md:w-24 lg:w-32">range IT</span>
                         </router-link>
                     </div>
                     <Search class="w-full sm:w-6/12 sm:mx-2"></Search>
@@ -36,7 +36,7 @@
                     <!-- </div> -->
                     </div>
                 </div>
-                <div class="mb-2 lg:mb-4 hidden sm:inline-flex text-sm justify-center ">
+                <div class="mb-2 lg:mb-3 hidden sm:inline-flex text-sm justify-center ">
                     <p class="bg-secondary px-4 rounded-3xl mx-5">heatset</p>
                     <p class="bg-secondary px-4 rounded-3xl mx-5">keyboard</p>
                     <p class="bg-secondary px-4 rounded-3xl mx-5">mouse</p>

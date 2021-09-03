@@ -28,7 +28,7 @@
                     <p class="px-2 py-3 text-2xl border-b border-black dark:border-gray-100 mb-2">{{ product_name }}</p>
                     <div class="px-2 sm:px-3 space-y-3 lg:space-y-2">
                         <p class="text-2xl text-red-500 font-bold">฿ {{ price }}</p>
-                        <div>
+                        <!-- <div>
                             <p class="text-sm py-1">Reviews</p>
                             <div class="flex items-center">
                                 <div class="flex items-center">
@@ -36,7 +36,7 @@
                                         class="material-icons mb-1"
                                         v-for="rating in [0, 1, 2, 3, 4]"
                                         :key="rating"
-                                        :class="[reviews.average > rating ? 'text-gray-900' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']"
+                                        :class="[reviews.average > rating ? 'text-yellow-400' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']"
                                         aria-hidden="true"
                                     >
                                         star
@@ -45,7 +45,7 @@
                                 <p class="sr-only">{{ reviews.average }} out of 5 stars</p>
                                 <a href="reviews.href" class="ml-3 text-sm font-medium text-primary hover:text-secondary">{{ reviews.totalCount }} reviews</a>
                             </div>
-                        </div>
+                        </div> -->
 
                         <p class="text-sm font-light">Product ID: 1740013000002 (91400)</p>
                         <p class="text-md font-light">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</p>
@@ -70,7 +70,9 @@
                             </div>
                         </div>
                         <div class="text-xl text-green-600 font-bold flex items-center"><span class="material-icons"> check_circle_outline </span> In stork</div>
-                        <button class="bg-primary text-white block py-3 px-4 text-center w-full rounded-md hover:shadow-lg focus:bg-secondary cursor-pointer fixed sm:static bottom-12 left-0">Add to Cart</button>
+                        <button class="bg-primary text-white block py-3 px-4 text-center w-full rounded-md hover:shadow-lg focus:bg-secondary cursor-pointer fixed sm:static bottom-12 left-0">
+                            Add to Cart
+                        </button>
                     </div>
                 </div>
                 <div class="md:px-24 lg:px-32 p-1 py-5 w-full col-span-3">
@@ -86,6 +88,12 @@
                         </table>
                     </div>
                 </div>
+                <Review class="col-span-3 lg:col-span-1" />
+                <div class="col-span-3 lg:col-span-2">
+                    <Comments class="" />
+                    <Comments class="" />
+                    <Comments class="" />
+                </div>
             </div>
         </div>
     </div>
@@ -93,12 +101,14 @@
 
 <script>
 // import Carousel from "../components/Carousel.vue";
-// import stockIcon from "../assets/icon/check_circle_outline_black_24dp.svg"
-
+import Review from "../components/Review.vue";
+import Comments from "../components/Comment.vue";
 export default {
     name: "Item",
     components: {
-        // Carousel
+        // Carousel,
+        Review,
+        Comments,
     },
     props: {
         type: String,

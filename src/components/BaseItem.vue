@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col rounded-lg shadow-xl border-2 hover:border-primary cursor-pointer transition">
-        <div class="overflow-hidden w-full relative pb-44 sm:pb-60 select-none">
+        <div class="overflow-hidden w-full relative pb-32 sm:pb-56 select-none">
             <!-- <div v-show="btnEditer" class="flex absolute z-10 top-1/4 right-1/2 transform translate-x-2/4 translate-y-1/2">
                 <div class="bg-green-500 hover:bg-green-700  py-2 px-4 md:py-4 md:px-5 cursor-pointer rounded-full text-white shadow-2xl flex items-center" @click="editItem">
                     <span class="material-icons text-4xl">edit</span>Edit
@@ -31,11 +31,11 @@
                 alt="Product image"
                 :class="[btnEditer ? ' opacity-50' : 'bg-white']"
             />
-            <div class="absolute -mt-4 w-full p-1 bottom-0 bg-white opacity-30 h-8" />
-            <div class="absolute -mt-4 w-full p-1 bottom-0">
+            <div class="absolute w-full p-1 -bottom-1 sm:bottom-0 bg-white opacity-30 h-6 sm:h-8" />
+            <div class="absolute w-full p-1 -bottom-1 sm:bottom-0">
                 <div class="flex flex-row-reverse">
                     <div
-                        class="w-4 h-4 m-1 rounded-md"
+                        class="w-3 h-3 sm:w-4 sm:h-4 m-1 rounded-full"
                         v-for="color in product.colors"
                         :key="color.colorId"
                         :style="{
@@ -47,8 +47,8 @@
         </div>
         <div class="z-10">
             <div class="p-3 dark:bg-gray-600 rounded-b-md ">
-                <p class="h-12 font-normal text-sm sm:text-base mb-3 sm:mb-2 overflow-hidden overflow-ellipsis ">
-                    <span class="uppercase"> {{ product.brand }} {{ product.type }}:</span>
+                <p class="h-12 font-normal text-sm sm:text-base mb-2 overflow-hidden overflow-ellipsis ">
+                    <span class="uppercase"> {{ product.brand }} :</span>
                     {{ product.name }}
                 </p>
                 <div class="bg-secondary text-white px-3 inline-block font-light text-xs rounded-sm">Discount 99%</div>
