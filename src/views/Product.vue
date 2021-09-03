@@ -1,8 +1,8 @@
 <template>
     <div class="overflow-auto" v-show="showItem">
-        <div class="mx-auto max-w-7xl md:h-auto sm:mt-5 lg:w-5/6 rounded-md bg-white dark:bg-gray-700 shadow-lg overflow-hidden">
-            <div class="md:mt-0 md:px-10 lg:mx-auto grid gap-3 grid-cols-1 md:grid-cols-2 md:w-full h-full lg:h-5/6">
-                <div class="py-0 sm:py-5">
+        <div class="mx-auto max-w-7xl sm:mt-5 rounded-md bg-white dark:bg-gray-700 shadow-lg">
+            <div class="md:mt-0 md:px-10 lg:mx-auto grid gap-3 grid-cols-3 ">
+                <div class="py-0 lg:py-5 col-span-3 lg:col-span-2">
                     <div class="my-auto ">
                         <Carousel2 />
                     </div>
@@ -21,12 +21,15 @@
                     </div> -->
                 </div>
 
-                <div class="p-1 md:p-3 lg:p-5 ">
-                    <p class="px-2 text-primary">Brand</p>
+                <div class="p-1 md:px-20 lg:p-5 col-span-3 lg:col-span-1">
+                    <p class="px-2 text-primary">
+                        Brand : <span class="text-sm font-light">{{ $store.getters.itemTest[3].type }}</span>
+                    </p>
                     <p class="px-2 py-3 text-2xl border-b border-black dark:border-gray-100 mb-2">{{ product_name }}</p>
-                    <div class="px-2 sm:px-3 sm:space-y-1 lg:space-y-3">
+                    <div class="px-2 sm:px-3 space-y-3 lg:space-y-2">
+                        <p class="text-2xl text-red-500 font-bold">฿ {{ price }}</p>
                         <div>
-                            <p class="py-1">Reviews</p>
+                            <p class="text-sm py-1">Reviews</p>
                             <div class="flex items-center">
                                 <div class="flex items-center">
                                     <span
@@ -45,35 +48,32 @@
                         </div>
 
                         <p class="text-sm font-light">Product ID: 1740013000002 (91400)</p>
-                        <p class="text-sm font-light">type : {{ $store.getters.itemTest[3].type }}</p>
                         <p class="text-md font-light">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</p>
-                        <p class="text-2xl text-red-500 font-bold">฿ {{ price }}</p>
                         <div class="bg-secondary text-white px-4 py-1 inline-block text-xs rounded-sm">Discount 99%</div>
                         <div class="w-full">
-                            <p class="text-sm font-light">color</p>
+                            <p class="text-sm">color</p>
                             <div class="w-full flex">
-                                <div class=" rounded-full " v-for="(color, index) in $store.getters.itemTest[2].colors" :key="color.colorId">
-                                    <input
-                                        type="radio"
-                                        name="color"
-                                        class="w-9 h-9 m-2 border-1 rounded-full form-input ring-transparent ring-4 ring-offset-2 focus:ring-4 focus:ring-offset-2 active:ring-secondary checked:ring-primary"
-                                        :key="color.colorId"
-                                        :style="{
-                                            backgroundColor: color.hexColor,
-                                        }"
-                                        :value="color.hexColor"
-                                        v-model="colorPick"
-                                        @click="selectColor(index)"
-                                    />
-                                </div>
+                                <input
+                                    type="radio"
+                                    name="color"
+                                    class="w-8 h-8 m-2 border-1 rounded-full form-input ring-transparent ring-4 ring-offset-2 focus:ring-4 focus:ring-offset-2 active:ring-secondary checked:ring-primary"
+                                    v-for="(color, index) in $store.getters.itemTest[2].colors"
+                                    :key="color.colorId"
+                                    :style="{
+                                        backgroundColor: color.hexColor,
+                                    }"
+                                    :value="color.hexColor"
+                                    v-model="colorPick"
+                                    @click="selectColor(index)"
+                                />
+                                <p class="bg-gray-300 absolute">pick:{{ colorPick }}</p>
                             </div>
                         </div>
-                        <p class="bg-gray-300">pick:{{ colorPick }}</p>
-                        <p class="text-2xl text-green-600 font-bold">✔ In stork</p>
-                        <button class="bg-primary text-white block py-3 px-4 text-center w-full rounded-md hover:shadow-lg focus:bg-secondary cursor-pointer">Add to Cart</button>
+                        <div class="text-xl text-green-600 font-bold flex items-center"><span class="material-icons"> check_circle_outline </span> In stork</div>
+                        <button class="bg-primary text-white block py-3 px-4 text-center w-full rounded-md hover:shadow-lg focus:bg-secondary cursor-pointer fixed sm:static bottom-12 left-0">Add to Cart</button>
                     </div>
                 </div>
-                <div class="md:px-32 py-5 w-full sm:col-span-2">
+                <div class="md:px-24 lg:px-32 p-1 py-5 w-full col-span-3">
                     <p class="text-2xl py-1 px-2">Properties: {{ product_name }}</p>
                     <div class="shadow overflow-hidden rounded border-b border-gray-200">
                         <table class="min-w-full bg-white">
@@ -93,6 +93,7 @@
 
 <script>
 // import Carousel from "../components/Carousel.vue";
+// import stockIcon from "../assets/icon/check_circle_outline_black_24dp.svg"
 
 export default {
     name: "Item",

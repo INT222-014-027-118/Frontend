@@ -65,7 +65,7 @@
             <span class="material-icons px-2 py-1 md:px-3 md:py-2 ring shadow-md ring-green-400 bg-green-200 dark:bg-green-700 rounded-full text-4xl z-30"> add </span>
             <span class="-ml-10 pl-12 pr-4 py-4 rounded-full shadow-md bg-green-300 dark:bg-green-700  hidden md:inline-flex" v-show="showAdd">Add Product</span>
         </router-link> -->
-        <div class="fixed bottom-0 bg-red-300 w-full sm:hidden text-xs capitalize tracking-tighter px-4 z-50 ">
+        <div class="fixed bottom-0 bg-red-300 w-full sm:hidden text-xs capitalize tracking-tighter px-4 py-0.5 z-50 ">
             <div class="flex flex-row justify-around">
                 <div class="w-16 p-1 flex flex-col items-center" @click="$router.push('/')">
                     <!-- <div class="material-icons">local_mall</div> -->

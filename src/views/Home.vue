@@ -1,7 +1,7 @@
 <template>
     <div class="h-full mx-auto">
         <!-- <Carousel /> -->
-        <Carousel2/>
+        <Carousel2 class="container mx-auto"/>
         <!-- <div class="" v-if="brandsObjs.length > 0"> -->
         <!-- <div class="h-full items-center mx-auto max-w-6xl bg-blue-100 dark:bg-gray-700 rounded-md mb-8 relative" v-for="brand in brandsObjs" :key="brand.brand"> -->
 

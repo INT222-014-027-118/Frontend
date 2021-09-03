@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto container bg-gray-200">
+    <div class="bg-gray-200">
         <splide :options="primaryOptions" ref="primary" @splide:moved="moved" :class="[this.$route.name == 'Home' ? 'sm:px-14 md:px-16 lg:px-20' : '']">
             <splide-slide class="flex justify-center " v-for="slide in slides" :key="slide" @click="gogo">
                 <div class="">
