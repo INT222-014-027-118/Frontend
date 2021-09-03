@@ -1,16 +1,17 @@
-# name: Build Vue
-# on: [push]
-# jobs:
-#   build_vue:
-#     runs-on: ubuntu-latest
-#     name: Build Vue
-#     steps:
-#       - uses: actions/checkout@v2
+name: Vue CI
+on: [push]
+jobs:
+  build_vue:
+    runs-on: ubuntu-latest
+    name: Build Vue
+    steps:
+      - uses: actions/checkout@v2
       
-#       - name: Setup node.js environment
-#         uses: actions/setup-node@v2.1.2
+      - name: Setup node.js environment
+        uses: actions/setup-node@v2.1.2
         
-#       - name: Npm install & npm build
-#         run: |
-#           npm install
-#           npm run build
+      - name: Npm install & npm build & npm test
+        run: |
+          npm install
+          npm run build
+          npm test
