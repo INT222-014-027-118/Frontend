@@ -98,11 +98,13 @@ export default createStore({
         "id": 5
       },
     ],
+    cart: []
   },
   mutations: {},
   actions: {},
   modules: {},
   getters: {
-    itemTest: state => state.itemTest
+    itemTest: state => state.itemTest,
+    cart: state => state.cart
   }
 })

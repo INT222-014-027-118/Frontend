@@ -23,47 +23,52 @@
 
                 <div class="p-1 md:p-3 lg:p-5 ">
                     <p class="px-2 text-primary">Brand</p>
-                    <p class="px-2 py- text-2xl border-b border-black dark:border-gray-100 mb-2">{{ product_name }}</p>
+                    <p class="px-2 py-3 text-2xl border-b border-black dark:border-gray-100 mb-2">{{ product_name }}</p>
                     <div class="px-2 sm:px-3 sm:space-y-1 lg:space-y-3">
-                        <p class="">Reviews</p>
-                        <div class="flex items-center">
+                        <div>
+                            <p class="py-1">Reviews</p>
                             <div class="flex items-center">
-                                <span
-                                    class="material-icons mb-1"
-                                    v-for="rating in [0, 1, 2, 3, 4]"
-                                    :key="rating"
-                                    :class="[reviews.average > rating ? 'text-gray-900' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']"
-                                    aria-hidden="true"
-                                >
-                                    star
-                                </span>
+                                <div class="flex items-center">
+                                    <span
+                                        class="material-icons mb-1"
+                                        v-for="rating in [0, 1, 2, 3, 4]"
+                                        :key="rating"
+                                        :class="[reviews.average > rating ? 'text-gray-900' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']"
+                                        aria-hidden="true"
+                                    >
+                                        star
+                                    </span>
+                                </div>
+                                <p class="sr-only">{{ reviews.average }} out of 5 stars</p>
+                                <a href="reviews.href" class="ml-3 text-sm font-medium text-primary hover:text-secondary">{{ reviews.totalCount }} reviews</a>
                             </div>
-                            <p class="sr-only">{{ reviews.average }} out of 5 stars</p>
-                            <a href="reviews.href" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">{{ reviews.totalCount }} reviews</a>
                         </div>
 
                         <p class="text-sm font-light">Product ID: 1740013000002 (91400)</p>
-                        <p class="text-sm font-light">type : {{  $store.getters.itemTest[3].type }}</p>
-                        <!-- </div> -->
-                        <!-- <div class="flex md:justify-between md:items-center flex-col md:flex-row text-left"> -->
+                        <p class="text-sm font-light">type : {{ $store.getters.itemTest[3].type }}</p>
                         <p class="text-md font-light">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</p>
                         <p class="text-2xl text-red-500 font-bold">฿ {{ price }}</p>
                         <div class="bg-secondary text-white px-4 py-1 inline-block text-xs rounded-sm">Discount 99%</div>
                         <div class="w-full">
-                            <p class="text-sm font-light">color {{ type }}</p>
-                            <div class="w-full">
-                                <div class="flex">
-                                    <div
-                                        class="w-7 h-7 m-1 rounded-full"
-                                        v-for="color in $store.getters.itemTest[3].colors"
+                            <p class="text-sm font-light">color</p>
+                            <div class="w-full flex">
+                                <div class=" rounded-full " v-for="(color, index) in $store.getters.itemTest[2].colors" :key="color.colorId">
+                                    <input
+                                        type="radio"
+                                        name="color"
+                                        class="w-9 h-9 m-2 border-1 rounded-full form-input ring-transparent ring-4 ring-offset-2 focus:ring-4 focus:ring-offset-2 active:ring-secondary checked:ring-primary"
                                         :key="color.colorId"
                                         :style="{
                                             backgroundColor: color.hexColor,
                                         }"
-                                    ></div>
+                                        :value="color.hexColor"
+                                        v-model="colorPick"
+                                        @click="selectColor(index)"
+                                    />
                                 </div>
                             </div>
                         </div>
+                        <p class="bg-gray-300">pick:{{ colorPick }}</p>
                         <p class="text-2xl text-green-600 font-bold">✔ In stork</p>
                         <button class="bg-primary text-white block py-3 px-4 text-center w-full rounded-md hover:shadow-lg focus:bg-secondary cursor-pointer">Add to Cart</button>
                     </div>
@@ -113,6 +118,7 @@ export default {
                 totalCount: 123,
                 average: 4,
             },
+            colorPick: "",
         };
     },
     methods: {
@@ -123,6 +129,12 @@ export default {
         //         params: { type: this.product.type.typeName },
         //     });
         // },
+        selectColor(index) {
+            console.log(index);
+        },
+        scrollToTop() {
+            window.scrollTo(0, 0);
+        },
         showTextColor(color) {
             this.showText = `${color}`;
         },
@@ -162,6 +174,9 @@ export default {
         // this.typeName = this.type
         //     this.image = `${this.url}/image/get/${this.productPassing.imageUrl}`;
         // }
+    },
+    mounted() {
+        this.scrollToTop();
     },
 };
 </script>
