@@ -10,7 +10,7 @@ jobs:
       - name: Setup node.js environment
         uses: actions/setup-node@v2.1.2
         
-      - name: Npm install & npm build
+      - name: Npm install & npm build & npm test
         run: |
           npm install
           npm run build
