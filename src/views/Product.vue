@@ -1,11 +1,9 @@
 <template>
     <div class="overflow-auto" v-show="showItem">
-        <div class="mx-auto max-w-7xl sm:mt-5 rounded-md bg-white dark:bg-gray-700 shadow-lg">
+        <div class="mx-auto max-w-7xl sm:mt-5 rounded-md dark:bg-gray-700">
             <div class="md:mt-0 md:px-10 lg:mx-auto grid gap-3 grid-cols-3 ">
-                <div class="py-0 lg:py-5 col-span-3 lg:col-span-2">
-                    <div class="my-auto ">
-                        <Carousel2 />
-                    </div>
+                <div class="py-0 lg:py-5 mx-0 col-span-3 lg:col-span-2">
+                    <Carousel />
                     <!-- <div class="flex flex-row items-center justify-center bg-gray-500 relative">
                         <div
                             class="w-7 h-7 m-2 text-center md:text-left rounded-md cursor-pointer flex items-center justify-center "
@@ -21,32 +19,13 @@
                     </div> -->
                 </div>
 
-                <div class="p-1 md:px-20 lg:p-5 col-span-3 lg:col-span-1">
+                <div class="p-1 sm:px-16 md:px-20 lg:p-5 col-span-3 lg:col-span-1">
                     <p class="px-2 text-primary">
                         Brand : <span class="text-sm font-light">{{ $store.getters.itemTest[3].type }}</span>
                     </p>
-                    <p class="px-2 py-3 text-2xl border-b border-black dark:border-gray-100 mb-2">{{ product_name }}</p>
-                    <div class="px-2 sm:px-3 space-y-3 lg:space-y-2">
+                    <p class="px-2 py-3 text-2xl border-b border-black font-semibold dark:border-gray-100 mb-2">{{ product_name }}</p>
+                    <div class="px-2 sm:px-3 space-y-3 lg:space-y-5">
                         <p class="text-2xl text-red-500 font-bold">฿ {{ price }}</p>
-                        <!-- <div>
-                            <p class="text-sm py-1">Reviews</p>
-                            <div class="flex items-center">
-                                <div class="flex items-center">
-                                    <span
-                                        class="material-icons mb-1"
-                                        v-for="rating in [0, 1, 2, 3, 4]"
-                                        :key="rating"
-                                        :class="[reviews.average > rating ? 'text-yellow-400' : 'text-gray-200', 'h-5 w-5 flex-shrink-0']"
-                                        aria-hidden="true"
-                                    >
-                                        star
-                                    </span>
-                                </div>
-                                <p class="sr-only">{{ reviews.average }} out of 5 stars</p>
-                                <a href="reviews.href" class="ml-3 text-sm font-medium text-primary hover:text-secondary">{{ reviews.totalCount }} reviews</a>
-                            </div>
-                        </div> -->
-
                         <p class="text-sm font-light">Product ID: 1740013000002 (91400)</p>
                         <p class="text-md font-light">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</p>
                         <div class="bg-secondary text-white px-4 py-1 inline-block text-xs rounded-sm">Discount 99%</div>
@@ -70,29 +49,36 @@
                             </div>
                         </div>
                         <div class="text-xl text-green-600 font-bold flex items-center"><span class="material-icons"> check_circle_outline </span> In stork</div>
-                        <button class="bg-primary text-white block py-3 px-4 text-center w-full rounded-md hover:shadow-lg focus:bg-secondary cursor-pointer fixed sm:static bottom-12 left-0">
+                        <button class="bg-primary text-white block py-3 px-4 text-center w-full rounded-md hover:shadow-lg focus:bg-secondary cursor-pointer fixed sm:static bottom-12 left-0 z-40">
                             Add to Cart
                         </button>
                     </div>
                 </div>
-                <div class="md:px-24 lg:px-32 p-1 py-5 w-full col-span-3">
-                    <p class="text-2xl py-1 px-2">Properties: {{ product_name }}</p>
-                    <div class="shadow overflow-hidden rounded border-b border-gray-200">
-                        <table class="min-w-full bg-white">
-                            <tbody class="text-gray-700">
-                                <tr :class="prop % 2 == 0 ? 'bg-gray-100' : 'bg-white'" v-for="prop in [0, 1, 2, 3, 4]" :key="prop">
-                                    <td class="w-1/3 text-left py-3 px-4">title</td>
-                                    <td class="w-1/3 text-left py-3 px-4">Smith</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="p-1 my-5 w-full col-span-3">
+                    <p class="font-semibold">Properties: {{ product_name }}</p>
+                    <div class="p-1 sm:px-16 md:px-20 lg:px-5">
+                        <div class="shadow overflow-hidden rounded border-b border-gray-200">
+                            <table class="min-w-full bg-white">
+                                <tbody class="text-gray-700">
+                                    <tr :class="prop % 2 == 0 ? 'bg-gray-100' : 'bg-white'" v-for="prop in [0, 1, 2, 3, 4]" :key="prop">
+                                        <td class="w-1/3 text-left py-3 px-4">title</td>
+                                        <td class="w-1/3 text-left py-3 px-4">Smith</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-                <Review class="col-span-3 lg:col-span-1" />
-                <div class="col-span-3 lg:col-span-2">
-                    <Comments class="" />
-                    <Comments class="" />
-                    <Comments class="" />
+                <div class="p-1 mb-5 w-full col-span-3 sm:px-16 md:px-20 lg:px-5">
+                    <p class="font-semibold">Rating: {{ product_name }}</p>
+                    <Raring/>
+                </div>
+                <Review class="col-span-3 lg:col-span-1 p-1 sm:px-16 md:px-20 lg:px-5 mb-5" />
+                <div class="p-1 md:px-24 lg:p-0 col-span-3 lg:col-span-2">
+                    <p class="font-semibold">Customer reviews</p>
+                    <Comments />
+                    <Comments />
+                    <Comments />
                 </div>
             </div>
         </div>
@@ -103,12 +89,14 @@
 // import Carousel from "../components/Carousel.vue";
 import Review from "../components/Review.vue";
 import Comments from "../components/Comment.vue";
+import Raring from "../components/Rating.vue";
 export default {
     name: "Item",
     components: {
         // Carousel,
         Review,
         Comments,
+        Raring
     },
     props: {
         type: String,

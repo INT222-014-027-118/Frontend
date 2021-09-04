@@ -1,129 +1,151 @@
 <template>
-    <div class="select-none cursor-pointer lg:container mx-auto">
-        <agile :options="myOptions" class="bg-gray-500">
-            <div class="slide bg-red-200 ">
-                <img src="https://chininter.co.th/wp-content/uploads/2020/10/G-703_A-600x600.jpg" class="h-full w-full object-contain" alt="" />
-                <div class="">text</div>
-            </div>
-            <div class="slide bg-red-300 ">
-                <h3 class="text-center">slide 2</h3>
-            </div>
-            <div class="slide bg-red-400 ">
-                <h3 class="text-center">slide 3</h3>
-            </div>
-            <div class="slide bg-red-500 ">
-                <h3 class="text-center">slide 4</h3>
-            </div>
-            <template v-slot:prevButton
-                ><button><i class="material-icons"> arrow_back_ios </i></button>
-            </template>
-            <template v-slot:nextButton
-                ><button><i class="material-icons"> arrow_forward_ios </i></button>
-            </template>
-        </agile>
+    <div class="bg-white rounded-lg shadow-lg">
+        <splide :options="primaryOptions" ref="primary" @splide:moved="moved" :class="[this.$route.name == 'Home' ? 'sm:px-14 md:px-16 lg:px-20' : '']">
+            <splide-slide class="flex justify-center " v-for="slide in slides" :key="slide" @click="gogo">
+                <div class="">
+                    <img :src="slide.src" class="h-full w-full object-contain" alt="slide.alt" />
+                </div>
+            </splide-slide>
+        </splide>
+        <splide :options="secondaryOptions" ref="secondary" v-show="this.$route.name != 'Home'" class="sm:px-14 md:px-16 lg:px-20">
+            <splide-slide v-for="slide in slides" :key="slide.src">
+                <img :src="slide.src" alt="slide.alt" />
+            </splide-slide>
+        </splide>
     </div>
 </template>
 
 <script>
+import { Splide, SplideSlide } from "@splidejs/splide";
+// import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+// import "@splidejs/splide/dist/css/themes/splide-sea-green.min.css";
+import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
 export default {
+    components: {
+        Splide,
+        SplideSlide,
+    },
     data() {
         return {
-            myOptions: {
-                navButtons: true,
-                autoplay: false,
-                autoplaySpeed: 4000,
+            primaryOptions: {
+                rewind: true,
+                start: 0,
+                perPage: 1,
+                autoplay: this.$route.name === "Home" ? true : false,
                 pauseOnHover: true,
-                responsive: [
-                    {
-                        breakpoint: 0,
-                        settings: {
-                            navButtons: false,
-                            dots: false,
-                        },
+                arrows: this.$route.name === "Home" ? "slider" : "",
+                focus: "center",
+                type: "loop",
+                weight: "500px",
+                height: "500px",
+                gap: "1rem",
+                pagination: true,
+                breakpoints: {
+                    640: {
+                        height: "50%",
                     },
-                    {
-                        breakpoint: 900,
-                        settings: {
-                            navButtons: true,
-                            dots: true,
-                            infinite: true,
-                        },
+                    768: {
+                        height: "300px",
                     },
-                ],
+                    1024: {
+                        height: "400px",
+                    },
+                },
             },
+            secondaryOptions: {
+                type: "slide",
+                rewind: true,
+                pagination: false,
+                fixedWidth: 90,
+                fixedHeight: 60,
+                cover: true,
+                focus: "center",
+                isNavigation: true,
+                updateOnMove: true,
+                gap: "1rem",
+                padding: {
+                    left: "2rem",
+                    right: "2rem",
+                },
+                breakpoints: {
+                    640: {
+                        fixedWidth: 60,
+                        fixedHeight: 40,
+                    },
+                },
+            },
+            slides: [
+                { src: "https://image.bestreview.asia/wp-content/uploads/2020/03/best-gaming-chair.jpg" },
+                { src: "https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg" },
+                { src: "https://instore.bnn.in.th/wp-content/uploads/2019/01/FTIM-10GamingGear.jpg" },
+                { src: "https://image.bestreview.asia/wp-content/uploads/2021/06/best-gaming-mouse.jpg" },
+                { src: "https://instore.bnn.in.th/wp-content/uploads/2020/05/gaming-gear-Cover-FB.jpg" },
+                { src: "https://mercular.s3.ap-southeast-1.amazonaws.com/images/articles/2020/10/Gaming-1000-bth-885x400.jpg" },
+            ],
         };
+    },
+    methods: {
+        gogo() {
+            console.log("gogo");
+        },
+    },
+    mounted() {
+        // Set the sync target.
+        this.$refs.primary.sync(this.$refs.secondary.splide);
     },
 };
 </script>
-
 <style>
-.agile__nav-button {
-    background: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 24px;
+.splide__arrow {
     height: 100%;
-    position: absolute;
-    top: 0;
-    transition-duration: 0.3s;
-    width: 60px;
+    width: 80px;
+    padding: 0 20px 0 20px;
+    /* background-color: rgb(229, 231, 235); */
 }
-.agile__nav-button:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 1;
+.splide__arrow:hover {
+    transition-duration: 0.2s;
+    background-color: rgba(0, 0, 0, 0.2);
 }
-.agile__nav-button--prev {
-    left: 0;
+.splide__arrow svg {
+    fill: #ec6907;
+    transition-duration: 0.2s;
+    font-size: 15px;
 }
-.agile__nav-button--next {
-    right: 0;
+.splide__arrow:hover svg {
+    fill: #ec6907;
 }
-.agile__dots {
-    bottom: 10px;
+.splide__pagination__page:hover {
+    background: #f6ae2d;
+    cursor: pointer;
+}
+.splide__pagination__page.is-active {
+    background: #ec6907;
+    transform: scale(1);
+}
+.splide__pagination__page {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.splide__pagination {
+    bottom: 0.5em;
     left: 50%;
+    padding: 0;
     position: absolute;
     transform: translateX(-50%);
+    z-index: 1;
 }
-.agile__dot {
-    margin: 0 10px;
+.splide__arrow--next {
+    right: 0;
 }
-.agile__dot button {
-    background-color: transparent;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    display: block;
-    height: 10px;
-    font-size: 0;
-    line-height: 0;
-    margin: 0;
-    padding: 0;
-    transition-duration: 0.3s;
-    width: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.agile__dot--current button,
-.agile__dot:hover button {
-    /* background-color: #fff; */
-    background-color: rgba(0, 0, 0, 0.1);
+.splide__arrow--prev {
+    left: 0;
 }
 
-.slide {
-    display: block;
-    -o-object-fit: cover;
-    object-fit: cover;
-    width: 50%;
-    height: 500px;
-}
-@media only screen and (max-width: 768px) {
-    .slide {
-        height: 300px;
-    }
-}
 @media only screen and (max-width: 640px) {
-    .slide {
-        height: 200px;
+    /* .splide__pagination {
+        bottom: -1em;
+    } */
+    .splide__arrow {
+        display: none;
     }
 }
 </style>

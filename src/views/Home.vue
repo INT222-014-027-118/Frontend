@@ -1,7 +1,7 @@
 <template>
     <div class="h-full mx-auto">
         <!-- <Carousel /> -->
-        <Carousel2 class="container mx-auto"/>
+        <Carousel class="container mx-auto" />
         <!-- <div class="" v-if="brandsObjs.length > 0"> -->
         <!-- <div class="h-full items-center mx-auto max-w-6xl bg-blue-100 dark:bg-gray-700 rounded-md mb-8 relative" v-for="brand in brandsObjs" :key="brand.brand"> -->
 
@@ -9,9 +9,9 @@
             <router-link
                 :to="{
                     name: 'Product',
-                    params: { product_name: item.name, type: item.type, productId: item.productId, price: item.price }
+                    params: { product_name: item.name, type: item.type, productId: item.productId, price: item.price },
                 }"
-                v-for="(item) in $store.getters.itemTest"
+                v-for="item in $store.getters.itemTest"
                 :key="item.productId"
                 :product="item"
             >
@@ -32,13 +32,19 @@
 import BaseItem from "../components/BaseItem.vue";
 export default {
     components: {
-        
         BaseItem,
     },
     data() {
         return {};
     },
-    methods: {},
+    methods: {
+        scrollToTop() {
+            window.scrollTo(0, 0);
+        },
+    },
+    mounted() {
+        this.scrollToTop();
+    },
 };
 </script>
 

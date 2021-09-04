@@ -1,8 +1,8 @@
 <template>
-    <div class="mx-auto px-5 sm:px-36 lg:px-2 py-0 w-full">
+    <div class="mx-auto w-full">
         <div class="tracking-wide px-0 py-0">
-            <h2 class="text-gray-800 font-semibold mt-1">Customer reviews</h2>
-            <div class="flex items-center">
+            <p class="font-semibold">Customer reviews</p>
+            <div class="mx-4 flex items-center">
                 <div class="flex items-center">
                     <span
                         class="material-icons mb-1"
@@ -17,7 +17,7 @@
                 <p class="sr-only">{{ reviews.average }} out of 5 stars</p>
                 <a href="reviews.href" class="ml-3 text-sm font-medium text-primary hover:text-secondary">{{ reviews.totalCount }} reviews</a>
             </div>
-            <div class="-mx-8 px-8 pb-3">
+            <div class="">
                 <div class="flex items-center mt-1">
                     <div class="w-1/5 text-center text-primary tracking-tighter">
                         <span>5 star</span>
