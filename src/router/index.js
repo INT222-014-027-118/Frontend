@@ -15,20 +15,25 @@ const routes = [{
     component: () => import( /* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
+    path: '/cart',
+    name: 'Cart',
+    component: () => import( /* webpackChunkName: "cart" */ '../views/Cart.vue')
+  },
+  {
     path: '/login',
     name: 'Login',
-    component: () => import( /* webpackChunkName: "about" */ '../views/Login.vue')
+    component: () => import( /* webpackChunkName: "login" */ '../views/Login.vue')
   },
   {
     path: '/register',
     name: 'Register',
-    component: () => import( /* webpackChunkName: "about" */ '../views/Register.vue')
+    component: () => import( /* webpackChunkName: "register" */ '../views/Register.vue')
   },
   {
     path: '/:product_name',
     name: 'Product',
     props: true,
-    component: () => import( /* webpackChunkName: "product" */ '../views/Product.vue')
+    component: () => import( /* webpackChunkName: ":product_name" */ '../views/Product.vue')
   }
 ]
 

@@ -135,9 +135,11 @@ export default {
 }
 .splide__arrow--next {
     right: 0;
+    border-radius: 0.5rem;
 }
 .splide__arrow--prev {
     left: 0;
+    border-radius: 0.5rem;
 }
 
 @media only screen and (max-width: 640px) {

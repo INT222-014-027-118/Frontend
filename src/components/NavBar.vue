@@ -19,12 +19,22 @@
                             <span class="">compare</span>
                         </button>
                         <!-- <div class="hidden sm:inline-flex"> -->
-                        <button class="rounded-full p-1 hover:opacity-80 flex items-center">
-                            <div class="relative">
+                        <button class="rounded-full p-1 flex items-center relative" @click="showCart = !showCart" @blur="showCart = !showCart">
+                            <div class="relative hover:opacity-80">
                                 <span class="material-icons pt-1 px-1"> shopping_cart </span>
-                                <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">2</div>
+                                <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">
+                                    {{ $store.getters.totalInCart == 0 ? "" : $store.getters.totalInCart }}
+                                </div>
                             </div>
-                            <span class="">cart</span>
+                            <span>cart</span>
+                            <div v-show="showCart" class="absolute right-0 top-10 z-20 w-48 py-2 mt-2 bg-gray-100 rounded-md shadow-xl dark:bg-gray-800" :class="$store.getters.totalInCart == 0 ? 'hidden':''">
+                                ลองดู
+                                <div v-for="cart in $store.getters.cart" :key="cart.name">
+                                    <span>{{ cart.name }}</span>
+                                    <span>{{ cart.price }} </span>
+                                    <span>{{ cart.type }} </span>
+                                </div>
+                            </div>
                         </button>
                         <div class="border-r-2 dark:border-gray-500 border-gray-600 h-5 w-1 my-auto mx-2 md:mx-3 lg:mx-5" />
                         <button class="cursor-pointer flex items-center" @click="$router.push('/login')">
@@ -33,7 +43,7 @@
                             </div>
                             <span class="px-1 block">Login</span>
                         </button>
-                    <!-- </div> -->
+                        <!-- </div> -->
                     </div>
                 </div>
                 <div class="mb-2 lg:mb-3 hidden sm:inline-flex text-sm justify-center ">
@@ -65,7 +75,7 @@
             <span class="material-icons px-2 py-1 md:px-3 md:py-2 ring shadow-md ring-green-400 bg-green-200 dark:bg-green-700 rounded-full text-4xl z-30"> add </span>
             <span class="-ml-10 pl-12 pr-4 py-4 rounded-full shadow-md bg-green-300 dark:bg-green-700  hidden md:inline-flex" v-show="showAdd">Add Product</span>
         </router-link> -->
-        <div class="fixed bottom-0 bg-white w-full sm:hidden text-xs capitalize tracking-tighter px-4 py-0.5 z-50">
+        <div class="fixed bottom-0 bg-white w-full sm:hidden text-xs tracking-tighter px-4 py-0.5 z-50">
             <div class="flex flex-row justify-around">
                 <div class="w-16 p-1 flex flex-col items-center" @click="$router.push('/')">
                     <!-- <div class="material-icons">local_mall</div> -->
@@ -108,6 +118,7 @@ export default {
         return {
             showAdd: false,
             profile: "http://daisyui.com/tailwind-css-component-profile-1@94w.png",
+            showCart: false,
         };
     },
     methods: {

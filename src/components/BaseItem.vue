@@ -45,15 +45,13 @@
                 </div>
             </div>
         </div>
-        <div class="z-10">
-            <div class="p-3 dark:bg-gray-600 rounded-b-md ">
-                <p class="h-12 font-normal text-sm sm:text-base mb-2 overflow-hidden overflow-ellipsis ">
-                    <span class="uppercase"> {{ product.brand }} :</span>
-                    {{ product.name }}
-                </p>
-                <div class="bg-secondary text-white px-3 inline-block font-light text-xs rounded-sm">Discount 99%</div>
-                <div class="text-2xl text-red-500 font-bold py-2">฿ {{ product.price }}</div>
-            </div>
+        <div class="z-10 p-3 dark:bg-gray-600 rounded-b-md ">
+            <p class="h-12 font-normal text-sm sm:text-base mb-2 overflow-hidden overflow-ellipsis ">
+                <span class="uppercase"> {{ product.brand }} :</span>
+                {{ product.name }}
+            </p>
+            <div class="bg-secondary text-white px-3 inline-block font-light text-xs rounded-sm">Discount 99%</div>
+            <div class="text-2xl text-red-500 font-bold py-2">฿ {{ product.price }}</div>
         </div>
     </div>
 </template>

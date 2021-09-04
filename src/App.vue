@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <nav-bar :change="changeMode" @switch-mode="switchMode"></nav-bar>
-        <router-view class="mt-12 sm:mt-20 md:mt-20 lg:mt-24 mb-20 relative" />
+        <router-view class="mt-12 sm:mt-20 md:mt-20 lg:mt-24 mb-20" />
         <!-- <Footer class="h-20 bg-gray-300 text-center w-full" v-if="this.$route.name !== 'Login' && this.$route.name !== 'Register'">footer</Footer> -->
     </div>
 </template>
