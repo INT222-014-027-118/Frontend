@@ -1,6 +1,6 @@
 <template>
     <div class="" v-if="showItem">
-        <div class="mx-auto max-w-7xl sm:mt-5 rounded-md dark:bg-gray-700">
+        <div class="mx-auto max-w-7xl sm:mt-5 dark:bg-gray-700">
             <div class="md:mt-0 md:px-5 lg:mx-auto grid gap-3 grid-cols-3 ">
                 <div class="py-0 lg:py-5 mx-0 col-span-3 lg:col-span-2">
                     <Carousel />
@@ -35,23 +35,24 @@
                                 <!-- <p class="bg-gray-300 absolute">pick:{{ colorPick }}</p> -->
                             </div>
                         </div>
-                        <div class="text-xl text-green-600 font-bold flex items-center"><span class="material-icons"> check_circle_outline </span> In stork</div>
+
                         <button
                             class="bg-primary text-white select-none block py-3 px-4 text-center w-full rounded-md hover:shadow-lg hover:bg-secondary cursor-pointer fixed sm:static bottom-12 left-0 z-40"
                             @click="addCartItem()"
                         >
                             Add to Cart
                         </button>
+                        <div class="text-xl text-green-600 font-bold flex items-center"><span class="material-icons"> check_circle_outline </span> In stork</div>
                     </div>
                 </div>
 
                 <div class="my-5 w-full col-span-3">
                     <div class="p-1 sm:px-16 md:px-20 lg:px-5">
-                        <p class="font-semibold">Properties: {{ product_name }}</p>
+                        <p class="font-semibold">Attribute: {{ product_name }}</p>
                         <div class="overflow-hidden rounded p-1">
                             <table class="min-w-full bg-white">
                                 <tbody class="text-gray-700">
-                                    <tr :class="prop % 2 == 0 ? 'bg-gray-100' : 'bg-gray-50'" v-for="prop in [0, 1, 2, 3, 4]" :key="prop">
+                                    <tr :class="attribute % 2 == 0 ? 'bg-gray-100' : 'bg-gray-50'" v-for="attribute in [0, 1, 2, 3, 4]" :key="attribute">
                                         <td class="w-1/3 text-left py-3 px-4">title</td>
                                         <td class="w-1/3 text-left py-3 px-4">Smith</td>
                                     </tr>
@@ -126,7 +127,7 @@ export default {
                     text: "The item has been added to your shopping cart",
                     showCloseButton: true,
                     confirmButtonColor: "#EC6907",
-                    backdrop: "rgba(75, 85, 99,0.7)",
+                    backdrop: "rgba(75, 85, 99, 0.4)",
                     willOpen: () => {
                         // this.$swal.showLoading();
                         setTimeout(() => {
