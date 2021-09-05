@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-col rounded-lg shadow-xl border-2 hover:border-primary cursor-pointer transition">
-        <div class="overflow-hidden w-full relative pb-32 sm:pb-56 select-none">
+    <div class="flex flex-col rounded-md shadow-xl ring-2 ring-transparent hover:ring-primary cursor-pointer transition">
+        <div class="overflow-hidden w-full relative pb-28 sm:pb-36 select-none">
             <!-- <div v-show="btnEditer" class="flex absolute z-10 top-1/4 right-1/2 transform translate-x-2/4 translate-y-1/2">
                 <div class="bg-green-500 hover:bg-green-700  py-2 px-4 md:py-4 md:px-5 cursor-pointer rounded-full text-white shadow-2xl flex items-center" @click="editItem">
                     <span class="material-icons text-4xl">edit</span>Edit
@@ -31,7 +31,7 @@
                 alt="Product image"
                 :class="[btnEditer ? ' opacity-50' : 'bg-white']"
             />
-            <div class="absolute w-full p-1 -bottom-1 sm:bottom-0 bg-white opacity-30 h-6 sm:h-8" />
+            <!-- <div class="absolute w-full p-1 -bottom-1 sm:bottom-0 bg-white opacity-30 h-6 sm:h-8" />
             <div class="absolute w-full p-1 -bottom-1 sm:bottom-0">
                 <div class="flex flex-row-reverse">
                     <div
@@ -43,15 +43,15 @@
                         }"
                     ></div>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <div class="z-10 p-3 dark:bg-gray-600 rounded-b-md ">
-            <p class="h-12 font-normal text-sm sm:text-base mb-2 overflow-hidden overflow-ellipsis ">
+        <div class="z-10 p-3 dark:bg-gray-600 rounded-b-md relative">
+            <p class="h-10 font-normal text-sm mb-2 overflow-hidden overflow-ellipsis leading-tight">
                 <span class="uppercase"> {{ product.brand }} :</span>
                 {{ product.name }}
             </p>
-            <div class="bg-secondary text-white px-3 inline-block font-light text-xs rounded-sm">Discount 99%</div>
-            <div class="text-2xl text-red-500 font-bold py-2">฿ {{ product.price }}</div>
+            <div class="bg-secondary text-white px-3 inline-block font-light text-xs rounded-sm absolute bottom-10">Discount 99%</div>
+            <div class="text-xl text-red-500 font-bold mt-4">฿ {{ product.price }}</div>
         </div>
     </div>
 </template>

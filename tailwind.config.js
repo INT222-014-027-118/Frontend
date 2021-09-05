@@ -32,11 +32,11 @@ module.exports = {
         extend: {
             backgroundColor: ['checked'],
             borderColor: ['checked'],
-            ringColor: ['responsive', 'dark', 'focus-within', 'focus', 'checked','active'],
-            ringOffsetColor: ['responsive', 'dark', 'focus-within', 'focus', 'checked','active'],
-            ringOffsetWidth: ['responsive', 'focus-within', 'focus', 'checked','active'],
-            ringOpacity: ['responsive', 'dark', 'focus-within', 'focus', 'checked','active'],
-            ringWidth: ['responsive', 'focus-within', 'focus', 'checked','active'],
+            ringColor: ['responsive', 'dark', 'focus-within', 'focus', 'checked', 'active', 'hover'],
+            ringOffsetColor: ['responsive', 'dark', 'focus-within', 'focus', 'checked', 'active', 'hover'],
+            ringOffsetWidth: ['responsive', 'focus-within', 'focus', 'checked', 'active', 'hover'],
+            ringOpacity: ['responsive', 'dark', 'focus-within', 'focus', 'checked', 'active', 'hover'],
+            ringWidth: ['responsive', 'focus-within', 'focus', 'checked', 'active', 'hover'],
         }
     },
     plugins: [

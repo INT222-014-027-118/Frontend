@@ -19,7 +19,7 @@
                             <span class="">compare</span>
                         </button>
                         <!-- <div class="hidden sm:inline-flex"> -->
-                        <button class="rounded-full p-1 flex items-center relative" @mouseenter="showCart = !showCart" @click="$router.push('/cart')" @blur="showCart = !showCart">
+                        <button class="rounded-full p-1 flex items-center relative" @mouseenter="showCart = true" @click="$router.push('/cart')" @mouseleave="showCart = false">
                             <div class="relative hover:opacity-80">
                                 <span class="material-icons pt-1 px-1"> shopping_cart </span>
                                 <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">
