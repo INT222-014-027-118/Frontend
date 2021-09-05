@@ -74,8 +74,8 @@
                 </div>
             </div>
         </div>
+        <Loading v-show="loading" />
     </div>
-    <Alert class="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700 "/>
 </template>
 
 <script>
@@ -97,7 +97,7 @@ export default {
     },
     data() {
         return {
-            showItem: false,
+            showItem: true,
             // url: `http://137.116.145.41:9091`,
             showText: "",
             product: [],
@@ -106,6 +106,7 @@ export default {
                 average: 4,
             },
             colorPick: "",
+            loading: false,
         };
     },
     methods: {
@@ -116,12 +117,45 @@ export default {
             window.scrollTo(0, 0);
         },
         addCartItem() {
-            let itemDumy = {
-                type: this.type,
-                name: this.product_name,
-                price: this.price,
-            };
-            this.$store.dispatch("addCartItem", itemDumy);
+            this.loading = true;
+            setTimeout(() => {
+                this.loading = false;
+                this.$swal({
+                    title:
+                        "<div class='flex items-center justify-center text-primary'><span class='material-icons pt-1 px-1 text-3xl'> shopping_cart </span><span class='font-bold text-2xl'>Shopping Cart</span></div>",
+                    text: "The item has been added to your shopping cart",
+                    showCloseButton: true,
+                    confirmButtonColor: "#EC6907",
+                    backdrop: "rgba(75, 85, 99,0.7)",
+                    willOpen: () => {
+                        // this.$swal.showLoading();
+                        setTimeout(() => {
+                            let itemDumy = {
+                                name: this.product_name,
+                                price: this.price,
+                                quantity: 1,
+                            };
+                            this.$store.dispatch("addCartItem", itemDumy);
+                        }, 500);
+                    },
+                });
+            }, 500);
+        },
+        showAlert() {
+            // Use sweetalert2
+            // this.$swal({
+            //     title:
+            //         "<div class='flex items-center justify-center text-primary'><span class='material-icons pt-1 px-1 text-3xl'> shopping_cart </span><span class='font-bold text-2xl'>Shopping Cart</span></div>",
+            //     text: "The item has been added to your shopping cart",
+            //     showCancelButton: true,
+            //     showCloseButton: true,
+            //     willOpen: () => {
+            //         this.$swal.showLoading();
+            //         setTimeout(() => {
+            //             this.$swal.hideLoading();
+            //         }, 500);
+            //     },
+            // });
         },
     },
     mounted() {
