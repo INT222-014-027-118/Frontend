@@ -1,7 +1,7 @@
 <template>
     <div class="mx-auto w-full">
         <div class="tracking-wide px-0 py-0">
-            <p class="font-semibold">Customer reviews</p>
+            <p class="font-semibold text-xl mb-3">Customer reviews</p>
             <div class="mx-4 flex items-center">
                 <div class="flex items-center">
                     <span
@@ -17,7 +17,7 @@
                 <p class="sr-only">{{ reviews.average }} out of 5 stars</p>
                 <a href="reviews.href" class="ml-3 text-sm font-medium text-primary hover:text-secondary">{{ reviews.totalCount }} reviews</a>
             </div>
-            <div class="">
+            <div class="mt-3">
                 <div class="flex items-center mt-1">
                     <div class="w-1/5 text-center text-primary tracking-tighter">
                         <span>5 star</span>

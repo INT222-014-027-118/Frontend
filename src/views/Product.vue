@@ -48,7 +48,7 @@
 
                 <div class="my-5 w-full col-span-3">
                     <div class="p-1 sm:px-16 md:px-20 lg:px-5">
-                        <p class="font-semibold">Attribute: {{ product_name }}</p>
+                        <p class="font-semibold text-xl">Attribute: {{ product_name }}</p>
                         <div class="overflow-hidden rounded p-1">
                             <table class="min-w-full bg-white">
                                 <tbody class="text-gray-700">
@@ -63,12 +63,12 @@
                 </div>
 
                 <div class="p-1 mb-5 w-full col-span-3 sm:px-16 md:px-20 lg:px-5">
-                    <p class="font-semibold">Rating: {{ product_name }}</p>
+                    <p class="font-semibold text-xl">Rating: {{ product_name }}</p>
                     <Raring />
                 </div>
                 <Review class="col-span-3 lg:col-span-1 p-1 sm:px-16 md:px-20 lg:px-5 mb-5" />
-                <div class="col-span-3 lg:col-span-2 sm:px-16 md:px-20 lg:px-5 mb-5">
-                    <!-- <p class="font-semibold">Customer reviews</p> -->
+                <div class="col-span-3 lg:col-span-2 sm:px-16 md:px-20 lg:px-5 my-6">
+                    <!-- <p class="font-semibold text-xl">Customer reviews</p> -->
                     <Comments />
                     <Comments />
                     <Comments />

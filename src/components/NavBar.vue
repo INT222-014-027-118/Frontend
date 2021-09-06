@@ -46,7 +46,7 @@
                         <!-- </div> -->
                     </div>
                 </div>
-                <div class="mb-2 lg:mb-3 hidden sm:inline-flex text-sm justify-center ">
+                <div class="mb-2 lg:mb-3 hidden sm:inline-flex text-sm justify-center text-white">
                     <p class="bg-secondary px-4 rounded-3xl mx-5">heatset</p>
                     <p class="bg-secondary px-4 rounded-3xl mx-5">keyboard</p>
                     <p class="bg-secondary px-4 rounded-3xl mx-5">mouse</p>
@@ -76,7 +76,7 @@
             <span class="-ml-10 pl-12 pr-4 py-4 rounded-full shadow-md bg-green-300 dark:bg-green-700  hidden md:inline-flex" v-show="showAdd">Add Product</span>
         </router-link> -->
         <div class="fixed bottom-0 bg-white w-full sm:hidden text-xs tracking-tighter px-4 py-0.5 z-50">
-            <div class="flex flex-row justify-around">
+            <div class="flex flex-row justify-around uppercase font-mono font-extralight	">
                 <div class="w-16 p-1 flex flex-col items-center" @click="$router.push('/')">
                     <!-- <div class="material-icons">local_mall</div> -->
                     <img src="../assets/orange.svg" alt="orange_icon" class="max-h-6" />
@@ -90,7 +90,7 @@
                     </div>
                     <span class="">categories</span>
                 </div>
-                <div class="w-16 p-1 flex flex-col items-center">
+                <div class="w-16 p-1 flex flex-col items-center" @click="$router.push('/cart')">
                     <div class="material-icons">shopping_cart</div>
                     <span class="">cart</span>
                 </div>

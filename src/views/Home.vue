@@ -5,7 +5,7 @@
         <!-- <div class="" v-if="brandsObjs.length > 0"> -->
         <!-- <div class="h-full items-center mx-auto max-w-6xl bg-blue-100 dark:bg-gray-700 rounded-md mb-8 relative" v-for="brand in brandsObjs" :key="brand.brand"> -->
 
-        <div class="container lg:max-w-6xl p-1 sm:p-5 mx-auto grid gap-0.5 sm:gap-1 md:gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        <div class="container lg:max-w-7xl p-1 pt-2 sm:px-5 sm:pt-10 mx-auto grid gap-1 md:gap-2 lg:gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
             <router-link
                 :to="{
                     name: 'Product',
