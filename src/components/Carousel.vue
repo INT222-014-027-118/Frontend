@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white rounded-lg shadow-lg">
+    <div class="bg-white rounded-lg shadow-md">
         <splide :options="primaryOptions" ref="primary" @splide:moved="moved" :class="[this.$route.name == 'Home' ? 'sm:px-14 md:px-16 lg:px-20' : '']">
             <splide-slide class="flex justify-center " v-for="slide in slides" :key="slide" @click="gogo">
                 <div class="">
@@ -7,7 +7,7 @@
                 </div>
             </splide-slide>
         </splide>
-        <splide :options="secondaryOptions" ref="secondary" v-show="this.$route.name != 'Home'" class="sm:px-14 md:px-16 lg:px-20">
+        <splide :options="secondaryOptions" ref="secondary" v-show="this.$route.name != 'Home'" class="sm:px-14 md:px-16 lg:px-20 py-2">
             <splide-slide v-for="slide in slides" :key="slide.src">
                 <img :src="slide.src" alt="slide.alt" />
             </splide-slide>
@@ -37,7 +37,7 @@ export default {
                 focus: "center",
                 type: "loop",
                 weight: "500px",
-                height: "500px",
+                height: this.$route.name === "Home" ? "500px" : "400px",
                 gap: "1rem",
                 pagination: true,
                 breakpoints: {
@@ -46,9 +46,6 @@ export default {
                     },
                     768: {
                         height: "300px",
-                    },
-                    1024: {
-                        height: "400px",
                     },
                 },
             },
@@ -66,6 +63,8 @@ export default {
                 padding: {
                     left: "2rem",
                     right: "2rem",
+                    top: "5rem",
+                    bottom: "3rem",
                 },
                 breakpoints: {
                     640: {
@@ -140,6 +139,13 @@ export default {
 .splide__arrow--prev {
     left: 0;
     border-radius: 0.5rem;
+}
+.splide__slide {
+    box-sizing: border-box;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    list-style-type: none !important;
+    margin: 0;
 }
 
 @media only screen and (max-width: 640px) {

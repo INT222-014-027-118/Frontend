@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto max-w-7xl sm:mt-5 dark:bg-gray-700 p-1E">
+    <div class="mx-auto max-w-7xl sm:mt-5 dark:bg-gray-700">
         <div class="md:mt-0 p-1 md:p-5 lg:mx-auto grid gap-3 grid-cols-3">
             <div class="col-span-3 md:col-span-2 felx flex-col">
                 <h1 class="text-2xl font-bold py-3">Shopping Cart</h1>

@@ -6,12 +6,12 @@
                     <Carousel />
                 </div>
 
-                <div class="p-1 sm:px-16 md:px-20 lg:p-5 col-span-3 lg:col-span-1 my-5 sm:my-auto">
+                <div class="px-1 py-5 sm:px-16 md:px-20 lg:p-5 col-span-3 lg:col-span-1 my-5 bg-white rounded-md shadow-md">
                     <p class="px-2 text-primary">
                         Brand : <span class="text-sm font-light">{{ $store.getters.itemTest[3].type }}</span>
                     </p>
                     <p class="px-2 py-3 text-2xl border-b border-black font-semibold dark:border-gray-100 mb-2">{{ product_name }}</p>
-                    <div class="px-2 sm:px-3 space-y-3 lg:space-y-5">
+                    <div class="px-2 sm:px-3 space-y-3 lg:space-y-3">
                         <p class="text-2xl text-red-500 font-bold">฿ {{ price }}</p>
                         <p class="text-sm font-light">Product ID: 1740013000002 (91400)</p>
                         <p class="text-md font-light">Warranty : {{ product.warranty == 0 ? "none" : product.warranty + " year" }}</p>
@@ -37,7 +37,7 @@
                         </div>
 
                         <button
-                            class="bg-primary text-white select-none block py-3 px-4 text-center w-full rounded-md hover:shadow-lg hover:bg-secondary cursor-pointer fixed sm:static bottom-12 left-0 z-40"
+                            class="bg-primary text-white select-none block py-3 px-4 text-center w-full rounded-md hover:shadow-md hover:bg-secondary cursor-pointer fixed sm:static bottom-12 left-0 z-40"
                             @click="addCartItem()"
                         >
                             Add to Cart
