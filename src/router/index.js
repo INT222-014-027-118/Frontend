@@ -10,6 +10,10 @@ const routes = [{
     component: Home
   },
   {
+    path: '/*',
+    component: () => import( /* webpackChunkName: "NotFound" */ '../views/NotFound.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     component: () => import( /* webpackChunkName: "about" */ '../views/About.vue')
@@ -39,7 +43,12 @@ const routes = [{
     name: 'Product',
     props: true,
     component: () => import( /* webpackChunkName: ":product_name" */ '../views/Product.vue')
-  }
+  },
+  {
+    path: '/form',
+    name: 'form',
+    component: () => import( /* webpackChunkName: "form" */ '../views/Form.vue')
+  },
 ]
 
 const router = createRouter({

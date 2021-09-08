@@ -13,7 +13,6 @@
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
                                 German
                             </td>
-
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
                                 .
                             </td>
@@ -25,7 +24,6 @@
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
                                 Schweden
                             </td>
-
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
                                 .
                             </td>
@@ -37,7 +35,6 @@
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
                                 Switzerland
                             </td>
-
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
                                 .
                             </td>
