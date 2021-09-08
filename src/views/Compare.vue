@@ -2,42 +2,29 @@
     <div class="mx-auto max-w-7xl sm:mt-5 dark:bg-gray-700 p-1">
         <div class="md:mt-0 p-1 md:p-5">
             <h1 class="text-2xl font-bold py-3">Compare products</h1>
-            <div>
+            <div class="max-w-7xl overflow-auto">
                 <!-- component -->
                 <table class="">
                     <tbody>
                         <tr class="bg-white mb-10 lg:mb-0">
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                KnobHome
+                                Product
                             </td>
-                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                German
-                            </td>
-                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                .
+                            <td class=" lg:w-auto p-3 text-gray-800 border border-b lg:table-cell relative lg:static">
+                                img
                             </td>
                         </tr>
                         <tr class="bg-white lg:hover:bg-gray-100 mb-10 lg:mb-0">
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                Squary
+                                attribute 1
                             </td>
-                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                Schweden
-                            </td>
-                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                .
-                            </td>
+                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">item.brand</td>
                         </tr>
                         <tr class="bg-white lg:hover:bg-gray-100 mb-10 lg:mb-0">
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                ghome
+                                attribute 3
                             </td>
-                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                Switzerland
-                            </td>
-                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                .
-                            </td>
+                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">item.price</td>
                         </tr>
                     </tbody>
                 </table>
@@ -47,7 +34,12 @@
 </template>
 
 <script>
-export default {};
+// import BaseItem from "../components/BaseItem.vue";
+export default {
+    components: {
+        // BaseItem,
+    },
+};
 </script>
 
 <style></style>

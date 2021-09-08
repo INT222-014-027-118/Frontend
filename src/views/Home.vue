@@ -13,7 +13,6 @@
                 }"
                 v-for="item in $store.getters.itemTest"
                 :key="item.productId"
-                :product="item"
             >
                 <BaseItem :product="item" />
             </router-link>

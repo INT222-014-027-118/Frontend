@@ -1,16 +1,15 @@
 <template>
     <div class="relative">
         <div class="fixed w-full top-0 z-50 bg-white dark:bg-gray-900 dark:text-gray-100 select-none shadow-sm">
-            <div class="flex flex-col mx-auto md:container px-2 h-12 sm:h-20 md:h-20 lg:h-24 sm:px-0 justify-around">
-                <div class="flex items-center mx-auto my-auto w-full md:container justify-between md:justify-around px-2 ">
-                    <div class="hidden sm:inline-flex">
+            <div class="flex mx-auto max-w-7xl px-2 h-12 sm:h-20 md:h-20 lg:h-20 sm:px-0 items-center justify-around">
+                    <div class="hidden sm:inline-flex lg:w-3/12">
                         <router-link to="/" class="flex items-center cursor-pointer hover:bg-primary hover:text-gray-100 rounded-full transition">
                             <img src="../assets/orange.svg" alt="orange_icon" class="h-11 md:h-12" />
-                            <span class="py-2 font-bold md:text-lg lg:text-3xl tracking-tighter hidden md:inline-flex md:w-24 lg:w-32">range IT</span>
+                            <span class="py-2 font-bold md:text-lg lg:text-2xl tracking-tighter hidden md:inline-flex md:w-24 lg:w-32">range IT</span>
                         </router-link>
                     </div>
-                    <Search class="w-full sm:w-6/12 sm:mx-2"></Search>
-                    <div class="text-xs md:text-sm lg:text-base hidden sm:inline-flex">
+                    <Search class="w-full sm:w-6/12 lg:w-5/12 sm:mx-2"></Search>
+                    <div class="text-xs md:text-sm lg:text-base hidden sm:inline-flex lg:w-3/12 justify-end ">
                         <button class="rounded-full p-1 hover:opacity-80 flex items-center" @click="$router.push('/compare')">
                             <div class="relative">
                                 <span class="material-icons pt-1 px-1"> compare_arrows </span>
@@ -40,24 +39,18 @@
                                 </div>
                             </div>
                         </button>
-                        <div class="border-r-2 dark:border-gray-500 border-gray-600 h-5 w-1 my-auto mx-2 md:mx-3 lg:mx-5" />
+                        <div class="border-r-2 dark:border-gray-500 border-gray-300 h-5 w-1 my-auto mx-2 md:mx-3 lg:mx-4" />
                         <button class="cursor-pointer flex items-center" @click="$router.push('/login')">
                             <div class="w-9 h-9 lg:w-10 lg:h-10">
                                 <img :src="profile" class="w-9 h-9 lg:w-10 lg:h-10 hover:opacity-80 bg-primary rounded-full p-0.5" />
                             </div>
-                            <span class="px-1 block">Login</span>
+                            <span class="pr-1 pl-2 block">Login</span>
                         </button>
                         <!-- </div> -->
                     </div>
                 </div>
-                <div class="mb-2 lg:mb-3 hidden sm:inline-flex text-sm justify-center text-white">
-                    <p class="bg-secondary px-4 rounded-3xl mx-5">heatset</p>
-                    <p class="bg-secondary px-4 rounded-3xl mx-5">keyboard</p>
-                    <p class="bg-secondary px-4 rounded-3xl mx-5">mouse</p>
-                    <!-- <p class="bg-secondary px-4 rounded-3xl ">text</p>
-                    <p class="bg-secondary px-4 rounded-3xl ">text</p> -->
-                </div>
-                <div class="cursor-pointer p-2 absolute right-5 sm:top-9 lg:top-11">
+              
+                <div class="cursor-pointer p-2 absolute right-5 top-0 lg:top-5">
                     <div :class="{ hidden: !change }" @click="switchMode" class="">
                         <i class="material-icons mt-1">light_mode</i>
                     </div>
@@ -65,7 +58,6 @@
                         <i class="material-icons mt-1">dark_mode</i>
                     </div>
                 </div>
-            </div>
         </div>
 
         <!-- <router-link

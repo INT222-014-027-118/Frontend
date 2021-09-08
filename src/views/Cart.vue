@@ -22,10 +22,27 @@
                                     <div class="text-sm text-green-600 font-medium flex items-center py-3"><span class="material-icons"> check_circle_outline </span> In stork</div>
                                 </div>
                             </div>
-                            <select name="" id="" class="self-start p-1 bg-gray-200 rounded-md cursor-pointer focus:outline-none">
+                            <!-- <select name="" id="" class="self-start p-1 bg-gray-200 rounded-md cursor-pointer focus:outline-none">
                                 <option value="1" class="">1</option>
                                 <option value="2" class="">2</option>
-                            </select>
+                            </select> -->
+                            <form @submit.prevent>
+                                <div class="">
+                                    <div class="bg-gray-200 rounded-md">
+                                        <button class="p-2" @click="minus">-</button>
+                                        <input
+                                            type="number"
+                                            class="self-start p-1 bg-gray-50 rounded-md cursor-pointer focus:outline-none w-12 shadow-inner"
+                                            step="1"
+                                            max="10"
+                                            min="1"
+                                            required
+                                            v-model="quantity"
+                                        />
+                                        <button class="p-2" @click="plus">+</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                         <div class="flex flex-col justify-between text-right font-semibold">
                             <span class="text-xl md:text-2xl text-primary">฿ 999999</span>
@@ -62,7 +79,29 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            quantity: 1,
+            stork: 3,
+        };
+    },
+    methods: {
+        minus() {
+            if (this.quantity > 0) {
+                this.quantity -= 1;
+                if (this.quantity <= 0) {
+                    console.log("remove");
+                }
+            }
+        },
+        plus() {
+            if (this.quantity < this.stork) {
+                this.quantity += 1;
+            }
+        },
+    },
+};
 </script>
 
 <style scpoed>
@@ -77,5 +116,4 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
-
 </style>
