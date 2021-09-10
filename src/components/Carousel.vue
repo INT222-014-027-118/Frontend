@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-white rounded-lg shadow-md">
-        <splide :options="primaryOptions" ref="primary" :class="[this.$route.name == 'Home' ? 'sm:px-14 md:px-16 lg:px-20' : '']">
+    <div class="bg-white dark:bg-gray-600 transition-colors rounded-lg shadow-md">
+        <splide :options="primaryOptions" ref="primary" :class="[this.$route.name == 'Home' ? 'sm:px-14 md:px-16 lg:px-20' : 'md:pt-3']">
             <splide-slide class="flex justify-center " v-for="slide in slides" :key="slide" @click="gogo">
                 <div class="">
                     <img :src="slide.src" class="h-full w-full object-contain" alt="slide.alt" />

@@ -1,7 +1,7 @@
 <template>
     <div class="mx-auto w-full">
         <div class="tracking-wide px-0 py-0">
-            <p class="font-semibold text-xl mb-3">Customer reviews</p>
+            <p class="font-semibold text-xl mb-3 px-2">Customer reviews</p>
             <div class="mx-4 flex items-center">
                 <div class="flex items-center">
                     <span

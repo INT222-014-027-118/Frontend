@@ -1,7 +1,7 @@
 <template>
     <div class="mx-auto max-w-7xl sm:mt-5 dark:bg-gray-700 p-1">
         <div class="md:mt-0 p-1 md:p-5">
-            <h1 class="text-2xl font-bold py-3">Compare products</h1>
+            <h1 class="text-2xl font-bold py-3">Comparison products</h1>
             <div class="max-w-7xl overflow-auto">
                 <!-- component -->
                 <table class="">
@@ -16,15 +16,19 @@
                         </tr>
                         <tr class="bg-white lg:hover:bg-gray-100 mb-10 lg:mb-0">
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                attribute 1
+                                spceType 1
                             </td>
-                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">item.brand</td>
+                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
+                                value1
+                            </td>
                         </tr>
                         <tr class="bg-white lg:hover:bg-gray-100 mb-10 lg:mb-0">
                             <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
-                                attribute 3
+                                spceType 3
                             </td>
-                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">item.price</td>
+                            <td class=" lg:w-auto p-3 text-gray-800 text-center border border-b lg:table-cell relative lg:static">
+                                value2
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -38,6 +42,13 @@
 export default {
     components: {
         // BaseItem,
+    },
+    data() {
+        return {
+            dumy:[
+
+            ]
+        }
     },
 };
 </script>
