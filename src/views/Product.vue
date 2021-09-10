@@ -10,7 +10,7 @@
                     <p class="px-2 text-primary">
                         Brand : <span class="text-sm font-light">{{ $store.getters.itemTest[3].type }}</span>
                     </p>
-                    <p class="px-2 py-3 text-2xl border-b border-black font-semibold dark:border-gray-100 mb-2">{{ product_name }}</p>
+                    <p class="px-2 py-3 border-b border-black text-2xl font-semibold dark:border-gray-100 mb-2">{{ product_name }}</p>
                     <div class="px-2 sm:px-3 space-y-3 lg:space-y-3">
                         <p class="text-2xl text-red-500 font-bold">฿ {{ price }}</p>
                         <p class="text-sm font-light">Product ID: 1740013000002 (91400)</p>

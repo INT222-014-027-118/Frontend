@@ -1,9 +1,9 @@
 <template>
     <div>
-        <Carousel class="container mx-auto" />
+        <Carousel class="container lg:max-w-7xl mx-auto" />
         <!-- <div class="" v-if="brandsObjs.length > 0"> -->
         <!-- <div class="h-full items-center mx-auto max-w-6xl bg-blue-100 dark:bg-gray-700 rounded-md mb-8 relative" v-for="brand in brandsObjs" :key="brand.brand"> -->
-        <div class="grid grid-cols-4 gap-1 md:gap-3 container mx-auto my-3 md:my-7 px-2">
+        <div class="container lg:max-w-7xl grid grid-cols-4 gap-1 md:gap-3 mx-auto my-3 md:my-7 md:px-2">
             <router-link :to="{ name: 'resultProducts', params: { categoryName: category.itmeName } }" v-for="category in categorys" :key="category">
                 <div class="md:grid grid-cols-2 md:h-28 rounded-md ring ring-transparent transition shadow-md hover:ring-primary cursor-pointer bg-white">
                     <div class="flex flex-col justify-center items-center rounded-md p-3 sm:p-5 md:p-7 text-center bg-white dark:bg-blue-900 md:bg-gradient-to-r from-secondary to-white">
@@ -15,7 +15,7 @@
             </router-link>
         </div>
 
-        <div class="container lg:max-w-7xl p-1 pt-2 sm:px-5 sm:pt-10 mx-auto grid gap-1 md:gap-2 lg:gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+        <div class="container lg:max-w-7xl p-1 sm:px-5 md:px-2 mx-auto grid gap-1 md:gap-2 lg:gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
             <router-link
                 :to="{
                     name: 'Product',

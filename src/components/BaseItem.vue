@@ -45,7 +45,7 @@
                 </div>
             </div> -->
         </div>
-        <div class="z-10 p-3 dark:bg-gray-600 rounded-b-md relative">
+        <div class="z-10 p-3 bg-white dark:bg-gray-600 rounded-b-md relative">
             <p class="h-10 font-normal text-sm mb-2 overflow-hidden overflow-ellipsis leading-tight">
                 <span class="uppercase"> {{ product.brand }} :</span>
                 {{ product.name }}

@@ -1,8 +1,8 @@
 <template>
-    <div class="container lg:max-w-7xl mx-auto grid gap-1 md:gap-2 lg:gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-        <div class="bg-white p-3">
+    <div class="container lg:max-w-7xl mx-auto py-5 grid gap-1 md:gap-2 lg:gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+        <div class="bg-white px-3 pb-3 select-none">
             <div class="border-b-2">
-                <div class="flex justify-between items-center text-gray-600 hover:text-black cursor-pointer py-4" @click="showCat = !showCat">
+                <div class="flex justify-between items-center text-gray-600 hover:text-black cursor-pointer py-3" @click="showCat = !showCat">
                     <span class="font-semibold">Category</span> <span class="text-base font-bold">+</span>
                 </div>
                 <div class="p-1 mb-3 space-y-2 bg-gray-50 rounded-md" v-show="showCat">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="border-b-2">
-                <div class="flex justify-between items-center text-gray-600 hover:text-black cursor-pointer py-4" @click="showtype = !showtype">
+                <div class="flex justify-between items-center text-gray-600 hover:text-black cursor-pointer py-3" @click="showtype = !showtype">
                     <span class="font-semibold">Type</span> <span class="text-base font-bold">+</span>
                 </div>
                 <div class="p-1 mb-3 space-y-2 bg-gray-50 rounded-md" v-show="showtype">

@@ -8,7 +8,7 @@
                             <span class="py-2 font-bold md:text-lg lg:text-2xl tracking-tighter hidden md:inline-flex md:w-24 lg:w-32">range IT</span>
                         </router-link>
                     </div>
-                    <Search class="w-full sm:w-6/12 lg:w-5/12 sm:mx-2"></Search>
+                    <Search class="w-full sm:w-6/12 lg:w-5/12 sm:mx-2 relative"></Search>
                     <div class="text-xs md:text-sm lg:text-base hidden sm:inline-flex lg:w-3/12 justify-end ">
                         <button class="rounded-full p-1 hover:opacity-80 flex items-center" @click="$router.push('/compare')">
                             <div class="relative">
@@ -31,7 +31,7 @@
                                 class="absolute right-0 top-10 z-20 w-48 py-2 mt-2 bg-gray-100 rounded-md shadow-xl dark:bg-gray-800"
                                 :class="$store.getters.totalInCart == 0 ? 'hidden' : ''"
                             >
-                                ลองดู
+                                testing
                                 <div v-for="cart in $store.getters.cart" :key="cart.name">
                                     <span>{{ cart.name }}</span>
                                     <span>{{ cart.price }} </span>

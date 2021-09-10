@@ -37,7 +37,7 @@ export default {
                 focus: "center",
                 type: "loop",
                 weight: "500px",
-                height: this.$route.name === "Home" ? "500px" : "400px",
+                height: this.$route.name === "Home" ? "450px" : "400px",
                 gap: "1rem",
                 pagination: true,
                 breakpoints: {
