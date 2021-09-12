@@ -1,7 +1,7 @@
 <template>
     <div class="py-5" v-show="isLoad">
         {{ product }}
-        <form @submit.prevent="submitForm" class="px-2 py-4 mx-auto bg-white rounded shadow-md dark:bg-gray-700 max-w-7xl sm:px-6">
+        <form @submit.prevent="submitForm" class="px-2 py-8 mx-auto bg-white rounded shadow-md dark:bg-gray-700 max-w-7xl sm:px-6">
             <div class="mx-auto sm:max-w-5xl">
                 <div class="px-3 mb-6 md:mb-0">
                     <label class="label-css" for="grid-state">Category *</label>
@@ -115,16 +115,30 @@
 
                 <div class="relative px-3 mb-6 lg:w-full md:mb-0" :class="{ hidden: !activeClose }">
                     <label class="label-css" for="description">File *</label>
-                    <input
-                        class="input-css"
-                        id="file"
-                        v-on:change="onFileChange($event)"
-                        type="file"
-                        required
-                        :class="{ 'ring ring-red-400': invalid.img }"
-                        accept="image/x-png,image/gif,image/jpeg"
-                    />
+                    <input class="input-css" id="file" @change="previewMultiImage" type="file" required :class="{ 'ring ring-red-400': invalid.img }" accept="image/x-png,image/gif,image/jpeg" />
                     <span v-if="invalid.img" class="absolute font-mono text-sm text-red-500 transform select-none -bottom-3 left-3 sm:bottom-2 sm:left-1/2 sm:-translate-x-1/2 "
+                        >Please choose image</span
+                    >
+                </div>
+
+                <div class="px-3 mb-6 lg:w-full md:mb-0" :class="{ hidden: !activeClose }">
+                    <label class="label-css" for="previewImage">Preview</label>
+                    <div class="relative input-css">
+                        <span class="absolute p-1 text-white bg-blue-700 rounded-full cursor-pointer select-none material-icons top-2 right-2">close</span>
+                        <!-- <img :src="previewImage" alt="Preview Image" class="max-h-80" /> -->
+                        <div v-for="(item, index) in preview_list" :key="index">
+                            <img :src="item" class="max-h-80" />
+                            <p class="mb-0">file name: {{ imageInfo[index].name }}</p>
+                            <p>size: {{ imageInfo[index].size / 1024 }}KB</p>
+                            <button @click="deleteImg(index)" class="bg-red-600 rounded-full h-9 w-9">X</button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="relative px-3 mb-6 lg:w-full md:mb-0" :class="{ hidden: !activeClose }">
+                    <label class="label-css" for="description">File *</label>
+                    <input class="input-css" id="file" v-on:change="onFileChange($event)" type="file" :class="{ 'ring ring-red-400': invalid.img }" accept="image/x-png,image/gif,image/jpeg" />
+                    <span v-if="invalid.img" class="absolute font-mono text-sm text-red-500 transform select-none -bottom-3 left-3 sm:bottom-2 sm:left-1/2 sm:-translate-x-1/2"
                         >Please choose image</span
                     >
                 </div>
@@ -155,7 +169,7 @@ export default {
             colors: [],
             categorys: [],
             // url: "http://137.116.145.41/refun",
-            previewImage: null,
+            // previewImage: null,
             activeClose: true,
             productIds: [],
             product: {
@@ -180,6 +194,11 @@ export default {
             isLoad: true,
             imageFile: null,
             oldImage: { image: "", useThis: Boolean },
+            
+            previewImage: null,
+
+            preview_list: [],
+            imageInfo: [],
         };
     },
     props: {
@@ -199,6 +218,7 @@ export default {
                     this.invalid[`${prop}`] = false;
                 }, 5000);
             }
+            console.log(this.imageInfo);
         },
         generateNewId() {
             if (this.productIds.length > 0) {
@@ -226,6 +246,34 @@ export default {
         //     this.product.previewImage = null;
         //     this.product.activeClose = !this.activeClose;
         // },
+
+        previewMultiImage(event) {
+            var imgName = event.target.files[0].name;
+            var input = event.target;
+            var count = input.files.length;
+            var index = 0;
+            if (imgName.length > 20) {
+                alert("The file name cannot exceed 20 characters.!!!");
+            } else if (input.files) {
+                while (count--) {
+                    var reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.preview_list.push(e.target.result);
+                    };
+                    this.imageInfo.push(input.files[index]);
+                    reader.readAsDataURL(input.files[index]);
+                    index++;
+                }
+            }
+        },
+        deleteImg(index) {
+            // this.imageInfo.splice(index, 1);
+            // this.preview_list.splice(index, 1);
+            console.log(this.imageInfo, index);
+            this.image_list = [];
+            this.preview_list = [];
+        },
+
         onFileChange(event) {
             this.imageFile = event.target.files[0];
             if (this.imageFile.name.length > 20) {
@@ -306,7 +354,7 @@ export default {
 
 <style scoped>
 .input-css {
-    @apply w-full border border-gray-500 focus:outline-none rounded focus:bg-gray-50 dark:focus:bg-gray-500 py-3 px-5 md:px-10 mb-10 bg-gray-100 dark:bg-gray-600;
+    @apply w-full border border-gray-500 focus:outline-none rounded focus:bg-gray-50 dark:focus:bg-gray-500 py-3 px-5 md:px-10 mb-7 bg-gray-100 dark:bg-gray-600;
 }
 
 .label-css {
