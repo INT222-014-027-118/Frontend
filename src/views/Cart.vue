@@ -3,7 +3,7 @@
         <div class="md:mt-0 p-1 md:p-5 lg:mx-auto grid gap-3 grid-cols-3">
             <div class="col-span-3 md:col-span-2 felx flex-col">
                 <h1 class="text-2xl font-semibold py-3">Shopping Cart</h1>
-                <div class="flex p-2 w-full bg-white rounded-md">
+                <div class="flex p-2 w-full bg-white rounded-md overflow-auto">
                     <div class="flex-shrink-0 w-20 h-20 sm:w-32 sm:h-32 lg:w-44 lg:h-44 border border-gray-200 rounded-md overflow-hidden">
                         <img
                             src="https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg"
