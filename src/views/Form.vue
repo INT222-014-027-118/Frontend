@@ -194,7 +194,7 @@ export default {
             isLoad: true,
             imageFile: null,
             oldImage: { image: "", useThis: Boolean },
-            
+
             previewImage: null,
 
             preview_list: [],
@@ -267,11 +267,8 @@ export default {
             }
         },
         deleteImg(index) {
-            // this.imageInfo.splice(index, 1);
-            // this.preview_list.splice(index, 1);
-            console.log(this.imageInfo, index);
-            this.image_list = [];
-            this.preview_list = [];
+            this.imageInfo.splice(index, 1);
+            this.preview_list.splice(index, 1);
         },
 
         onFileChange(event) {
