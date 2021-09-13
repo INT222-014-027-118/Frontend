@@ -1,34 +1,35 @@
 <template>
     <div class="relative">
-        <div class="fixed w-full top-0 z-50 bg-white dark:bg-gray-900 dark:text-gray-100 select-none shadow-sm">
-            <div class="flex mx-auto max-w-7xl px-2 h-12 sm:h-20 md:h-20 lg:h-20 sm:px-0 items-center justify-around">
+        <div class="fixed top-0 z-50 w-full bg-white shadow-sm select-none dark:bg-gray-900 dark:text-gray-100">
+            <div class="flex items-center justify-around h-12 px-2 mx-auto max-w-7xl sm:h-20 md:h-20 lg:h-20 sm:px-0">
                     <div class="hidden sm:inline-flex lg:w-3/12">
-                        <router-link to="/" class="flex items-center cursor-pointer hover:bg-primary hover:text-gray-100 rounded-full transition">
+                        <router-link to="/" class="flex items-center transition rounded-full cursor-pointer hover:bg-primary hover:text-gray-100">
                             <img src="../assets/orange.svg" alt="orange_icon" class="h-11 md:h-12" />
-                            <span class="py-2 font-bold md:text-lg lg:text-2xl tracking-tighter hidden md:inline-flex md:w-24 lg:w-32">range IT</span>
+                            <span class="hidden py-2 font-bold tracking-tighter md:text-lg lg:text-2xl md:inline-flex md:w-24 lg:w-32">range IT</span>
                         </router-link>
+                         <router-link to="/form" class="flex items-center">form</router-link>
                     </div>
-                    <Search class="w-full sm:w-6/12 lg:w-5/12 sm:mx-2 relative"></Search>
-                    <div class="text-xs md:text-sm lg:text-base hidden sm:inline-flex lg:w-3/12 justify-end ">
-                        <button class="rounded-full p-1 hover:opacity-80 flex items-center" @click="$router.push('/compare')">
+                    <Search class="relative w-full sm:w-6/12 lg:w-5/12 sm:mx-2"></Search>
+                    <div class="justify-end hidden text-xs md:text-sm lg:text-base sm:inline-flex lg:w-3/12 ">
+                        <button class="flex items-center p-1 rounded-full hover:opacity-80" @click="$router.push('/compare')">
                             <div class="relative">
-                                <span class="material-icons pt-1 px-1"> compare_arrows </span>
-                                <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">VS</div>
+                                <span class="px-1 pt-1 material-icons"> compare_arrows </span>
+                                <div class="absolute px-2 text-xs text-white rounded-full -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary">VS</div>
                             </div>
                             <span class="">compare</span>
                         </button>
                         <!-- <div class="hidden sm:inline-flex"> -->
-                        <button class="rounded-full p-1 flex items-center relative" @mouseenter="showCart = true" @click="$router.push('/cart')" @mouseleave="showCart = false">
+                        <button class="relative flex items-center p-1 rounded-full" @mouseenter="showCart = true" @click="$router.push('/cart')" @mouseleave="showCart = false">
                             <div class="relative hover:opacity-80">
-                                <span class="material-icons pt-1 px-1"> shopping_cart </span>
-                                <div class="absolute -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary px-2 rounded-full text-white text-xs">
+                                <span class="px-1 pt-1 material-icons"> shopping_cart </span>
+                                <div class="absolute px-2 text-xs text-white rounded-full -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary">
                                     {{ $store.getters.totalInCart == 0 ? "" : $store.getters.totalInCart }}
                                 </div>
                             </div>
                             <span>cart</span>
                             <div
                                 v-show="showCart"
-                                class="absolute right-0 top-10 z-20 w-48 py-2 mt-2 bg-gray-100 rounded-md shadow-xl dark:bg-gray-800"
+                                class="absolute right-0 z-20 w-48 py-2 mt-2 bg-gray-100 rounded-md shadow-xl top-10 dark:bg-gray-800"
                                 :class="$store.getters.totalInCart == 0 ? 'hidden' : ''"
                             >
                                 testing
@@ -39,46 +40,46 @@
                                 </div>
                             </div>
                         </button>
-                        <div class="border-r-2 dark:border-gray-500 border-gray-300 h-5 w-1 my-auto mx-2 md:mx-3 lg:mx-4" />
-                        <button class="cursor-pointer flex items-center" @click="$router.push('/login')">
+                        <div class="w-1 h-5 mx-2 my-auto border-r-2 border-gray-300 dark:border-gray-500 md:mx-3 lg:mx-4" />
+                        <button class="flex items-center cursor-pointer" @click="$router.push('/login')">
                             <div class="w-9 h-9 lg:w-10 lg:h-10">
                                 <img :src="profile" class="w-9 h-9 lg:w-10 lg:h-10 hover:opacity-80 bg-primary rounded-full p-0.5" />
                             </div>
-                            <span class="pr-1 pl-2 block">Login</span>
+                            <span class="block pl-2 pr-1">Login</span>
                         </button>
                         <!-- </div> -->
                     </div>
                 </div>
               
-                <div class="cursor-pointer p-2 absolute right-5 top-0 lg:top-5">
+                <div class="absolute top-0 p-2 cursor-pointer right-5 lg:top-5">
                     <div :class="{ hidden: !change }" @click="switchMode" class="">
-                        <i class="material-icons mt-1">light_mode</i>
+                        <i class="mt-1 material-icons">light_mode</i>
                     </div>
                     <div :class="{ hidden: change }" @click="switchMode" class="">
-                        <i class="material-icons mt-1">dark_mode</i>
+                        <i class="mt-1 material-icons">dark_mode</i>
                     </div>
                 </div>
         </div>
 
         <!-- <router-link
             to="/form"
-            class="fixed right-5 bottom-8  md:bottom-10 md:right-16 lg:bottom-20 lg:right-20 z-40 flex items-center cursor-pointer text-green-700 dark:text-green-100"
+            class="fixed z-40 flex items-center text-green-700 cursor-pointer right-5 bottom-8 md:bottom-10 md:right-16 lg:bottom-20 lg:right-20 dark:text-green-100"
             @mouseenter="showAdd = true"
             @mouseleave="showAdd = false"
             v-if="this.$route.name == 'ProductsListTypes' || this.$route.name == 'ProductsList' || this.$route.name == 'Home'"
             :class="{ 'inline-flex md:hidden': this.$route.name == 'Home' }"
         >
-            <span class="material-icons px-2 py-1 md:px-3 md:py-2 ring shadow-md ring-green-400 bg-green-200 dark:bg-green-700 rounded-full text-4xl z-30"> add </span>
-            <span class="-ml-10 pl-12 pr-4 py-4 rounded-full shadow-md bg-green-300 dark:bg-green-700  hidden md:inline-flex" v-show="showAdd">Add Product</span>
+            <span class="z-30 px-2 py-1 text-4xl bg-green-200 rounded-full shadow-md material-icons md:px-3 md:py-2 ring ring-green-400 dark:bg-green-700"> add </span>
+            <span class="hidden py-4 pl-12 pr-4 -ml-10 bg-green-300 rounded-full shadow-md dark:bg-green-700 md:inline-flex" v-show="showAdd">Add Product</span>
         </router-link> -->
         <div class="fixed bottom-0 bg-white w-full sm:hidden text-xs tracking-tighter px-4 py-0.5 z-50">
-            <div class="flex flex-row justify-around capitalize font-semibold">
-                <div class="w-16 p-1 flex flex-col items-center" @click="$router.push('/')">
+            <div class="flex flex-row justify-around font-semibold capitalize">
+                <div class="flex flex-col items-center w-16 p-1" @click="$router.push('/')">
                     <!-- <div class="material-icons">local_mall</div> -->
                     <img src="../assets/orange.svg" alt="orange_icon" class="max-h-6" />
                     <span class="">home</span>
                 </div>
-                <div class="w-16 p-1 flex flex-col items-center">
+                <div class="flex flex-col items-center w-16 p-1">
                     <div class="material-icons">
                         <!-- apps -->
                         <!-- manage_search -->
@@ -86,11 +87,11 @@
                     </div>
                     <span class="">categories</span>
                 </div>
-                <div class="w-16 p-1 flex flex-col items-center" @click="$router.push('/cart')">
+                <div class="flex flex-col items-center w-16 p-1" @click="$router.push('/cart')">
                     <div class="material-icons">shopping_cart</div>
                     <span class="">cart</span>
                 </div>
-                <div class="w-16 p-1 flex flex-col items-center">
+                <div class="flex flex-col items-center w-16 p-1">
                     <div class="material-icons">person</div>
                     <span class="">account</span>
                 </div>

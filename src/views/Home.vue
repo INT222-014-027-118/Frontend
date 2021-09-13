@@ -1,16 +1,16 @@
 <template>
     <div>
-        <Carousel class="container lg:max-w-7xl mx-auto" />
+        <Carousel class="container mx-auto lg:max-w-7xl" />
         <!-- <div class="" v-if="brandsObjs.length > 0"> -->
-        <!-- <div class="h-full items-center mx-auto max-w-6xl bg-blue-100 dark:bg-gray-700 rounded-md mb-8 relative" v-for="brand in brandsObjs" :key="brand.brand"> -->
+        <!-- <div class="relative items-center h-full max-w-6xl mx-auto mb-8 bg-blue-100 rounded-md dark:bg-gray-700" v-for="brand in brandsObjs" :key="brand.brand"> -->
         <div class="container lg:max-w-7xl grid grid-cols-4 gap-1 md:gap-3 mx-auto my-3 md:my-7 md:px-0.5">
             <router-link :to="{ name: 'resultProducts', params: { categoryName: category.itmeName } }" v-for="category in categorys" :key="category">
-                <div class="md:grid grid-cols-2 md:h-28 rounded-md ring ring-transparent transition shadow-md hover:ring-primary cursor-pointer bg-white">
-                    <div class="flex flex-col justify-center items-center rounded-md p-3 sm:p-5 md:p-7 text-center bg-white dark:bg-blue-900 md:bg-gradient-to-r from-secondary to-white">
-                        <i class="material-icons p-2 md:p-3 md:hidden rounded-full bg-primary text-white md:pointer-events-nonemb-3 mb-2">{{ category.icon }}</i>
-                        <span class="text-xs text-black sm:text-base lg:text-xl tracking-tight font-semibold uppercase md:ml-3 z-10">{{ category.itmeName }}</span>
+                <div class="grid-cols-2 transition bg-white rounded-md shadow-md cursor-pointer md:grid md:h-28 ring ring-transparent hover:ring-primary">
+                    <div class="flex flex-col items-center justify-center p-3 text-center bg-white rounded-md sm:p-5 md:p-7 dark:bg-blue-900 md:bg-gradient-to-r from-secondary to-white">
+                        <i class="p-2 mb-2 text-white rounded-full material-icons md:p-3 md:hidden bg-primary md:pointer-events-nonemb-3">{{ category.icon }}</i>
+                        <span class="z-10 text-xs font-semibold tracking-tight text-black uppercase sm:text-base lg:text-xl md:ml-3">{{ category.itmeName }}</span>
                     </div>
-                    <div class="hidden md:block h-full bg-contain bg-center bg-no-repeat rounded-r-md" :style="{ backgroundImage: `url(${category.image})` }"></div>
+                    <div class="hidden h-full bg-center bg-no-repeat bg-contain md:block rounded-r-md" :style="{ backgroundImage: `url(${category.image})` }"></div>
                 </div>
             </router-link>
         </div>
@@ -28,9 +28,9 @@
             </router-link>
         </div>
 
-        <!-- <div v-else class="h-screen w-full flex items-center justify-center select-none">
-            <i class="material-icons text-4xl animate-spin" v-show="isLoad"> autorenew </i>
-            <div class="text-4xl font-mono tracking-wide font-bold" v-show="!isLoad">Product Out</div>
+        <!-- <div v-else class="flex items-center justify-center w-full h-screen select-none">
+            <i class="text-4xl material-icons animate-spin" v-show="isLoad"> autorenew </i>
+            <div class="font-mono text-4xl font-bold tracking-wide" v-show="!isLoad">Product Out</div>
         </div> -->
     </div>
 </template>
