@@ -11,14 +11,21 @@
                 </div>
                 <Search class="relative w-full sm:w-6/12 lg:w-5/12 sm:mx-2"></Search>
                 <div class="justify-end hidden text-xs md:text-sm lg:text-base sm:inline-flex lg:w-3/12 ">
-                    <button class="flex items-center p-1 rounded-full hover:opacity-80" @click="$router.push('/compare')">
+                    <button class="flex items-center p-1 rounded-full hover:opacity-80" @click="$router.push('/compare')" :class="[this.$route.name === 'Compare' ? 'text-primary font-semibold' : '']">
                         <div class="relative">
                             <span class="px-1 pt-1 material-icons"> compare_arrows </span>
                             <div class="absolute px-2 text-xs text-white rounded-full -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary">VS</div>
                         </div>
                         <span class="">compare</span>
                     </button>
-                    <button class="relative flex items-center p-1 rounded-full" @mouseenter="showCart = true" @click="$router.push('/cart')" @mouseleave="showCart = false">
+
+                    <button
+                        class="relative flex items-center p-1 rounded-full"
+                        @mouseenter="showCart = true"
+                        @click="$router.push('/cart')"
+                        @mouseleave="showCart = false"
+                        :class="[this.$route.name === 'Cart' ? 'text-primary font-semibold' : '']"
+                    >
                         <div class="relative hover:opacity-80">
                             <span class="px-1 pt-1 material-icons"> shopping_cart </span>
                             <div class="absolute px-2 text-xs text-white rounded-full -top-1 -right-3 md:-top-2 sm:-right-3 bg-primary">
@@ -39,13 +46,16 @@
                             </div>
                         </div>
                     </button>
-                    <div class="w-1 h-5 mx-2 my-auto border-r-2 border-gray-300 dark:border-gray-500 md:mx-3 lg:mx-4" />
-                    <button class="flex items-center cursor-pointer" @click="$router.push('/login')">
+
+                    <div class="w-1 h-5 mx-2 my-auto border-r-2 border-gray-300 dark:border-gray-500 md:mx-3 lg:mx-4"/>
+
+                    <button class="flex items-center cursor-pointer" @click="$router.push('/login')" :class="[this.$route.name === 'Login'? 'text-primary font-semibold':'']">
                         <div class="w-9 h-9 lg:w-10 lg:h-10">
                             <img :src="profile" class="w-9 h-9 lg:w-10 lg:h-10 hover:opacity-80 bg-primary rounded-full p-0.5" />
                         </div>
                         <span class="block pl-2 pr-1">Login</span>
                     </button>
+
                     <router-link to="/user">user</router-link>
                 </div>
             </div>
