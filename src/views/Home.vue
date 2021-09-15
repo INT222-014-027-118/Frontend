@@ -36,14 +36,12 @@
 </template>
 
 <script>
-import BaseItem from "../components/BaseItem.vue";
 import headset from "../assets/category/headset.jpg";
 import speaker from "../assets/category/speaker.jpg";
 import keyboard from "../assets/category/keyboard.jpg";
 import mouse from "../assets/category/mouse.png";
 export default {
     components: {
-        BaseItem,
     },
     data() {
         return {
