@@ -1,7 +1,7 @@
 <template>
-    <div class="container grid grid-cols-2 gap-1 py-5 mx-auto lg:max-w-7xl md:gap-2 lg:gap-3 sm:grid-cols-3 lg:grid-cols-5">
-        <div class="fixed left-0 z-30 w-64 top-20 lg:static lg:w-full">
-            <div class="px-3 pb-3 bg-white select-none ">
+    <div class="container flex p-1 py-5 mx-auto lg:max-w-7xl ">
+        <div class="fixed left-0 z-30 mx-2 w-52 lg:w-3/12 row-span-full top-20 lg:static">
+            <div class="px-3 pb-3 bg-white rounded-md shadow-md select-none">
                 <div class="border-b-2">
                     <div class="flex items-center justify-between py-3 text-gray-600 cursor-pointer hover:text-black" @click="showCat = !showCat">
                         <span class="font-semibold">Category</span> <span class="text-base font-bold">+</span>
@@ -49,10 +49,9 @@
                         </label>
                     </div>
                 </div>
-                ยังไม่เสร็จค่อยทำ
             </div>
         </div>
-        <div class="container lg:max-w-7xl p-1 sm:px-5 md:px-0.5 mx-auto grid gap-1 md:gap-2 lg:gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 col-span-4">
+        <div class="container lg:max-w-7xl sm:px-5 md:px-0.5 mx-auto grid gap-1 md:gap-2 lg:gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 col-span-4">
             <router-link
                 :to="{
                     name: 'Product',
