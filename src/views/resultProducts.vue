@@ -1,6 +1,6 @@
 <template>
     <div class="container flex p-1 py-5 mx-auto lg:max-w-7xl ">
-        <div class="fixed left-0 z-30 mx-2 w-52 lg:w-3/12 row-span-full top-20 lg:static">
+        <div class="fixed left-0 z-30 mx-2 w-52 lg:w-3/12 top-20 lg:static">
             <div class="px-3 pb-3 bg-white rounded-md shadow-md select-none">
                 <div class="border-b-2">
                     <div class="flex items-center justify-between py-3 text-gray-600 cursor-pointer hover:text-black" @click="showCat = !showCat">

@@ -18,7 +18,6 @@
                         </div>
                         <span class="">compare</span>
                     </button>
-                    <!-- <div class="hidden sm:inline-flex"> -->
                     <button class="relative flex items-center p-1 rounded-full" @mouseenter="showCart = true" @click="$router.push('/cart')" @mouseleave="showCart = false">
                         <div class="relative hover:opacity-80">
                             <span class="px-1 pt-1 material-icons"> shopping_cart </span>
@@ -47,7 +46,7 @@
                         </div>
                         <span class="block pl-2 pr-1">Login</span>
                     </button>
-                    <!-- </div> -->
+                    <router-link to="/user">user</router-link>
                 </div>
             </div>
 
