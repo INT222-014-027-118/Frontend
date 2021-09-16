@@ -114,25 +114,28 @@
                 </div>
 
                 <div class="px-3 mb-6 lg:w-full md:mb-0">
-                    <label class="label-css" for="previewImage">Preview</label>
-                    <div class="relative input-css flex flex-wrap">
+                    <label class="label-css">Upload Image</label>
+                    <div class="relative input-css flex flex-wrap select-none overflow-hidden">
                         <div v-for="(item, index) in preview_list" :key="index" class="m-5 relative">
-                            <div class="bg-white h-40 w-40">
-                                <img :src="item" class="object-cover object-center w-full h-full" />
+                            <div class="bg-white h-40 w-40 md:h-64 md:w-64 mb-2 rounded-md">
+                                <img :src="item" class="object-cover object-center w-full h-full rounded-md" />
                             </div>
-                            <p class="text-sm">file name: {{ imageInfo[index].name }}</p>
-                            <p class="text-sm">size: {{ imageInfo[index].size / 1024 }}KB</p>
-                            <div @click="deleteImg(index)" class="bg-red-600 absolute text-center pt-0.5 cursor-pointer -top-3 -right-3 text-base rounded-full h-7 w-7 material-icons text-white">delete_forever </div>
+                            <p class="text-sm font-light">file name: {{ imageInfo[index].name }}</p>
+                            <p class="text-sm font-light">size: {{ imageInfo[index].size / 1024 }}KB</p>
+                            <div @click="deleteImg(index)" class="bg-red-600 absolute text-center pt-0.5  cursor-pointer -top-3 -right-3 text-base md:text-xl rounded-full h-7 w-7 md:h-8 md:w-8 material-icons text-white">
+                                delete_forever
+                            </div>
                         </div>
-                        <div class="self-center">
+                        <div class="self-start m-5" v-show="preview_list.length < 5">
                             <label
-                                class="w-44 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-primary hover:text-white"
+                                class="md:h-64 md:w-64 flex flex-col items-center px-4 justify-center bg-white text-blue rounded-md shadow-md tracking-wide uppercase border border-blue cursor-pointer transition hover:bg-primary hover:text-white"
+                                form="file"
                             >
                                 <span class="material-icons p-0.5 rounded-full border-2 border-current">
                                     add
                                 </span>
                                 <span class="mt-2 text-base ">Select a file</span>
-                                <input type="file" class="hidden" id="file" @change="previewMultiImage" />
+                                <input type="file" class="hidden" id="file" accept="image/x-png,image/gif,image/jpeg" @change="previewMultiImage" />
                             </label>
                         </div>
                     </div>
