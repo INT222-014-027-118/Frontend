@@ -126,7 +126,7 @@
                                 delete_forever
                             </div>
                         </div>
-                        <div class="self-start m-5" v-show="preview_list.length < 5">
+                        <div class="self-start m-5" v-show="preview_list.length < 6">
                             <label
                                 class="md:h-64 md:w-64 flex flex-col items-center px-4 justify-center bg-white text-blue rounded-md shadow-md tracking-wide uppercase border border-blue cursor-pointer transition hover:bg-primary hover:text-white"
                                 form="file"
