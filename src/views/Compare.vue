@@ -56,10 +56,8 @@
 </template>
 
 <script>
-// import BaseItem from "../components/BaseItem.vue";
 export default {
     components: {
-        // BaseItem,
     },
     data() {
         return {

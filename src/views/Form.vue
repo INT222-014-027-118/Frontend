@@ -5,7 +5,7 @@
             <div class="mx-auto sm:max-w-5xl">
                 <div class="px-3 mb-6 md:mb-0">
                     <label class="label-css" for="grid-state">Category *</label>
-                    <div class="relative ">
+                    <div class="relative">
                         <select class="input-css" id="type" v-model="product.categoryAdd" ref="category" required :class="{ 'ring ring-red-400': invalid.category }">
                             <option value="" disabled selected>[ Select Category ]</option>
                             <option v-for="type in categorys" :key="type.id" :value="type.typeName">{{ type.typeName }}</option>
@@ -113,42 +113,50 @@
                     </div>
                 </div>
 
-                <div class="relative px-3 mb-6 lg:w-full md:mb-0" :class="{ hidden: !activeClose }">
-                    <label class="label-css" for="description">File *</label>
-                    <input class="input-css" id="file" @change="previewMultiImage" type="file" required :class="{ 'ring ring-red-400': invalid.img }" accept="image/x-png,image/gif,image/jpeg" />
-                    <span v-if="invalid.img" class="absolute font-mono text-sm text-red-500 transform select-none -bottom-3 left-3 sm:bottom-2 sm:left-1/2 sm:-translate-x-1/2 "
-                        >Please choose image</span
-                    >
-                </div>
-
-                <div class="px-3 mb-6 lg:w-full md:mb-0" :class="{ hidden: !activeClose }">
+                <div class="px-3 mb-6 lg:w-full md:mb-0">
                     <label class="label-css" for="previewImage">Preview</label>
-                    <div class="relative input-css">
-                        <span class="absolute p-1 text-white bg-blue-700 rounded-full cursor-pointer select-none material-icons top-2 right-2">close</span>
-                        <!-- <img :src="previewImage" alt="Preview Image" class="max-h-80" /> -->
-                        <div v-for="(item, index) in preview_list" :key="index">
-                            <img :src="item" class="max-h-80" />
-                            <p class="mb-0">file name: {{ imageInfo[index].name }}</p>
-                            <p>size: {{ imageInfo[index].size / 1024 }}KB</p>
-                            <button @click="deleteImg(index)" class="bg-red-600 rounded-full h-9 w-9">X</button>
+                    <div class="relative input-css flex flex-wrap">
+                        <div v-for="(item, index) in preview_list" :key="index" class="m-5 relative">
+                            <div class="bg-white h-40 w-40">
+                                <img :src="item" class="object-cover object-center w-full h-full" />
+                            </div>
+                            <p class="text-sm">file name: {{ imageInfo[index].name }}</p>
+                            <p class="text-sm">size: {{ imageInfo[index].size / 1024 }}KB</p>
+                            <div @click="deleteImg(index)" class="bg-red-600 absolute text-center pt-0.5 cursor-pointer -top-3 -right-3 text-base rounded-full h-7 w-7 material-icons text-white">delete_forever </div>
+                        </div>
+                        <div class="self-center">
+                            <label
+                                class="w-44 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-primary hover:text-white"
+                            >
+                                <span class="material-icons p-0.5 rounded-full border-2 border-current">
+                                    add
+                                </span>
+                                <span class="mt-2 text-base ">Select a file</span>
+                                <input type="file" class="hidden" id="file" @change="previewMultiImage" />
+                            </label>
                         </div>
                     </div>
                 </div>
-                <hr />
-                <div class="relative px-3 mb-6 lg:w-full md:mb-0" :class="{ hidden: !activeClose }">
-                    <label class="label-css" for="description">File *</label>
-                    <input class="input-css" id="file" v-on:change="onFileChange($event)" type="file" :class="{ 'ring ring-red-400': invalid.img }" accept="image/x-png,image/gif,image/jpeg" />
-                    <span v-if="invalid.img" class="absolute font-mono text-sm text-red-500 transform select-none -bottom-3 left-3 sm:bottom-2 sm:left-1/2 sm:-translate-x-1/2"
-                        >Please choose image</span
-                    >
-                </div>
 
-                <div class="px-3 mb-6 lg:w-full md:mb-0" :class="{ hidden: !activeClose }">
-                    <label class="label-css" for="previewImage">Preview</label>
-                    <div class="relative input-css">
-                        <span class="absolute p-1 text-white bg-blue-700 rounded-full cursor-pointer select-none material-icons top-2 right-2" @click="removeImage()">close</span>
-                        <img :src="previewImage" alt="Preview Image" class="max-h-80" />
-                    </div>
+                <div class="container w-full mx-auto px-2 bg-gray-400 ">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>title</th>
+                                <th>title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>att</td>
+                                <td>att</td>
+                            </tr>
+                            <tr>
+                                <td>Donna Snider</td>
+                                <td>Customer Support</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <button @click="validating" type="submit" class="self-end rounded shadow-md cursor-pointer btn">
@@ -373,7 +381,7 @@ export default {
 [type="checkbox"]:focus,
 [type="radio"]:focus {
     --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
-    --tw-ring-offset-width: 2px;
+    --tw-ring-offset-width: 0px;
     --tw-ring-offset-color: #fff;
     --tw-ring-color: #f6ae2d;
     --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
