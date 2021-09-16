@@ -32,7 +32,7 @@
                 </div>
                 <ul class="overflow-auto " style="max-height: 300px;">
                     <li data-type="option" class="cursor-pointer" :class="[check ? 'font-semibold bg-blue-600  text-white' : '']">
-                        <div class="flex justify-between items-center px-3 py-2" v-for="(spec, index) in search" :key="spec" @click="selectToNa(index)">
+                        <div class="flex justify-between items-center px-3 py-2" v-for="(spec, index) in search" :key="spec" @click="selectToNa(index)" :class="{ hidden: !spec.show }">
                             <span class="truncate block ">{{ spec.spec }}</span>
                             <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="fill-current h-4 w-4" :class="{ hidden: !spec.active }">
                                 <polygon points="0 11 2 9 7 14 18 3 20 5 7 18"></polygon>
@@ -52,9 +52,9 @@ export default {
         return {
             showOption: false,
             specs: [
-                { spec: "spec1", active: false },
-                { spec: "spec2", active: false },
-                { spec: "spec3", active: false },
+                { spec: "spec1", active: false, show: true },
+                { spec: "spec2", active: false, show: true },
+                { spec: "spec3", active: false, show: true },
             ],
             choosed: "",
             text: "",
@@ -79,8 +79,14 @@ export default {
     },
     computed: {
         search() {
-            let obj = this.specs.filter((t) => t.spec.toLowerCase().includes(this.text.toLowerCase()));
-            return obj;
+            this.specs.map((t) => {
+                if (!t.spec.toLowerCase().includes(this.text.toLowerCase())) {
+                    t.show = false;
+                } else {
+                    t.show = true;
+                }
+            });
+            return this.specs;
         },
     },
 };
