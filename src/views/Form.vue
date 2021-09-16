@@ -71,7 +71,7 @@
                         <input
                             type="checkbox"
                             name="color"
-                            class="w-8 h-8 m-2 rounded-full border-1 form-checkbox ring-transparent ring-4 ring-offset-2 focus:ring-4 focus:ring-offset-2 focus:ring-secondary active:ring-secondary checked:ring-primary"
+                            class="w-8 h-8 m-2 rounded-full border-1 form-checkbox ring-transparent ring-4 ring-offset-2 focus:ring-offset-2 focus:ring-secondary active:ring-secondary checked:ring-primary"
                             v-for="color in $store.getters.itemTest[2].colors"
                             :key="color.colorId"
                             :style="{
@@ -122,7 +122,10 @@
                             </div>
                             <p class="text-sm font-light">file name: {{ imageInfo[index].name }}</p>
                             <p class="text-sm font-light">size: {{ imageInfo[index].size / 1024 }}KB</p>
-                            <div @click="deleteImg(index)" class="bg-red-600 absolute text-center pt-0.5  cursor-pointer -top-3 -right-3 text-base md:text-xl rounded-full h-7 w-7 md:h-8 md:w-8 material-icons text-white">
+                            <div
+                                @click="deleteImg(index)"
+                                class="bg-red-600 absolute text-center pt-0.5  cursor-pointer -top-3 -right-3 text-base md:text-xl rounded-full h-7 w-7 md:h-8 md:w-8 material-icons text-white"
+                            >
                                 delete_forever
                             </div>
                         </div>
@@ -141,17 +144,17 @@
                     </div>
                 </div>
 
-                <div class="container w-full mx-auto px-2 bg-gray-400 ">
+                <div class="container w-full mx-auto px-2 bg-gray-100 ">
                     <table>
                         <thead>
                             <tr>
-                                <th>title</th>
-                                <th>title</th>
+                                <th>Key</th>
+                                <th>Value</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>att</td>
+                                <td></td>
                                 <td>att</td>
                             </tr>
                             <tr>
@@ -166,6 +169,7 @@
                 Add Product
             </button>
         </form>
+        <router-link to="/tester" class="p-10 bg-red-500">tester</router-link>
     </div>
     <!-- <div v-show="isLoad" class="flex items-center justify-center w-full h-screen">
         <i class="text-4xl material-icons animate-spin" v-show="isLoad"> autorenew </i>
@@ -374,21 +378,10 @@ export default {
 }
 
 [type="checkbox"]:checked {
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='rgb(236, 105, 7)' stroke-linecap='round' stroke='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='rgb(236, 105, 7)' stroke-width='2%' stroke-linecap='round' stroke='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
 }
 
 [type="radio"]:checked {
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='red' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
-}
-
-[type="checkbox"]:focus,
-[type="radio"]:focus {
-    --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
-    --tw-ring-offset-width: 0px;
-    --tw-ring-offset-color: #fff;
-    --tw-ring-color: #f6ae2d;
-    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 </style>
