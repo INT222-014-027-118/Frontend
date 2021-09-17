@@ -12,7 +12,6 @@
                             <optgroup label="Swedish Cars">
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
-                                
                             </optgroup>
                             <optgroup label="German Cars">
                                 <option value="mercedes">Mercedes</option>
@@ -146,21 +145,27 @@
                 </div>
 
                 <div class="container w-full mx-auto px-2 bg-gray-100 ">
-                    <table>
+                    <table class="w-full">
                         <thead>
                             <tr>
-                                <th>Key</th>
-                                <th>Value</th>
+                                <th class="w-1/2">Key</th>
+                                <th class="w-1/2">Value</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td>att</td>
+                                <td class="p-1"><RichSelect /></td>
+                                <td class="p-1">
+                                    <input
+                                        type="text"
+                                        placeholder="whats up?"
+                                        class="block w-full px-3 py-2 transition duration-100 ease-in-out border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500 "
+                                    />
+                                </td>
                             </tr>
                             <tr>
-                                <td>Donna Snider</td>
-                                <td>Customer Support</td>
+                                <td>1</td>
+                                <td>2</td>
                             </tr>
                         </tbody>
                     </table>
@@ -178,7 +183,11 @@
 </template>
 
 <script>
+import RichSelect from "../components/RichSelect.vue";
 export default {
+    components: {
+        RichSelect,
+    },
     data() {
         return {
             brands: [],
