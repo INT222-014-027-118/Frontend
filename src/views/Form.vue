@@ -151,34 +151,51 @@
                                 <tr>
                                     <th class="w-5/12">Key</th>
                                     <th class="w-5/12">Value</th>
-                                    <th class="w-1/12">Edit/Done</th>
+                                    <th class="w-1/12"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="p-1"><RichSelect @selected="selected" /></td>
-                                    <td class="p-1">
+                                    <td class="pb-5"><RichSelect @selected="selected" /></td>
+                                    <td class="pb-5">
                                         <input
                                             type="text"
                                             placeholder="value"
-                                            v-model="specTextValue"
+                                            v-model="attributeText"
                                             class="block w-full px-3 py-2 transition duration-100 ease-in-out border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500 "
                                         />
+                                    </td>
+                                    <td class="pb-5">
+                                        <button
+                                            type="button"
+                                            class="bg-green-600 text-white select-none block px-3 py-2 text-center w-full rounded hover:shadow-md hover:bg-green-700 cursor-pointer"
+                                            @click="Addattribute"
+                                        >
+                                            Add
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr v-show="product.attributes.length !== 0">
+                                    <td colspan="3" class="font-semibold p-2">Attributes list</td>
+                                </tr>
+                                <tr v-for="(spec, index) in product.attributes" :key="spec.key" :class="index % 2 == 0 ? 'bg-white' : 'bg-gray-50'" class="border">
+                                    <td class="">
+                                        <p class="px-3 py-2">{{ spec.key }}</p>
+                                    </td>
+                                    <td class="">
+                                        <p class="px-3 py-2">{{ spec.textValue }}</p>
                                     </td>
                                     <td class="p-1">
                                         <button
                                             type="button"
-                                            class="bg-primary text-white select-none block px-3 py-2 text-center w-full rounded hover:shadow-md hover:bg-secondary cursor-pointer"
-                                            @click="Addattribute"
+                                            class="bg-red-500 text-white select-none block px-3 py-2 text-center w-full rounded hover:shadow-md hover:bg-red-600 cursor-pointer"
+                                            @click="removeAddattribute(index)"
                                         >
-                                            Edit/Done
+                                            remove
                                         </button>
                                     </td>
                                 </tr>
-                                <tr v-for="spec in product.specAttributes" :key="spec.key">
-                                    <td>test: {{ spec.key }}</td>
-                                    <td>test: {{ spec.textValue }}</td>
-                                </tr>
+                                <br />
                             </tbody>
                         </table>
                     </div>
@@ -210,8 +227,8 @@ export default {
             activeClose: true,
             productIds: [],
 
-            specTextValue: "",
-            specSelectValue: "",
+            attributeText: "",
+            attributeSelect: "",
 
             product: {
                 categoryAdd: "",
@@ -222,7 +239,7 @@ export default {
                 warranty: 0,
                 launchDate: "",
                 description: "",
-                specAttributes: [{ key: "key", textValue: "value" }],
+                attributes: [],
             },
             invalid: {
                 category: false,
@@ -257,7 +274,7 @@ export default {
                 }, 5000);
             }
         },
-        
+
         generateNewId() {
             if (this.productIds.length > 0) {
                 return (
@@ -285,15 +302,18 @@ export default {
         //     this.product.activeClose = !this.activeClose;
         // },
         selected(choosed) {
-            this.specSelectValue = choosed;
+            this.attributeSelect = choosed;
         },
         Addattribute() {
-            if (!this.specTextValue == "" && !this.specSelectValue == "") {
-                let spce = { key: this.specSelectValue, textValue: this.specTextValue };
-                this.product.specAttributes.push(spce);
-                this.specTextValue = "";
-                this.specSelectValue = "";
+            if (!this.attributeText == "" && !this.attributeSelect == "") {
+                let spce = { key: this.attributeSelect, textValue: this.attributeText };
+                this.product.attributes.push(spce);
+                this.attributeText = "";
+                this.attributeSelect = "";
             }
+        },
+        removeAddattribute(index) {
+            this.product.attributes.splice(index, 1);
         },
 
         previewMultiImage(event) {

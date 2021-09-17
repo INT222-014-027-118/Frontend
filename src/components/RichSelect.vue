@@ -18,7 +18,7 @@
             </button>
         </div>
         <div
-            class="absolute top-12 w-full z-40 -mt-1 border-b border-gray-300 border-l border-r rounded-b shadow-sm transition ease-in duration-75 opacity-100 bg-white"
+            class="absolute top-12 w-full z-40 -mt-1 border border-blue-600 shadow-lg transition ease-in duration-75 opacity-100 bg-white"
             :class="[showOption ? 'visible' : 'invisible']"
         >
             <div class="w-full p-2 placeholder-gray-400 flex items-center">
