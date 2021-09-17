@@ -66,7 +66,7 @@
                 </div>
 
                 <div class="relative px-3 mb-6 lg:w-full md:mb-0">
-                    <label class="label-css" for="previewImage">color *</label>
+                    <label class="label-css" for="">color *</label>
                     <div class="input-css" :class="{ 'ring ring-red-400': invalid.Color }">
                         <input
                             type="checkbox"
@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="relative px-3 mb-6 lg:w-full md:mb-0">
-                    <label class="label-css" for="previewImage">Launch date *</label>
+                    <label class="label-css" for="">Launch date *</label>
                     <input type="date" class="input-css" v-model="product.launchDate" required :class="{ 'ring ring-red-400': invalid.date }" />
                     <span v-if="invalid.date" class="absolute font-mono text-sm text-red-500 transform select-none -bottom-3 left-3 sm:bottom-2 sm:left-1/2 sm:-translate-x-1/2"
                         >Please input date</span
@@ -144,31 +144,44 @@
                     </div>
                 </div>
 
-                <div class="container w-full mx-auto px-2 bg-gray-100 ">
-                    <table class="w-full">
-                        <thead>
-                            <tr>
-                                <th class="w-1/2">Key</th>
-                                <th class="w-1/2">Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="p-1"><RichSelect /></td>
-                                <td class="p-1">
-                                    <input
-                                        type="text"
-                                        placeholder="whats up?"
-                                        class="block w-full px-3 py-2 transition duration-100 ease-in-out border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500 "
-                                    />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="px-3 mb-6 lg:w-full md:mb-0 rounded-md">
+                    <div class="input-css">
+                        <table class="w-full">
+                            <thead>
+                                <tr>
+                                    <th class="w-5/12">Key</th>
+                                    <th class="w-5/12">Value</th>
+                                    <th class="w-1/12">Edit/Done</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-1"><RichSelect @selected="selected" /></td>
+                                    <td class="p-1">
+                                        <input
+                                            type="text"
+                                            placeholder="value"
+                                            v-model="specTextValue"
+                                            class="block w-full px-3 py-2 transition duration-100 ease-in-out border rounded shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed text-black placeholder-gray-400 bg-white border-gray-300 focus:border-blue-500 "
+                                        />
+                                    </td>
+                                    <td class="p-1">
+                                        <button
+                                            type="button"
+                                            class="bg-primary text-white select-none block px-3 py-2 text-center w-full rounded hover:shadow-md hover:bg-secondary cursor-pointer"
+                                            @click="Addattribute"
+                                        >
+                                            Edit/Done
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr v-for="spec in product.specAttributes" :key="spec.key">
+                                    <td>test: {{ spec.key }}</td>
+                                    <td>test: {{ spec.textValue }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <button @click="validating" type="submit" class="self-end rounded shadow-md cursor-pointer btn">
@@ -194,9 +207,12 @@ export default {
             colors: [],
             categorys: [],
             // url: "http://137.116.145.41/refun",
-            // previewImage: null,
             activeClose: true,
             productIds: [],
+
+            specTextValue: "",
+            specSelectValue: "",
+
             product: {
                 categoryAdd: "",
                 brandAdd: "",
@@ -206,6 +222,7 @@ export default {
                 warranty: 0,
                 launchDate: "",
                 description: "",
+                specAttributes: [{ key: "key", textValue: "value" }],
             },
             invalid: {
                 category: false,
@@ -218,9 +235,6 @@ export default {
             },
             isLoad: true,
             imageFile: null,
-            oldImage: { image: "", useThis: Boolean },
-
-            previewImage: null,
 
             preview_list: [],
             imageInfo: [],
@@ -237,14 +251,13 @@ export default {
             this.invalid.price = this.product.price === 0 ? true : false;
             this.invalid.Color = this.product.colorsAdd.length === 0 ? true : false;
             this.invalid.date = this.product.launchDate === "" ? true : false;
-            this.invalid.img = this.product.previewImage === null ? true : false;
             for (let prop in this.invalid) {
                 setTimeout(() => {
                     this.invalid[`${prop}`] = false;
                 }, 5000);
             }
-            console.log(this.imageInfo);
         },
+        
         generateNewId() {
             if (this.productIds.length > 0) {
                 return (
@@ -271,6 +284,17 @@ export default {
         //     this.product.previewImage = null;
         //     this.product.activeClose = !this.activeClose;
         // },
+        selected(choosed) {
+            this.specSelectValue = choosed;
+        },
+        Addattribute() {
+            if (!this.specTextValue == "" && !this.specSelectValue == "") {
+                let spce = { key: this.specSelectValue, textValue: this.specTextValue };
+                this.product.specAttributes.push(spce);
+                this.specTextValue = "";
+                this.specSelectValue = "";
+            }
+        },
 
         previewMultiImage(event) {
             var imgName = event.target.files[0].name;
@@ -291,6 +315,7 @@ export default {
                 }
             }
         },
+
         deleteImg(index) {
             this.imageInfo.splice(index, 1);
             this.preview_list.splice(index, 1);
@@ -307,24 +332,11 @@ export default {
                 this.activeClose = true;
             }
         },
-        createImage(file) {
-            let reader = new FileReader();
-            reader.onload = (event) => {
-                this.previewImage = event.target.result;
-            };
-            reader.readAsDataURL(file);
-        },
+
         uploadImage() {
             let data = new FormData();
             data.append("refun", this.imageFile);
             return data;
-        },
-        removeImage() {
-            this.previewImage = null;
-            if (this.itemId) {
-                this.oldImage.useThis = false;
-            }
-            this.activeClose = !this.activeClose;
         },
 
         async getDataToEdit() {
@@ -362,7 +374,7 @@ export default {
     },
     computed: {
         isValid() {
-            return this.brandAdd !== "" && this.name !== "" && this.price !== 0 && this.typeAdd !== "" && this.colorsAdd.length !== 0 && this.launchDate !== "" && this.previewImage !== null;
+            return this.brandAdd !== "" && this.name !== "" && this.price !== 0 && this.typeAdd !== "" && this.colorsAdd.length !== 0 && this.launchDate !== "";
         },
         countText() {
             return this.product.name.length;
