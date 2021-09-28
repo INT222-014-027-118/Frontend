@@ -1,0 +1,75 @@
+{
+    "products": [{
+            "id": 1,
+            "productName": "cloud flight",
+            "price": 5000.0,
+            "brandName": "HyperX",
+            "quantityStock": 2,
+            "discount": null,
+            "images": [{
+                "id": 1,
+                "source": "test",
+                "label": "test"
+            }],
+            "catergories": [{
+                    "id": 1,
+                    "category": "mouse",
+                    "parentId": null
+                },
+                {
+                    "id": 2,
+                    "category": "gaming mouse",
+                    "parentId": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "productName": "cloud ds",
+            "price": 5000.0,
+            "brandName": "D",
+            "quantityStock": 2,
+            "discount": null,
+            "images": [{
+                "id": 1,
+                "source": "test",
+                "label": "test"
+            }],
+            "catergories": [{
+                    "id": 1,
+                    "category": "mouse",
+                    "parentId": null
+                },
+                {
+                    "id": 2,
+                    "category": "gaming mouse",
+                    "parentId": 1
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "productName": "E flight",
+            "price": 5000.0,
+            "brandName": "DD",
+            "quantityStock": 2,
+            "discount": null,
+            "images": [{
+                "id": 1,
+                "source": "test",
+                "label": "test"
+            }],
+            "catergories": [{
+                    "id": 1,
+                    "category": "mouse",
+                    "parentId": null
+                },
+                {
+                    "id": 2,
+                    "category": "gaming mouse",
+                    "parentId": 1
+                }
+            ]
+        }
+    ]
+}
