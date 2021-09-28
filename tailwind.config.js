@@ -8,9 +8,11 @@ module.exports = {
         extend: {
             textOpacity: ['dark'],
             colors: {
-                primary: '#EC6907',
-                secondary: '#f6ae2d',
-                neutral: '#f8f8f8',
+                primary: '#F88100',
+                primaryfocus: '#F35B04',
+                secondary: '#FFB703',
+                tertiary: '#FAE445',
+                neutral: '#f8f8f8', 
             }
         },
     },
@@ -29,7 +31,7 @@ module.exports = {
         // require('daisyui'),
         require("@tailwindcss/forms")({
             strategy: 'class',
-            
+
         }),
     ],
     // daisyui: {

@@ -33,22 +33,23 @@
                     </tbody>
                 </table>
             </div>
-            
-            <div class="flex flex-col justify-around w-48 h-48 p-6 bg-white rounded shadow-md">
-                <div>
-                    <p class="text-base text-gray-600">Revenue</p>
-                </div>
-                <div>
-                    <p class="text-2xl font-bold text-gray-700">$56,734</p>
-                </div>
-                <div class="text-sm">
+
+            <div class="flex justify-around p-6 bg-white rounded shadow-md">
+                <div class="text-sm w-1/2">
                     <p class="flex mb-1 text-green-500 item-center">
                         <i class="material-icons">
                             arrow_drop_up
                         </i>
                         5.77%
                     </p>
-                    <p class="text-gray-600">Since last month</p>
+                </div>
+                <div class="text-sm w-1/2">
+                    <p class="flex mb-1 text-green-500 item-center">
+                        <i class="material-icons">
+                            arrow_drop_up
+                        </i>
+                        5.77%
+                    </p>
                 </div>
             </div>
         </div>
@@ -57,8 +58,7 @@
 
 <script>
 export default {
-    components: {
-    },
+    components: {},
     data() {
         return {
             dumy: [],

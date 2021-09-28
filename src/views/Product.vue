@@ -8,7 +8,7 @@
 
                 <div class="px-1 py-5 sm:px-16 md:px-20 lg:p-5 col-span-3 lg:col-span-1 my-5 bg-white rounded-md shadow-md">
                     <p class="px-2 text-primary">
-                        Brand : <span class="text-sm font-light">{{ $store.getters.itemTest[3].type }}</span>
+                        Brand : <span class="text-sm font-light">{{ brand }}</span>
                     </p>
                     <p class="px-2 py-3 border-b border-black text-2xl font-semibold dark:border-gray-100 mb-2">{{ product_name }}</p>
                     <div class="px-2 sm:px-3 space-y-3 lg:space-y-3">
@@ -19,7 +19,7 @@
                         <div class="w-full">
                             <p class="text-sm">color</p>
                             <div class="w-full flex">
-                                <input
+                                <!-- <input
                                     type="radio"
                                     name="color"
                                     class="w-8 h-8 m-2 border-1 rounded-full form-input ring-transparent ring-4 ring-offset-2 focus:ring-4 focus:ring-offset-2 active:ring-secondary checked:ring-primary"
@@ -31,13 +31,13 @@
                                     :value="color.hexColor"
                                     v-model="colorPick"
                                     @click="selectColor(index)"
-                                />
+                                /> -->
                                 <!-- <p class="bg-gray-300 absolute">pick:{{ colorPick }}</p> -->
                             </div>
                         </div>
 
                         <button
-                            class="bg-primary text-white select-none block py-3 px-4 text-center w-full rounded-md hover:shadow-md hover:bg-secondary cursor-pointer fixed sm:static bottom-12 left-0 z-40"
+                            class="bg-primary text-white select-none block py-3 px-4 text-center w-full rounded-md hover:shadow-md hover:bg-primaryfocus cursor-pointer fixed sm:static bottom-12 left-0 z-40"
                             @click="addCartItem()"
                         >
                             Add to Cart
@@ -92,7 +92,7 @@ export default {
         Raring,
     },
     props: {
-        type: String,
+        brand:String,
         product_name: String,
         price: String,
     },

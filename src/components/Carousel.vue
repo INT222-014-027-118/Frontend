@@ -103,7 +103,7 @@ export default {
 }
 .splide__arrow:hover {
     transition-duration: 0.2s;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 .splide__arrow svg {
     fill: #ec6907;

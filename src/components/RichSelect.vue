@@ -1,9 +1,9 @@
 <template>
     <div class="relative">
-        <div class="inline-block relative w-full ">
+        <div class="inline-block relative w-full">
             <button
                 type="button"
-                class="w-full flex text-left justify-between items-center px-3 py-2 text-black transition duration-100 ease-in-out border rounded shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed bg-white border-gray-300"
+                class="w-full flex text-left justify-between items-center px-3 py-2 text-black transition duration-100 ease-in-out border rounded shadow-sm focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed bg-white border-gray-300"
                 value="Option A"
                 @click="showOP"
             >
@@ -18,7 +18,7 @@
             </button>
         </div>
         <div
-            class="absolute top-12 w-full z-40 -mt-1 border border-blue-600 shadow-lg transition ease-in duration-75 opacity-100 bg-white"
+            class="absolute top-12 w-full z-40 -mt-1 border rounded-md border-primary shadow-lg transition ease-in duration-75 opacity-100 bg-white"
             :class="[showOption ? 'visible' : 'invisible']"
         >
             <div class="w-full p-2 placeholder-gray-400 flex items-center">
@@ -32,13 +32,13 @@
                     <button type="button" class="bg-green-600 px-2 py-2 ml-2 h-9 rounded-md text-white text-sm" @click="AddOption">Add</button>
                 </div>
             </div>
-            <ul class="overflow-auto " style="max-height: 300px;">
+            <ul class="overflow-auto rounded-sm" style="max-height: 300px;">
                 <li
                     data-type="option"
-                    class="cursor-pointer hover:bg-blue-100"
+                    class="cursor-pointer hover:bg-yellow-200"
                     v-for="(spec, index) in search"
                     :key="spec"
-                    :class="[spec.active ? 'font-semibold bg-blue-600 text-white hover:bg-blue-700' : '']"
+                    :class="[spec.active ? 'font-semibold bg-primary text-white hover:bg-primaryfocus' : '']"
                 >
                     <div class="flex justify-between items-center px-3 py-2" @click="selectToNa(index)" v-if="spec.show">
                         <span class="truncate block ">{{ spec.spec }}</span>

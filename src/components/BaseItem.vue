@@ -50,7 +50,7 @@
                 <span class="uppercase"> {{ product.brand }} :</span>
                 {{ product.name }}
             </p>
-            <div class="bg-secondary text-white px-3 inline-block font-light text-xs rounded-sm absolute bottom-10">Discount 99%</div>
+            <div class="bg-primary text-white px-3 inline-block font-light text-xs rounded-sm absolute bottom-10">Discount 99%</div>
             <div class="text-xl text-red-500 font-bold mt-4">฿ {{ product.price }}</div>
         </div>
     </div>
