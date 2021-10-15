@@ -1,13 +1,13 @@
 import axios from 'axios'
 
-const api = 'http://52.187.10.17/orange-it'
+const api = process.env.VUE_APP_API
 const get_colors = `${api}/color/list`
 const get_categories = `${api}/category/list`
 const get_specs = `${api}/spec/list`
 
 const post_product = `${api}/product/add`
 // const put_product = `${api}/product/update`
-// const post_image = `${api}/image/add`
+const post_image = `${api}/image/add`
 // const put_image = `${api}/image/update/`
 
 const state = {
@@ -80,11 +80,25 @@ const actions = {
                 console.log(error)
             })
     },
+    uploadImages(context, images) {
+        for(let i=0 ; i < images.length ; i++ ){
+            let data = new FormData();
+            data.append("orange", images[i]);
+            axios
+                .post(post_image,data)
+                .then(response => {
+                    console.log("response: ", response)
+                })
+        }
+    },
 
     addProduct(context, product) {
         axios
             .post(post_product, product)
             .then(response => {
+                // if(response.status === 200){
+
+                // }
                 console.log("response: ", response)
             })
             .catch(error => {
@@ -107,7 +121,7 @@ const mutations = {
     },
     SET_SETCATEGORIES(state, payload) {
         state.setCategories = payload
-    }
+    },
 }
 
 export default {

@@ -1,15 +1,13 @@
 <template>
-    <div class="bg-white dark:bg-gray-600 transition-colors rounded-lg shadow-md">
+    <div class="bg-white dark:bg-dark_tertiary transition-colors rounded-lg shadow-md" v-if="renderComponent">
         <splide :options="primaryOptions" ref="primary" :class="[this.$route.name == 'Home' ? 'sm:px-14 md:px-16 lg:px-20' : 'md:pt-3']">
-            <splide-slide class="flex justify-center " v-for="slide in slides" :key="slide" @click="gogo">
-                <div class="">
-                    <img :src="slide.src" class="h-full w-full object-contain" alt="slide.alt" />
-                </div>
+            <splide-slide class="flex justify-center " v-for="slide in slides" :key="slide">
+                <img :src="slide" class="h-full w-full object-contain" alt="slide.alt" @load="check(slide)" />
             </splide-slide>
         </splide>
         <splide :options="secondaryOptions" ref="secondary" v-show="this.$route.name != 'Home'" class="sm:px-14 md:px-16 lg:px-20 py-2">
-            <splide-slide v-for="slide in slides" :key="slide.src">
-                <img :src="slide.src" alt="slide.alt" />
+            <splide-slide v-for="slide in slides" :key="slide">
+                <img :src="slide" alt="slide.alt" />
             </splide-slide>
         </splide>
     </div>
@@ -24,6 +22,9 @@ export default {
     components: {
         Splide,
         SplideSlide,
+    },
+    props: {
+        images: Array,
     },
     data() {
         return {
@@ -73,24 +74,47 @@ export default {
                     },
                 },
             },
-            slides: [
-                { src: "https://image.bestreview.asia/wp-content/uploads/2020/03/best-gaming-chair.jpg" },
-                { src: "https://kanexkane.com/wp-content/uploads/2020/04/kkblog-cover-review-logitech-g-pro-x-keyboard.jpg" },
-                { src: "https://instore.bnn.in.th/wp-content/uploads/2019/01/FTIM-10GamingGear.jpg" },
-                { src: "https://image.bestreview.asia/wp-content/uploads/2021/06/best-gaming-mouse.jpg" },
-                { src: "https://instore.bnn.in.th/wp-content/uploads/2020/05/gaming-gear-Cover-FB.jpg" },
-                { src: "https://mercular.s3.ap-southeast-1.amazonaws.com/images/articles/2020/10/Gaming-1000-bth-885x400.jpg" },
-            ],
+            prop_productId: "",
+            slides: [],
+            renderComponent: true,
+            loadCall: false,
+            count: 0,
         };
     },
-    methods: {
-        gogo() {
-            console.log("gogo");
+    watch: {
+        images() {
+            this.slides = this.images;
         },
     },
-    mounted() {
-        // Set the sync target.
-        this.$refs.primary.sync(this.$refs.secondary.splide);
+    methods: {
+        forceRerender() {
+            this.renderComponent = false;
+            this.$nextTick(() => {
+                this.renderComponent = true;
+            });
+        },
+        syncIamage() {
+            this.$refs.primary.sync(this.$refs.secondary.splide);
+        },
+        check() {
+            this.count++;
+            if (this.slides.length >= this.count) {
+                this.resetImg();
+                this.$emit("endload");
+            }
+        },
+        resetImg() {
+            setTimeout(() => {
+                this.forceRerender();
+            }, 10);
+            setTimeout(() => {
+                this.syncIamage();
+            }, 10);
+        },
+    },
+    async created() {
+        this.slides = await this.images;
+        this.resetImg();
     },
 };
 </script>
@@ -146,6 +170,16 @@ export default {
     flex-shrink: 0;
     list-style-type: none !important;
     margin: 0;
+}
+.splide--nav > .splide__track > .splide__list > .splide__slide {
+    border: 3px solid transparent;
+    border-color: #f6ae2d;
+    cursor: pointer;
+    opacity: 0.6;
+}
+.splide--nav > .splide__track > .splide__list > .splide__slide.is-active {
+    border-color: #ec6907;
+    opacity: 1;
 }
 
 @media only screen and (max-width: 640px) {

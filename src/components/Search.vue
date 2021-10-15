@@ -3,7 +3,7 @@
         <input
             type="text"
             v-model="text_Search"
-            class="mx-0.5 py-1 px-5 md:px-10 rounded-2xl focus:outline-none  w-full  ring-2 ring-primary  focus:bg-gray-50 dark:focus:bg-gray-500  bg-gray-100 dark:bg-gray-600"
+            class="mx-0.5 py-1 pl-10 pr-5 md:px-10 rounded-2xl focus:outline-none  w-full  ring-2 ring-primary  focus:bg-gray-50 dark:focus:bg-dark_tertiary  bg-gray-100 dark:bg-dark_secondary"
             @keypress.enter="gogo"
         />
         <button class="rounded-3xl px-3 absolute">

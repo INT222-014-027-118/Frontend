@@ -41,7 +41,27 @@ const routes = [{
   {
     path: '/user',
     name: 'Profile',
-    component: () => import( /* webpackChunkName: "Profile" */ '../views/Profile.vue')
+    component: () => import( /* webpackChunkName: "Profile" */ '../views/Profile.vue'),
+    props: true,
+    children: [{
+        path: ':purchaseDetail',
+        name: 'purchase',
+        props: true,
+        component: () => import( /* webpackChunkName: "purchase" */ '../views/setting/purchase.vue')
+      },
+      {
+        path: ':manage/edit',
+        name: 'manageProfile',
+        props: true,
+        component: () => import( /* webpackChunkName: "manageProfile" */ '../views/setting/manageProfile.vue')
+      },
+      {
+        path: ':address-info',
+        name: 'Address',
+        props: true,
+        component: () => import( /* webpackChunkName: "Address" */ '../views/setting/Address.vue')
+      },
+    ],
   },
   {
     path: '/register',
@@ -49,7 +69,7 @@ const routes = [{
     component: () => import( /* webpackChunkName: "register" */ '../views/Register.vue')
   },
   {
-    path: '/:product_name',
+    path: '/:productId-:productName',
     name: 'Product',
     props: true,
     component: () => import( /* webpackChunkName: "Product" */ '../views/Product.vue')

@@ -12,7 +12,11 @@ module.exports = {
                 primaryfocus: '#F35B04',
                 secondary: '#FFB703',
                 tertiary: '#FAE445',
-                neutral: '#f8f8f8', 
+                neutral: '#f8f8f8',
+                
+                dark_primary:'#15202B',
+                dark_secondary:'#192734',
+                dark_tertiary:'#22303C',
             }
         },
     },

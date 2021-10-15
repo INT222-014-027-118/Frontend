@@ -10,7 +10,7 @@
         </div>
         <div class="ml-6">
             <p class="flex items-baseline">
-                <span class="text-gray-600 font-bold">Mary T.</span>
+                <span class="text-gray-700 dark:text-gray-400 font-bold">Mary T.</span>
                 <!-- <span class="ml-2 text-green-600 text-xs">Verified Buyer</span> -->
             </p>
             <div class="flex items-center mt-1">

@@ -1,7 +1,7 @@
 <template>
     <div class="mx-auto w-full">
         <div class="tracking-wide px-0 py-0">
-            <p class="font-semibold text-xl mb-3 px-2">Customer reviews</p>
+            <!-- <p class="font-semibold text-xl mb-3 px-2">Customer reviews</p> -->
             <div class="mx-4 flex items-center">
                 <div class="flex items-center">
                     <span
@@ -28,7 +28,7 @@
                             <div class="bg-secondary rounded-lg h-2" :style="{ width: '51%' }"></div>
                         </div>
                     </div>
-                    <div class="w-1/5 text-center text-gray-700 pl-3">
+                    <div class="w-1/5 text-center text-gray-700 dark:text-gray-400 pl-3">
                         <!-----------------%%%%% percent %%%%---------------->
                         <span class="text-sm">51%</span>
                     </div>
@@ -44,7 +44,7 @@
                             <div class="bg-secondary rounded-lg h-2" :style="{ width: '17%' }"></div>
                         </div>
                     </div>
-                    <div class="w-1/5 text-center text-gray-700 pl-3">
+                    <div class="w-1/5 text-center text-gray-700 dark:text-gray-400 pl-3">
                         <!-----------------%%%%% percent %%%%---------------->
                         <span class="text-sm">17%</span>
                     </div>
@@ -60,7 +60,7 @@
                             <div class=" bg-secondary rounded-lg h-2" :style="{ width: '19%' }"></div>
                         </div>
                     </div>
-                    <div class="w-1/5 text-center text-gray-700 pl-3">
+                    <div class="w-1/5 text-center text-gray-700 dark:text-gray-400 pl-3">
                         <!-----------------%%%%% percent %%%%---------------->
                         <span class="text-sm">19%</span>
                     </div>
@@ -76,7 +76,7 @@
                             <div class=" bg-secondary rounded-lg h-2" :style="{ width: '8%' }"></div>
                         </div>
                     </div>
-                    <div class="w-1/5 text-center text-gray-700 pl-3">
+                    <div class="w-1/5 text-center text-gray-700 dark:text-gray-400 pl-3">
                         <!-----------------%%%%% percent %%%%---------------->
                         <span class="text-sm">8%</span>
                     </div>
@@ -92,7 +92,7 @@
                             <div class=" bg-secondary rounded-lg h-2" :style="{ width: '5%' }"></div>
                         </div>
                     </div>
-                    <div class="w-1/5 text-center text-gray-700 pl-3">
+                    <div class="w-1/5 text-center text-gray-700 dark:text-gray-400 pl-3">
                         <!-----------------%%%%% percent %%%%---------------->
                         <span class="text-sm">5%</span>
                     </div>
@@ -102,7 +102,7 @@
         </div>
         <!-- <div class="w-full px-4">
             <h3 class="font-medium tracking-tight">Review this item</h3>
-            <p class="text-gray-700 text-sm py-1">
+            <p class="text-gray-700 dark:text-gray-400 text-sm py-1">
                 give your opinion about this item.
             </p>
             <button class="bg-gray-100 border border-gray-400 px-3 py-1 rounded  text-gray-800 mt-2">write a review</button>

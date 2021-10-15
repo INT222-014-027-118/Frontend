@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <div class="fixed top-0 z-50 w-full bg-white shadow-sm select-none dark:bg-gray-900 dark:text-gray-100">
+        <div class="fixed top-0 z-50 w-full bg-white shadow-sm select-none dark:bg-dark_secondary dark:text-gray-100">
             <div class="flex items-center justify-around px-2 mx-auto max-w-7xl h-12 sm:h-20 md:h-20 lg:h-20 sm:px-0">
                 <div class="hidden sm:inline-flex lg:w-3/12">
                     <router-link to="/" class="flex items-end transition rounded-full cursor-pointer bg-gradient-to-r hover:from-secondary hover:to-primary hover:text-gray-100">
@@ -18,12 +18,7 @@
                         <span class="tracking-tight font-semibold">compare</span>
                     </button>
 
-                    <button
-                        class="relative flex items-center p-1 rounded-full"
-                        @mouseenter="showCart = true"
-                        @click="$router.push('/cart')"
-                        :class="[this.$route.name === 'Cart' ? 'text-primary' : '']"
-                    >
+                    <button class="relative flex items-center p-1 rounded-full" @mouseenter="showCart = true" @click="$router.push('/cart')" :class="[this.$route.name === 'Cart' ? 'text-primary' : '']">
                         <div class="relative">
                             <span class="px-1 pt-1" :class="[this.$route.name === 'Cart' ? 'material-icons' : 'material-icons-outlined']"> shopping_cart </span>
                             <div class="absolute px-2 text-xs text-white bg-primary rounded-full -top-1 -right-3 md:-top-2 sm:-right-3">
@@ -31,8 +26,7 @@
                             </div>
                         </div>
                         <span class="tracking-tight font-semibold">cart</span>
-                        <div class="absolute top-10 left-0 z-20 pt-10 transform -translate-y-10 w-16" 
-                        @mouseenter="showCart = true" @mouseleave="showCart = false">
+                        <div class="absolute top-10 left-0 z-20 pt-10 transform -translate-y-10 w-16" @mouseenter="showCart = true" @mouseleave="showCart = false">
                             <div
                                 v-show="showCart"
                                 class="w-48 py-2 absolute right-0 bg-gray-100 rounded-md shadow-xl text-gray-800 dark:bg-gray-800 opacity-100 hover:text-black"
@@ -50,60 +44,72 @@
 
                     <div class="w-1 h-5 mx-2 my-auto border-r-2 border-gray-300 dark:border-gray-500 md:mx-3 lg:mx-4" />
 
-                    <button class="flex items-center cursor-pointer" @click="$router.push('/login')" :class="[this.$route.name === 'Login' ? 'text-primary' : '']">
-                        <div class="w-9 h-9 lg:w-10 lg:h-10">
-                            <img :src="profile" class="w-9 h-9 lg:w-10 lg:h-10 bg-primary rounded-full p-0.5" />
-                        </div>
+                    <button v-if="!$store.getters.userinfo" class="flex items-center cursor-pointer" @click="$router.push('/login')" :class="[this.$route.name === 'Login' ? 'text-primary' : '']">
+                        <span class="rounded-full text-3xl" :class="[this.$route.name === 'Login' ? 'material-icons' : 'material-icons-outlined']"> person </span>
                         <span class="block pl-2 pr-1 tracking-tight font-semibold">Login</span>
                     </button>
-
-                    <!-- <router-link to="/user">user</router-link> -->
+                    <button v-else :class="[this.$route.name === 'purchase' || this.$route.name === 'manageProfile' || this.$route.name === 'Address' ? 'text-primary rounded-full' : '']">
+                        <router-link
+                            :to="{
+                                name: 'purchase',
+                                params: { purchaseDetail: 'purchase' },
+                            }"
+                            class="flex items-center cursor-pointer"
+                        >
+                            <span class="rounded-full text-3xl" :class="[this.$route.name === 'purchase' || this.$route.name === 'manageProfile' || this.$route.name === 'Address' ? 'material-icons' : 'material-icons-outlined']">
+                                person
+                            </span>
+                            <span class="block pl-2 pr-1 tracking-tight font-semibold">{{ $store.getters.userinfo === null ? "" : $store.getters.userinfo.username }}</span>
+                        </router-link>
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="fixed bottom-5 right-5 p-2 z-50 cursor-pointer">
-            <div :class="{ hidden: !change }" @click="switchMode" class="">
-                <i class="mt-1 material-icons">light_mode</i>
-            </div>
-            <div :class="{ hidden: change }" @click="switchMode" class="">
-                <i class="mt-1 material-icons">dark_mode</i>
-            </div>
-        </div>
 
-        <!-- <router-link
-            to="/form"
-            class="fixed z-40 flex items-center text-green-700 cursor-pointer right-5 bottom-8 md:bottom-10 md:right-16 lg:bottom-20 lg:right-20 dark:text-green-100"
-            @mouseenter="showAdd = true"
-            @mouseleave="showAdd = false"
-            v-if="this.$route.name == 'ProductsListTypes' || this.$route.name == 'ProductsList' || this.$route.name == 'Home'"
-            :class="{ 'inline-flex md:hidden': this.$route.name == 'Home' }"
-        >
-            <span class="z-30 px-2 py-1 text-4xl bg-green-200 rounded-full shadow-md material-icons md:px-3 md:py-2 ring ring-green-400 dark:bg-green-700"> add </span>
-            <span class="hidden py-4 pl-12 pr-4 -ml-10 bg-green-300 rounded-full shadow-md dark:bg-green-700 md:inline-flex" v-show="showAdd">Add Product</span>
-        </router-link> -->
-        <div class="fixed bottom-0 bg-white w-full sm:hidden text-xs tracking-tighter px-4 py-0.5 z-50 select-none">
-            <div class="flex flex-row justify-around font-semibold capitalize">
-                <div class="flex flex-col items-center w-16 p-1" @click="$router.push('/')">
+        <div class="fixed bottom-0 bg-white dark:bg-dark_secondary w-full h-16 sm:hidden text-xs tracking-tighter px-4 py-0.5 z-50 select-none">
+            <div class="flex justify-around h-full items-center">
+                <button class="flex flex-col items-center w-16 p-1 font-semibold" @click="$router.push('/')" :class="[this.$route.name === 'Home' ? 'bg-primary rounded-full text-white' : '']">
                     <!-- <div class="material-icons">local_mall</div> -->
-                    <img src="../assets/orange.svg" alt="orange_icon" class="max-h-6" />
+                    <img v-show="this.$route.name === 'Home'" src="../assets/orange.svg" alt="orange_icon" class="max-h-6" />
+                    <div v-show="this.$route.name !== 'Home'" :class="[this.$route.name === 'Home' ? 'material-icons text-primary' : 'material-icons-outlined']">home</div>
                     <span class="">home</span>
-                </div>
-                <div class="flex flex-col items-center w-16 p-1">
+                </button>
+                <button class="flex flex-col items-center w-16 p-1 font-semibold">
                     <div class="material-icons">
                         <!-- apps -->
                         <!-- manage_search -->
                         grid_view
                     </div>
                     <span class="">categories</span>
-                </div>
-                <div class="flex flex-col items-center w-16 p-1" @click="$router.push('/cart')">
-                    <div class="material-icons">shopping_cart</div>
+                </button>
+                <button class="flex flex-col items-center w-16 p-1 font-semibold" @click="$router.push('/cart')" :class="[this.$route.name === 'Cart' ? 'bg-primary rounded-full text-white' : '']">
+                    <div :class="[this.$route.name === 'Cart' ? 'material-icons' : 'material-icons-outlined']">shopping_cart</div>
                     <span class="">cart</span>
-                </div>
-                <div class="flex flex-col items-center w-16 p-1">
-                    <div class="material-icons">person</div>
-                    <span class="">account</span>
-                </div>
+                </button>
+
+                <button v-if="!$store.getters.userinfo" class="flex items-center cursor-pointer" @click="$router.push('/login')" :class="[this.$route.name === 'Login' ? 'bg-primary rounded-full text-white' : '']">
+                    <div class="flex flex-col items-center w-16 p-1 font-semibold">
+                        <span :class="[this.$route.name === 'Login' ? 'material-icons' : 'material-icons-outlined']"> person </span>
+                        <span class="">login</span>
+                    </div>
+                </button>
+
+                <router-link
+                    :to="{
+                        name: 'purchase',
+                        params: { purchaseDetail: 'purchase' },
+                    }"
+                    v-else
+                    @click="this.$store.commit('setShowAccountPage', true)"
+                    :class="[this.$route.name === 'purchase' || this.$route.name === 'manageProfile' || this.$route.name === 'Address' ? 'bg-primary rounded-full text-white' : '']"
+                >
+                    <div class="flex flex-col items-center w-16 p-1 font-semibold">
+                        <div :class="[this.$route.name === 'purchase' || this.$route.name === 'manageProfile' || this.$route.name === 'Address' ? 'material-icons' : 'material-icons-outlined']">
+                            person
+                        </div>
+                        <span class="">account</span>
+                    </div>
+                </router-link>
             </div>
         </div>
     </div>

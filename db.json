@@ -72,4 +72,43 @@
             ]
         }
     ]
+
+
+    {
+        "id": 3,
+        "productName": "RAZER DEATHADDER V2",
+        "description": "- True 20,000 DPI Focus+ optical sensor\r\n- Up to 650 inches per second\n  (IPS) / 50 G acceleration / industry best 99.6% resolution accuracy",
+        "price": 1990,
+        "brandName": "Razer",
+        "quantityStock": 20,
+        "discount": null,
+        "colors": [
+            {
+                "id": 3,
+                "label": "White",
+                "hexCode": "FFFFFF"
+            },
+            {
+                "id": 4,
+                "label": "Lavender",
+                "hexCode": "E6E6FA"
+            }
+        ],
+        "specs": [],
+        "images": [
+            {
+                "id": 3,
+                "source": "test1.png",
+                "label": "test1"
+            }
+        ],
+        "catergories": [
+            {
+                "id": 2,
+                "category": "Keyboard",
+                "parentId": null
+            }
+        ],
+        "productSpecValues": []
+    }
 }

@@ -109,7 +109,7 @@
                 <div class="relative px-3 mb-6 lg:w-full md:mb-0">
                     <label class="label-css">color *</label>
                     <div class="input-css flex flex-wrap" :class="{ 'ring ring-red-400': invalid.Color }">
-                        <label :for="color.id" v-for="(color) in $store.getters.colors" :key="color.id" class="flex flex-col items-center cursor-pointer">
+                        <label :for="color.id" v-for="color in $store.getters.colors" :key="color.id" class="flex flex-col items-center cursor-pointer">
                             <input
                                 :id="color.id"
                                 type="checkbox"
@@ -121,7 +121,7 @@
                                 :value="color"
                                 v-model="product.colors"
                             />
-                            <span :class="[color.id == this.product.colors.id ? 'text-red-600' : '']" >{{ color.label }}</span>
+                            <span :class="[color.id == this.product.colors.id ? 'text-red-600' : '']">{{ color.label }}</span>
                         </label>
                     </div>
                     <span v-if="invalid.Color" class="absolute font-mono text-sm text-red-500 transform select-none -bottom-6 left-3 sm:-bottom-1 sm:left-1/2 sm:-translate-x-1/2"
@@ -231,7 +231,7 @@
 
 <script>
 import RichSelect from "../components/RichSelect.vue";
-// import axios from 'axios';
+// import axios from "axios";
 
 export default {
     components: {
@@ -249,7 +249,7 @@ export default {
             selectChildCat: {},
 
             product: {
-                id: 0,
+                id: 1,
                 productName: "",
                 description: "",
                 price: 0,
@@ -259,7 +259,7 @@ export default {
                 colors: [],
                 specs: [],
                 images: [],
-                catergories: [],
+                categories: [],
                 productSpecValues: [],
             },
 
@@ -310,20 +310,13 @@ export default {
             return 1;
         },
         submitForm() {
-            // axios
-            //  console.log(this.product)
-            //   let pro ={
-            //         id: this.id,
-            //         productName: this.productName,
-            //         description: this.description,
-            //         price: this.price,
-            //         brandName: this.brandName,
-            //         quantityStock: this.quantityStock,
-            //         discount: this.discount,
-            //         images: this.images,
-            //         catergories:this.catergories,
-            //       }
+            let imagesArray = this.imageInfo.map((image) => {
+                return { id: 1, source: image.name, label: image.name.split(".")[0], product_id: 1 };
+            });
+            this.product.images = imagesArray;
+            this.product.categories = [this.selectRootCat,this.selectChildCat];
             this.$store.dispatch("addProduct", this.product);
+            this.$store.dispatch("uploadImages", this.imageInfo);
         },
         chooseRootCategory(category) {
             this.selectRootCat = category;
@@ -331,7 +324,6 @@ export default {
         },
         chooseSubCategory(category) {
             this.selectChildCat = category;
-            this.product.catergories = [category];
         },
         selected(choosed) {
             this.attributeSelect = choosed;
@@ -349,7 +341,7 @@ export default {
         },
 
         previewMultiImage(event) {
-            var imgName = event.target.files[0].name;
+            let imgName = event.target.files[0].name;
             var input = event.target;
             var count = input.files.length;
             var index = 0;
@@ -383,12 +375,6 @@ export default {
                 this.createImage(files[0]);
                 this.activeClose = true;
             }
-        },
-
-        uploadImage() {
-            let data = new FormData();
-            data.append("refun", this.imageFile);
-            return data;
         },
     },
     computed: {
